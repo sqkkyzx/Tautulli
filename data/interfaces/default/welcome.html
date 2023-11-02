@@ -5,7 +5,7 @@
 
 <!doctype html>
 
-<html lang="en">
+<html lang="zh-cn">
 <head>
     <meta charset="utf-8">
     <title>Tautulli - ${title} | ${server_name}</title>
@@ -44,42 +44,42 @@
     <div class="row">
         <div class="col-md-12">
             <div class="alert alert-danger docker-mount" role="alert" style="width: 700px; z-index: 9999">
-                The <span class="inline-pre">/config</span> volume mount was not configured properly for the Docker container.
-                All data may be cleared when the container is recreated or updated.
+                Docker容器的 <span class="inline-pre">/config</span> 卷挂载未正确配置。
+                当容器被重新创建或更新时，所有数据可能会被清除。
             </div>
         </div>
     </div>
     % endif
     <div class="row">
-        <div class="wizard" id="setup-wizard" data-title="Tautulli Setup Wizard">
+        <div class="wizard" id="setup-wizard" data-title="Tautulli 设置向导">
             <form>
                 <div class="wizard-card" data-cardname="card1">
                     <div style="float: right;">
                         <img src="${http_root}images/logo-tautulli-45.png" height="45" alt="Tautulli">
                     </div>
-                    <h3 style="line-height: 50px;">Welcome!</h3>
+                    <h3 style="line-height: 50px;">欢迎！</h3>
                     <div class="wizard-input-section">
                         <p class="welcome-message">
-                            Thanks for taking the time to try out Tautulli. Hope you find it useful.
+                            感谢您抽出时间尝试使用 Tautulli 。希望您觉得它很有用。
                         </p>
                         <p class="welcome-message">
-                            Tautulli requires a permanent internet connection to ensure a reliable experience.
+                            Tautulli 需要持续的互联网连接以确保可靠的使用体验。
                         </p>
                         <p class="welcome-message">
-                            This wizard will help you get set up, to continue press Next.
+                            这个向导将帮助您进行设置，要继续，请按“下一步”。
                         </p>
                     </div>
                 </div>
 
                 <div class="wizard-card" data-cardname="card2">
-                    <h3>Authentication</h3>
+                    <h3>认证</h3>
                     <div class="wizard-input-section">
                         <p class="help-block">
-                            Please setup an admin username and password for Tautulli.
+                            请为 Tautulli 设置管理员用户名和密码。
                         </p>
                     </div>
                     <div class="wizard-input-section">
-                        <label for="http_username">HTTP Username</label>
+                        <label for="http_username">HTTP 用户名</label>
                         <div class="row">
                             <div class="col-xs-8">
                                 <input type="text" class="form-control auth-settings" id="http_username" name="http_username" value="" size="30">
@@ -87,7 +87,7 @@
                         </div>
                     </div>
                     <div class="wizard-input-section">
-                        <label for="http_password">HTTP Password</label>
+                        <label for="http_password">HTTP 密码</label>
                         <div class="row">
                             <div class="col-xs-8">
                                 <div class="input-group">
@@ -105,27 +105,27 @@
                 </div>
 
                 <div class="wizard-card" data-cardname="card3">
-                    <h3>Plex Account</h3>
+                    <h3>Plex 账户</h3>
                     <div class="wizard-input-section">
                         <p class="help-block">
-                            Tautulli requires a Plex.tv account. Click the button below to sign in on Plex.tv. You may need to allow popups in your browser.
+                            Tautulli 需要一个 Plex.tv 账户。点击下面的按钮在 Plex.tv 上登录。您可能需要在浏览器中允许弹出窗口。
                         </p>
                     </div>
                     <input type="hidden" id="pms_token_validated" value="0" data-validate="validatePMStoken">
                     <input type="hidden" name="pms_client_id" id="pms_client_id" value="">
-                    <button id="sign-in-plex" class="btn btn-form" type="button">Sign In with Plex</button>
+                    <button id="sign-in-plex" class="btn btn-form" type="button">使用 Plex 登录</button>
                     <span style="margin-left: 10px; display: none;" id="pms-token-status"></span>
                 </div>
 
                 <div class="wizard-card" data-cardname="card4">
-                    <h3>Plex Media Server</h3>
+                    <h3>Plex 媒体服务器</h3>
                     <div class="wizard-input-section">
                         <p class="help-block">
-                            Select your Plex Media Server from the dropdown menu or enter an IP address or hostname.
+                            从下拉菜单中选择您的 Plex 媒体服务器，或输入 IP 地址或主机名。
                         </p>
                     </div>
                     <div class="wizard-input-section">
-                        <label for="pms_ip_selectize">Plex IP Address or Hostname</label>
+                        <label for="pms_ip_selectize">Plex IP 地址或主机名</label>
                         <div class="row">
                             <div class="col-xs-12">
                                 <select class="form-control pms-settings selectize-pms-ip" id="pms_ip_selectize">
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                     <div class="wizard-input-section">
-                        <label for="pms_port">Plex Port</label>
+                        <label for="pms_port">Plex 端口</label>
                         <div class="row">
                             <div class="col-xs-3">
                                 <input type="text" class="form-control pms-settings" name="pms_port" id="pms_port" placeholder="32400" value="${config['pms_port']}" required>
@@ -153,7 +153,7 @@
                             <div class="col-xs-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" id="pms_ssl_checkbox" class="checkbox-toggle pms-settings" data-id="pms_ssl" value="1" ${helpers.checked(config['pms_ssl'])}> Use Secure Connection
+                                        <input type="checkbox" id="pms_ssl_checkbox" class="checkbox-toggle pms-settings" data-id="pms_ssl" value="1" ${helpers.checked(config['pms_ssl'])}> 使用安全连接
                                         <input type="hidden" id="pms_ssl" name="pms_ssl" value="${config['pms_ssl']}">
                                     </label>
                                 </div>
@@ -161,7 +161,7 @@
                             <div class="col-xs-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" id="pms_is_remote_checkbox" class="checkbox-toggle pms-settings" data-id="pms_is_remote" value="1" ${helpers.checked(config['pms_is_remote'])}> Remote Server
+                                        <input type="checkbox" id="pms_is_remote_checkbox" class="checkbox-toggle pms-settings" data-id="pms_is_remote" value="1" ${helpers.checked(config['pms_is_remote'])}> 远程服务器
                                         <input type="hidden" id="pms_is_remote" name="pms_is_remote" value="${config['pms_is_remote']}">
                                     </label>
                                 </div>
@@ -172,57 +172,54 @@
                     <input type="hidden" id="pms_ip" name="pms_ip" value="${config['pms_ip']}">
                     <input type="hidden" id="pms_is_cloud" name="pms_is_cloud" value="${config['pms_is_cloud']}">
                     <input type="hidden" id="pms_identifier" name="pms_identifier" value="${config['pms_identifier']}">
-                    <a class="btn btn-dark" id="verify-plex-server" href="#" role="button">Verify</a>
+                    <a class="btn btn-dark" id="verify-plex-server" href="#" role="button">验证</a>
                     <span style="margin-left: 10px; display: none;" id="pms-verify-status"></span>
                 </div>
 
                 <div class="wizard-card" data-cardname="card5">
-                    <h3>Activity Logging</h3>
+                    <h3>活动记录</h3>
                     <div class="wizard-input-section">
                         <p class="help-block">
-                            Tautulli will keep a history of all streaming activity on your Plex server.
+                            Tautulli 将会记录您的 Plex 服务器上的所有流媒体活动的历史记录。
                         </p>
                     </div>
                     <div class="wizard-input-section">
-                        <label for="logging_ignore_interval">Ignore Interval</label>
+                        <label for="logging_ignore_interval">忽略播放时长</label>
                         <div class="row">
                             <div class="col-xs-4">
                                 <input type="text" class="form-control pms-monitoring" id="logging_ignore_interval" name="logging_ignore_interval" placeholder="120" value="${config['logging_ignore_interval']}" data-validate="validateIgnoreInterval" required>
                             </div>
                             <span style="margin-left: 10px; line-height: 35px; display: none;" id="ignore-int-status"></span>
                         </div>
-                        <p class="help-block">The interval (in seconds) an item must be in a playing state before logging it. 0 to disable.</p>
+                        <p class="help-block">在记录之前，一个项目必须处于播放状态的时长（以秒为单位），低于此时长播放不会被记录。设置为 0 以禁用。</p>
                     </div>
                     <div class="wizard-input-section">
                         <p class="help-block">
-                            Additional options to disable history logging for certain libraries or users can be found by editing them
-                            on the <strong>Libraries</strong> or <strong>Users</strong> pages.
+                            在<strong>库</strong>或<strong>用户</strong>页面上编辑它们可以找到禁用特定库或用户的历史记录记录的其他选项。
                         </p>
                     </div>
                 </div>
 
                 <div class="wizard-card" data-cardname="card6">
-                    <h3>Notifications</h3>
+                    <h3>通知</h3>
                     <div class="wizard-input-section">
                         <p class="help-block">
-                            Tautulli can send a wide variety of notifications to alert you of activity on your Plex server.
+                            Tautulli 可以发送各种通知，以便提醒您有关 Plex 服务器上的活动。
                         </p>
                         <p class="help-block">
-                            To set up a notification agent, navigate to the <strong>Settings</strong> page
-                            and to the <strong>Notification Agents</strong> tab after you have completed this setup wizard.
+                            要设置通知代理，请在完成设置向导后，导航到<strong>设置</strong>页面，然后转到<strong>通知代理</strong>选项卡。
                         </p>
                     </div>
                 </div>
 
                 <div class="wizard-card" data-cardname="card7">
-                    <h3>Database Import</h3>
+                    <h3>数据导入</h3>
                     <div class="wizard-input-section">
                         <p class="help-block">
-                            If you have an existing Tautulli, PlexWatch, or Plexivity database, you can import the data into Tautulli.
+                            如果您有现有的 Tautulli 、 PlexWatch 或 Plexivity 数据库，您可以将数据导入到 Tautulli 中。
                         </p>
                         <p class="help-block">
-                            To import a database, navigate to the <strong>Settings</strong> page
-                            and to the <strong>Import & Backups</strong> tab after you have completed this setup wizard.
+                            要导入数据库，请在完成设置向导后，转到<strong>设置</strong>页面，然后转到<strong>导入和备份</strong>选项卡。
                         </p>
                     </div>
 
@@ -235,11 +232,11 @@
 
             </form>
             <div class="wizard-success">
-                <h3>Setup Complete!</h3>
+                <h3>安装完成！</h3>
                 <br/>
-                <p>Setup is now complete. For more configuration options please visit the Settings menu on the home page.</p>
+                <p>设置现在已完成。如需更多配置选项，请访问主页上的设置菜单。</p>
                 <br/>
-                <i class="fa fa-refresh fa-spin"></i>&nbspWaiting <span class="countdown">5</span> seconds to ensure authentication token is registered...
+                <i class="fa fa-refresh fa-spin"></i>&nbsp等待 <span class="countdown">5</span> 秒钟以确保身份验证令牌已注册...
 
             </div>
         </div>
@@ -261,8 +258,8 @@
 
         if (http_username === "" || http_password === "") {
             retValue.status = false;
-            retValue.msg = "Please enter a username and password.";
-            $("#authentication-status").html('<i class="fa fa-exclamation-circle"></i> Please enter a username and password.');
+            retValue.msg = "请输入用户名和密码。";
+            $("#authentication-status").html('<i class="fa fa-exclamation-circle"></i> 请输入用户名和密码。');
             $('#authentication-status').fadeIn('fast').delay(2000).fadeOut('fast');
         } else {
             retValue.status = true;
@@ -277,8 +274,8 @@
 
         if (valid_pms_ip === "") {
             retValue.status = false;
-            retValue.msg = "Please verify your server.";
-            $("#pms-verify-status").html('<i class="fa fa-exclamation-circle"></i> Please verify your server.');
+            retValue.msg = "请验证您的服务器。";
+            $("#pms-verify-status").html('<i class="fa fa-exclamation-circle"></i> 请验证您的服务器。');
             $('#pms-verify-status').fadeIn('fast').delay(2000).fadeOut('fast');
         } else {
             retValue.status = true;
@@ -293,8 +290,8 @@
 
         if (valid_pms_token !== "1") {
             retValue.status = false;
-            retValue.msg = "Please authenticate.";
-            $("#pms-token-status").html('<i class="fa fa-exclamation-circle"></i> Please authenticate.');
+            retValue.msg = "请进行身份验证。";
+            $("#pms-token-status").html('<i class="fa fa-exclamation-circle"></i> 请进行身份验证。');
             $('#pms-token-status').fadeIn('fast').delay(2000).fadeOut('fast');
         } else {
             retValue.status = true;
@@ -309,8 +306,8 @@
 
         if (!isPositiveInt(valid_ignore_int)) {
             retValue.status = false;
-            retValue.msg = "Please enter a valid integer.";
-            $("#ignore-int-status").html('<i class="fa fa-exclamation-circle"></i> Please enter a valid ignore interval.');
+            retValue.msg = "请输入一个有效的整数。";
+            $("#ignore-int-status").html('<i class="fa fa-exclamation-circle"></i> 请输入一个有效忽略时长。');
             $('#ignore-int-status').fadeIn('fast').delay(2000).fadeOut('fast');
         } else {
             retValue.status = true;
@@ -331,7 +328,7 @@ $(document).ready(function() {
         contentHeight : 450,
         contentWidth : 700,
         backdrop: 'static',
-        buttons: {submitText: 'Finish'},
+        buttons: {submitText: '完成'},
         submitUrl: "configUpdate"
     };
     var wizard = $("#setup-wizard").wizard(options);
@@ -433,7 +430,7 @@ $(document).ready(function() {
             var value = $(pms_ip_selected).data('value');
 
             $("#pms_valid").val(identifier !== 'undefined' ? 'valid' : '');
-            $("#pms-verify-status").html(identifier !== 'undefined' ? '<i class="fa fa-check"></i>&nbsp; Server found!' : '').fadeIn('fast');
+            $("#pms-verify-status").html(identifier !== 'undefined' ? '<i class="fa fa-check"></i>&nbsp; 找到服务器！' : '').fadeIn('fast');
 
             $("#pms_identifier").val(identifier !== 'undefined' ? identifier : '');
             $('#pms_ip').val(ip !== 'undefined' ? ip : value);
@@ -489,7 +486,7 @@ $(document).ready(function() {
             var pms_ssl = $("#pms_ssl").val();
             var pms_is_remote = $("#pms_is_remote").val();
             if ((pms_ip !== '') || (pms_port !== '')) {
-                $("#pms-verify-status").html('<i class="fa fa-refresh fa-spin"></i>&nbsp; Verifying server...');
+                $("#pms-verify-status").html('<i class="fa fa-refresh fa-spin"></i>&nbsp; 正在验证服务器...');
                 $('#pms-verify-status').fadeIn('fast');
                 $.ajax({
                     url: 'get_server_id',
@@ -504,7 +501,7 @@ $(document).ready(function() {
                     async: true,
                     timeout: 5000,
                     error: function (jqXHR, textStatus, errorThrown) {
-                        $("#pms-verify-status").html('<i class="fa fa-exclamation-circle"></i>&nbsp; Error verifying server: ' + textStatus);
+                        $("#pms-verify-status").html('<i class="fa fa-exclamation-circle"></i>&nbsp; 验证服务器 ' + textStatus + ' 时出错。');
                         $('#pms-verify-status').fadeIn('fast');
                     },
                     success: function(xhr, status) {
@@ -512,18 +509,18 @@ $(document).ready(function() {
                         var identifier = result.identifier;
                         if (identifier) {
                             $("#pms_identifier").val(identifier);
-                            $("#pms-verify-status").html('<i class="fa fa-check"></i>&nbsp; Server found!');
+                            $("#pms-verify-status").html('<i class="fa fa-check"></i>&nbsp; 找到服务器！');
                             $('#pms-verify-status').fadeIn('fast');
                             pms_verified = true;
                             $("#pms_valid").val("valid");
                         } else {
-                            $("#pms-verify-status").html('<i class="fa fa-exclamation-circle"></i>&nbsp; This is not a Plex Server!');
+                            $("#pms-verify-status").html('<i class="fa fa-exclamation-circle"></i>&nbsp; 这不是一个 Plex 服务器！');
                             $('#pms-verify-status').fadeIn('fast');
                         }
                     }
                 });
             } else {
-                $("#pms-verify-status").html('<i class="fa fa-exclamation-circle"></i>&nbsp; Please enter both fields.');
+                $("#pms-verify-status").html('<i class="fa fa-exclamation-circle"></i>&nbsp; 请填写两个字段。');
                 $('#pms-verify-status').fadeIn('fast');
             }
         }
@@ -536,18 +533,18 @@ $(document).ready(function() {
     });
 
     function OAuthPreFunction() {
-        $("#pms-token-status").html('<i class="fa fa-refresh fa-spin"></i>&nbsp; Waiting for authentication...').fadeIn('fast');
+        $("#pms-token-status").html('<i class="fa fa-refresh fa-spin"></i>&nbsp; 等待认证...').fadeIn('fast');
     }
     function OAuthSuccessCallback(authToken) {
         $.post('save_pms_token', { token: authToken, client_id: $('#pms_client_id').val() }, function () {
             $("#pms_token_validated").val(1);
             getServerOptions();
         });
-        $("#pms-token-status").html('<i class="fa fa-check"></i>&nbsp; Authentication successful.').fadeIn('fast');
+        $("#pms-token-status").html('<i class="fa fa-check"></i>&nbsp; 认证成功。').fadeIn('fast');
         authenticated = true;
     }
     function OAuthErrorCallback() {
-        $("#pms-token-status").html('<i class="fa fa-exclamation-circle"></i>&nbsp; Error communicating with Plex.tv.').fadeIn('fast');
+        $("#pms-token-status").html('<i class="fa fa-exclamation-circle"></i>&nbsp; 与 Plex.tv 通信时出现错误。').fadeIn('fast');
     }
 
     $('#sign-in-plex').click(function() {

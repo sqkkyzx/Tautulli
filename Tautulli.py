@@ -179,7 +179,7 @@ def main():
             except IOError as e:
                 raise SystemExit("Unable to write PID file: %s", e)
         else:
-            logger.warn("Not running in daemon mode. PID file creation " \
+            logger.warn("Not running in daemon mode. PID file creation "
                         "disabled.")
 
     # Determine which data directory and config file to use

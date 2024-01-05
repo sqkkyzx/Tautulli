@@ -20,13 +20,13 @@ function toggleEditNames() {
 
 users_list_table_options = {
     "language": {
-        "search": "Search: ",
-        "lengthMenu": "Show _MENU_ entries per page",
-        "info": "Showing _START_ to _END_ of _TOTAL_ active users",
-        "infoEmpty": "Showing 0 to 0 of 0 entries",
+        "search": "搜索：",
+        "lengthMenu": "每页显示 _MENU_ 条目",
+        "info": "显示 _START_ 到 _END_ 共 _TOTAL_ 个活跃用户",
+        "infoEmpty": "显示 0 到 0 条记录中的 0 条",
         "infoFiltered": "",
-        "emptyTable": "No data in table",
-        "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> Loading items...</div>'
+        "emptyTable": "表中没有数据",
+        "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> 加载项目中...</div>'
     },
     "destroy": true,
     "processing": false,

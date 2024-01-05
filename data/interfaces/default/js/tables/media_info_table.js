@@ -15,13 +15,13 @@ var refresh_child_tables = false;
 media_info_table_options = {
     "destroy": true,
     "language": {
-        "search": "Search: ",
-        "lengthMenu": "Show _MENU_ entries per page",
-        "info": "Showing _START_ to _END_ of _TOTAL_ library items",
-        "infoEmpty": "Showing 0 to 0 of 0 entries",
-        "infoFiltered": "<span class='hidden-md hidden-sm hidden-xs'>(filtered from _MAX_ total entries)</span>",
-        "emptyTable": "No data in table",
-        "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> Loading items...</div>'
+        "search": "搜索：",
+        "lengthMenu": "每页显示 _MENU_ 条目",
+        "info": "显示 _START_ 到 _END_ 共 _TOTAL_ 个库项目",
+        "infoEmpty": "显示 0 到 0 条记录中的 0 条",
+        "infoFiltered": "<span class='hidden-md hidden-sm hidden-xs'>（从总共 _MAX_ 条记录中筛选）</span>",
+        "emptyTable": "表中没有数据",
+        "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> 加载项目中...</div>'
     },
     "pagingType": "full_numbers",
     "stateSave": true,

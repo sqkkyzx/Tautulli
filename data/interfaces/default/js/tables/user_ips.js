@@ -23,7 +23,7 @@ var seenCreatedCell = function (td, cellData, rowData, row, col) {
 user_ip_table_options = {
     "destroy": true,
     "language": {
-        "search": "Search: ",
+        "search": "搜索：",
         "lengthMenu": "Show _MENU_ entries per page",
         "info": "Showing _START_ to _END_ of _TOTAL_ results",
         "infoEmpty": "Showing 0 to 0 of 0 entries",

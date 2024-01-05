@@ -16,11 +16,11 @@
             % if _session['user_group'] == 'admin':
             <div class="btn-group">
                 <button class="btn btn-danger btn-edit" data-toggle="button" aria-pressed="false" autocomplete="off" id="row-edit-mode">
-                    <i class="fa fa-pencil"></i> Edit mode
+                    <i class="fa fa-pencil"></i> 编辑模式
                 </button>
             </div>
             <div class="btn-group">
-                <button class="btn btn-dark refresh-users-button" id="refresh-users-list"><i class="fa fa-refresh"></i> Refresh users</button>
+                <button class="btn btn-dark refresh-users-button" id="refresh-users-list"><i class="fa fa-refresh"></i> 刷新用户</button>
             </div>
             % endif
             <div class="btn-group colvis-button-bar"></div>
@@ -30,19 +30,19 @@
         <table id="users_list_table" class="display" width="100%">
             <thead>
             <tr>
-                <th align="left" id="edit_row">Edit</th>
+                <th align="left" id="edit_row">编辑</th>
                 <th align="right" id="avatar"></th>
-                <th align="left" id="friendly_name">User</th>
-                <th align="left" id="username">Username</th>
-                <th align="left" id="title">Full Name</th>
+                <th align="left" id="friendly_name">用户</th>
+                <th align="left" id="username">用户名</th>
+                <th align="left" id="title">全名</th>
                 <th align="left" id="email">Email</th>
-                <th align="left" id="last_seen">Last Streamed</th>
-                <th align="left" id="last_known_ip">Last Known IP</th>
-                <th align="left" id="last_platform">Last Platform</th>
-                <th align="left" id="last_player">Last Player</th>
-                <th align="left" id="last_played">Last Played</th>
-                <th align="left" id="total_plays">Total Plays</th>
-                <th align="left" id="total_duration">Total Played Duration</th>
+                <th align="left" id="last_seen">最近直播</th>
+                <th align="left" id="last_known_ip">最近IP</th>
+                <th align="left" id="last_platform">最近平台</th>
+                <th align="left" id="last_player">最近播放器</th>
+                <th align="left" id="last_played">最近播放</th>
+                <th align="left" id="total_plays">总播放次数</th>
+                <th align="left" id="total_duration">总播放时长</th>
             </tr>
             </thead>
             <tbody>
@@ -63,16 +63,16 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-remove"></i></button>
-                <h4 class="modal-title" id="myModalLabel">Confirm Delete/Purge</h4>
+                <h4 class="modal-title" id="myModalLabel">确认删除/清除</h4>
             </div>
             <div class="modal-body" style="text-align: center;">
                 <ul id="users-to-delete" class="list-unstyled"></ul>
                 <ul id="users-to-purge" class="list-unstyled"></ul>
-                <p>This is permanent and cannot be undone!</p>
+                <p>这是永久性的，无法撤销！</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-dark" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-danger btn-ok" data-dismiss="modal" id="confirm-delete">Confirm</button>
+                <button type="button" class="btn btn-danger btn-ok" data-dismiss="modal" id="confirm-delete">确认</button>
             </div>
         </div>
     </div>
@@ -98,7 +98,7 @@
         };
 
         users_list_table = $('#users_list_table').DataTable(users_list_table_options);
-        var colvis = new $.fn.dataTable.ColVis(users_list_table, { buttonText: '<i class="fa fa-columns"></i> Select columns', buttonClass: 'btn btn-dark', exclude: [0, 1] });
+        var colvis = new $.fn.dataTable.ColVis(users_list_table, { buttonText: '<i class="fa fa-columns"></i> 选择列', buttonClass: 'btn btn-dark', exclude: [0, 1] });
         $(colvis.button()).appendTo('div.colvis-button-bar');
 
         clearSearchButton('users_list_table', users_list_table);
@@ -121,14 +121,14 @@
                     });
 
                     if (users_to_delete.length > 0) {
-                        $('#users-to-delete').prepend('<p>Are you REALLY sure you want to delete and purge all history for the following users:</p>');
+                        $('#users-to-delete').prepend('<p>你真的确定要删除并清除以下用户的所有历史记录吗：</p>');
                         for (var i = 0; i < users_to_delete.length; i++) {
                             $('#users-to-delete').append('<li>' + $('div[data-id=' + users_to_delete[i] + '] > input').val() + '</li>');
                         }
                     }
 
                     if (users_to_purge.length > 0) {
-                        $('#users-to-purge').prepend('<p>Are you REALLY sure you want to purge all history for the following users:</p>');
+                        $('#users-to-purge').prepend('<p>您真的确定要清除以下用户的所有历史记录吗：</p>');
                         for (var i = 0; i < users_to_purge.length; i++) {
                             $('#users-to-purge').append('<li>' + $('div[data-id=' + users_to_purge[i] + '] > input').val() + '</li>');
                         }

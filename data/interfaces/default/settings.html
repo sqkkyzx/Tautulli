@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="alert alert-danger docker-mount" role="alert">
-                The <span class="inline-pre">/config</span> volume mount was not configured properly for the Docker container.
+                Docker容器的 <span class="inline-pre">/config</span> 卷挂载未正确配置。
                 当容器被重新创建或更新时，所有数据可能会被清除。
             </div>
         </div>
@@ -39,15 +39,15 @@
                 </div>
                 <div class="button-bar">
                     % if config['show_advanced_settings'] == 1:
-                    <button id="menu_link_show_advanced_settings" class="btn btn-dark active"><i class="fa fa-wrench"></i> Hide Advanced</button>
+                    <button id="menu_link_show_advanced_settings" class="btn btn-dark active"><i class="fa fa-wrench"></i> 隐藏高级选项</button>
                     % else:
-                    <button id="menu_link_show_advanced_settings" class="btn btn-dark"><i class="fa fa-wrench"></i> Show Advanced</button>
+                    <button id="menu_link_show_advanced_settings" class="btn btn-dark"><i class="fa fa-wrench"></i> 显示高级选项</button>
                     % endif
                     % if config['check_github']:
-                    <button id="menu_link_update_check" class="btn btn-dark"><i class="fa fa-arrow-alt-circle-up"></i> Check for Updates</button>
+                    <button id="menu_link_update_check" class="btn btn-dark"><i class="fa fa-arrow-alt-circle-up"></i> 检查更新</button>
                     % endif
-                    <button id="menu_link_restart" class="btn btn-dark"><i class="fa fa-refresh"></i> Restart</button>
-                    <button id="menu_link_shutdown" class="btn btn-dark"><i class="fa fa-power-off"></i> Shutdown</button>
+                    <button id="menu_link_restart" class="btn btn-dark"><i class="fa fa-refresh"></i> 重新启动</button>
+                    <button id="menu_link_shutdown" class="btn btn-dark"><i class="fa fa-power-off"></i> 关闭</button>
                 </div>
             </div>
         </div>
@@ -105,20 +105,20 @@
                     <div role="tabpanel" class="tab-pane" id="tabs-general">
 
                         <div class="padded-header">
-                            <h3>Display Settings</h3>
+                            <h3>显示设置</h3>
                         </div>
 
                         <div class="form-group">
-                            <label for="date_format">Date Format</label>
+                            <label for="date_format">日期格式化</label>
                             <div class="row">
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" id="date_format" name="date_format" value="${config['date_format']}" data-parsley-trigger="change" required>
                                 </div>
                             </div>
-                            <p class="help-block">设置您首选的日期格式。<a href="javascript:void(0)" data-target="#dateTimeOptionsModal" data-toggle="modal">点击这里</a> 查看参数列表。</p>
+                            <p class="help-block">设置您首选的。<a href="javascript:void(0)" data-target="#dateTimeOptionsModal" data-toggle="modal">点击这里</a> 查看参数列表。</p>
                         </div>
                         <div class="form-group">
-                            <label for="date_format">Time Format</label>
+                            <label for="date_format">时间格式</label>
                             <div class="row">
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" id="time_format" name="time_format" value="${config['time_format']}" data-parsley-trigger="change" required>
@@ -128,146 +128,146 @@
                         </div>
                         <div class="checkbox advanced-setting">
                             <label>
-                                <input type="checkbox" id="week_start_monday" name="week_start_monday" value="1" ${config['week_start_monday']}> Week Starting on Monday
+                                <input type="checkbox" id="week_start_monday" name="week_start_monday" value="1" ${config['week_start_monday']}> 以星期一开始的一周
                             </label>
                             <p class="help-block">改变 "<em>播放 - 周视图</em>" 图表从星期一开始。默认情况下，图表从星期日开始。</p>
                         </div>
                         <div class="checkbox advanced-setting">
                             <label>
-                                <input type="checkbox" id="history_table_activity" name="history_table_activity" value="1" ${config['history_table_activity']}> Current Activity in History Tables
+                                <input type="checkbox" id="history_table_activity" name="history_table_activity" value="1" ${config['history_table_activity']}> 历史中的当前活动
                             </label>
                             <p class="help-block">将当前活动包括在历史中。统计数据将在流结束之前不会被计算。</p>
                         </div>
                         <div class="checkbox advanced-setting">
                             <label>
-                                <input type="checkbox" id="get_file_sizes" name="get_file_sizes" value="1" ${config['get_file_sizes']}> Calculate Total File Sizes
+                                <input type="checkbox" id="get_file_sizes" name="get_file_sizes" value="1" ${config['get_file_sizes']}> 计算总文件大小
                             </label>
                             <p class="help-block">如果您希望 Tautulli 在媒体信息表中计算电视节目/季度和艺术家/专辑的总文件大小，请启用此选项。</p>
                         </div>
                         <div class="checkbox advanced-setting">
                             <label>
-                                <input type="checkbox" id="log_blacklist" name="log_blacklist" value="1" ${config['log_blacklist']}> Mask Sensitive Information in Logs
+                                <input type="checkbox" id="log_blacklist" name="log_blacklist" value="1" ${config['log_blacklist']}> 在日志中屏蔽敏感信息
                             </label>
                             <p class="help-block">
-                                Enable to mask passwords, access tokens, and public IP addresses, and email addresses with asterisks (*) in the logs.<br />
-                                Note: Only logs from the time this setting is enabled will be masked. Do not post your logs publically without masking sensitive information!
+                                在日志中使用星号（*）来屏蔽密码、访问令牌、公共IP地址和电子邮件地址。<br />
+                                注意：只有在启用此设置后生成的日志才会被屏蔽。请勿在未屏蔽敏感信息的情况下公开发布您的日志！
                             </p>
                         </div>
                         <div class="checkbox advanced-setting">
                             <label>
-                                <input type="checkbox" id="log_blacklist_usernames" name="log_blacklist_usernames" value="1" ${config['log_blacklist_usernames']}> Mask Usernames in Logs
+                                <input type="checkbox" id="log_blacklist_usernames" name="log_blacklist_usernames" value="1" ${config['log_blacklist_usernames']}> 在日志中隐藏用户名
                             </label>
                             <p class="help-block">
-                                Enable to mask Plex usernames with asterisks (*) in the logs.<br />
-                                Note: Only logs from the time this setting is enabled will be masked.
+                                在日志中使用星号(*)来掩盖Plex用户名。<br />
+                                注意：只有在启用此设置后的日志才会被屏蔽。
                             </p>
                         </div>
 
                         <div class="padded-header">
-                            <h3>History Logging</h3>
+                            <h3>历史记录</h3>
                         </div>
 
                         <div class="form-group advanced-setting">
-                            <label for="logging_ignore_interval">Ignore Interval</label>
+                            <label for="logging_ignore_interval">忽略间隔</label>
                             <div class="row">
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" data-parsley-type="integer" id="logging_ignore_interval" name="logging_ignore_interval" value="${config['logging_ignore_interval']}" size="5" data-parsley-min="0" data-parsley-trigger="change" data-parsley-errors-container="#logging_ignore_interval_error" required>
                                 </div>
                                 <div id="logging_ignore_interval_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
-                            <p class="help-block">The interval (in seconds) an item must be in a playing state before logging it. 0 to disable.</p>
+                            <p class="help-block">播放项目在记录之前必须处于播放状态的时间间隔（以秒为单位）。设置为 0 以禁用记录。</p>
                         </div>
                         <div class="form-group">
-                            <label for="movie_watched_percent">Movie Watched Percent</label>
+                            <label for="movie_watched_percent">电影观看百分比</label>
                             <div class="row">
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" data-parsley-type="integer" id="movie_watched_percent" name="movie_watched_percent" value="${config['movie_watched_percent']}" size="5" data-parsley-range="[50,95]" data-parsley-trigger="change" data-parsley-errors-container="#movie_watched_percent_error" required>
                                 </div>
                                 <div id="movie_watched_percent_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
-                            <p class="help-block">Set the percentage for a movie to be considered as watched. Minimum 50, Maximum 95.</p>
+                            <p class="help-block">设置电影被视为已观看的百分比。最低50%，最高95%。</p>
                         </div>
                         <div class="form-group">
-                            <label for="tv_watched_percent">TV Episode Watched Percent</label>
+                            <label for="tv_watched_percent">电视剧集观看百分比</label>
                             <div class="row">
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" data-parsley-type="integer" id="tv_watched_percent" name="tv_watched_percent" value="${config['tv_watched_percent']}" size="5" data-parsley-range="[50,95]" data-parsley-trigger="change" data-parsley-errors-container="#tv_watched_percent_error" required>
                                 </div>
                                 <div id="tv_watched_percent_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
-                            <p class="help-block">Set the percentage for a TV episode to be considered as watched. Minimum 50, Maximum 95.</p>
+                            <p class="help-block">设置电视剧集被视为已观看的百分比。最低50%，最高95%。</p>
                         </div>
                         <div class="form-group">
-                            <label for="music_watched_percent">Music Listened Percent</label>
+                            <label for="music_watched_percent">音乐收听百分比</label>
                             <div class="row">
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" data-parsley-type="integer" id="music_watched_percent" name="music_watched_percent" value="${config['music_watched_percent']}" size="5" data-parsley-range="[50,95]" data-parsley-trigger="change" data-parsley-errors-container="#music_watched_percent_error" required>
                                 </div>
                                 <div id="music_watched_percent_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
-                            <p class="help-block">Set the percentage for a music track to be considered as listened. Minimum 50, Maximum 95.</p>
+                            <p class="help-block">将音乐曲目被视为已听的百分比设置为。最低50，最高95。</p>
                         </div>
                         <div class="form-group">
-                            <label for="music_watched_percent">Video Watched Completion Behaviour</label>
+                            <label for="music_watched_percent">视频观看完成行为</label>
                             <div class="row">
                                 <div class="col-md-7">
                                     <select class="form-control" id="watched_marker" name="watched_marker">
-                                        <option value="0" ${'selected' if config['watched_marker'] == 0 else ''}>At selected threshold percentage</option>
-                                        <option value="1" ${'selected' if config['watched_marker'] == 1 else ''}>At final credits marker position</option>
-                                        <option value="2" ${'selected' if config['watched_marker'] == 2 else ''}>At first credits marker position</option>
-                                        <option value="3" ${'selected' if config['watched_marker'] == 3 else ''}>Earliest between threshold percent and first credits marker</option>
+                                        <option value="0" ${'selected' if config['watched_marker'] == 0 else ''}>在选定的阈值百分比下</option>
+                                        <option value="1" ${'selected' if config['watched_marker'] == 1 else ''}>在最终片尾标记位置</option>
+                                        <option value="2" ${'selected' if config['watched_marker'] == 2 else ''}>在第一个感谢标记位置</option>
+                                        <option value="3" ${'selected' if config['watched_marker'] == 3 else ''}>最早的阈值百分比和首个感谢标记之间</option>
                                     </select>
                                 </div>
                             </div>
-                            <p class="help-block">Decide whether to use end credits markers to determine the 'watched' state of video items. When markers are not available the selected threshold percentage will be used.</p>
+                            <p class="help-block">决定是否使用片尾标记来确定视频项目的“已观看”状态。当标记不可用时，将使用所选的阈值百分比。</p>
                         </div>
                         <div class="checkbox advanced-setting">
                             <label>
-                                <input type="checkbox" id="group_history_tables" name="group_history_tables" value="1" ${config['group_history_tables']}> Group Play History
+                                <input type="checkbox" id="group_history_tables" name="group_history_tables" value="1" ${config['group_history_tables']}> 群组播放历史
                             </label>
-                            <p class="help-block">Group play history for the same item and user as a single entry when progress is less than the watched percent.</p>
+                            <p class="help-block">当进度小于观看百分比时，将相同项目和用户的组播放历史作为单个条目。</p>
                         </div>
                         <div class="form-group advanced-setting">
                             <label>Regroup Play History</label>
                             <p class="help-block">
-                                Fix grouping of play history in the database.<br />
+                                修复数据库中播放历史的分组。<br />
                             </p>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="btn-group">
-                                        <button class="btn btn-form" type="button" id="regroup_history">Regroup</button>
+                                        <button class="btn btn-form" type="button" id="regroup_history">重新分组</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group advanced-setting">
-                            <label>Flush Temporary Sessions</label>
+                            <label>刷新临时会话</label>
                             <p class="help-block">
-                                Attempt to fix history logging by flushing out all of the temporary sessions in the database.<br />
-                                Warning: This will reset all currently active sessions. For emergency use only when history logging is stuck!
+                                尝试通过清除数据库中的所有临时会话来修复历史记录日志问题。<br />
+                                警告：这将重置所有当前活动的会话。仅在历史记录日志卡住时紧急使用！
                             </p>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="btn-group">
-                                        <button class="btn btn-form" type="button" id="delete_temp_sessions">Flush</button>
+                                        <button class="btn btn-form" type="button" id="delete_temp_sessions">刷新</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="padded-header">
-                            <h3>Updates</h3>
+                            <h3>更新</h3>
                         </div>
 
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="check_github" name="check_github" value="1" ${config['check_github']}> Check for Tautulli Updates
+                                <input type="checkbox" id="check_github" name="check_github" value="1" ${config['check_github']}> 检查 Tautulli 更新
                             </label>
-                            <p class="help-block">Enable to check for Tautulli updates.</p>
+                            <p class="help-block">启用检查 Tautulli 更新。</p>
                         </div>
                         <div id="git_update_options">
                             <div class="form-group">
-                                <label for="check_github_interval">Update Check Interval</label>
+                                <label for="check_github_interval">更新检查间隔</label>
                                 <div class="row">
                                     <div class="col-md-2">
                                         <input type="text" class="form-control" data-parsley-type="integer" id="check_github_interval" name="check_github_interval" value="${config['check_github_interval']}" size="3" data-parsley-min="1" data-parsley-trigger="change" data-parsley-errors-container="#check_github_interval_error" required>
@@ -275,28 +275,28 @@
                                     <div id="check_github_interval_error" class="alert alert-danger settings-alert" role="alert"></div>
                                 </div>
                                 <p class="help-block">
-                                    The interval (in hours) Tautulli will check for a new update. Minimum 1, default 6.
+                                    Tautulli 将检查新更新的时间间隔（以小时为单位）。最小值为 1 ，默认值为 6 。
                                 </p>
                             </div>
                             % if not plexpy.SNAP and not plexpy.FROZEN:
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" id="plexpy_auto_update" name="plexpy_auto_update" value="1" ${config['plexpy_auto_update']} ${docker_setting}> Update Automatically ${docker_msg | n}
+                                    <input type="checkbox" id="plexpy_auto_update" name="plexpy_auto_update" value="1" ${config['plexpy_auto_update']} ${docker_setting}> 自动更新 ${docker_msg | n}
                                 </label>
-                                <p class="help-block">Update Tautulli automatically if an update is available.</p>
+                                <p class="help-block">如果有更新可用，自动更新 Tautulli 。</p>
                             </div>
                             % endif
                             <div class="checkbox advanced-setting">
                                 <label>
-                                    <input type="checkbox" name="notify_plexpy_update_repeat" id="notify_plexpy_update_repeat" value="1" ${config['notify_plexpy_update_repeat']}> Repeat Tautulli Update Notifications
+                                    <input type="checkbox" name="notify_plexpy_update_repeat" id="notify_plexpy_update_repeat" value="1" ${config['notify_plexpy_update_repeat']}> 重复 Tautulli 更新通知
                                 </label>
                                 <p class="help-block">
-                                    Enable to allow Tautulli to send repeat update notifications everytime it checks for updates.
-                                    Disable to only send one notifications for each Tautulli version.
+                                    启用此选项，允许 Tautulli 在每次检查更新时发送重复的更新通知。
+                                    禁用仅发送一条有关每个 Tautulli 版本的通知。
                                 </p>
                             </div>
                             <div class="form-group advanced-setting">
-                                <label for="git_token">GitHub API Token</label>
+                                <label for="git_token">GitHub API 令牌</label>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="input-group">
@@ -307,13 +307,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="help-block">Optional: Use your own GitHub API token when checking for updates.
+                                <p class="help-block">可选：在检查更新时使用您自己的 GitHub API 令牌。
                             </div>
                         </div>
 
                         % if plexpy.INSTALL_TYPE == 'git':
                         <div class="form-group advanced-setting">
-                            <label for="git_branch">Git Remote / Branch</label> ${docker_msg | n}
+                            <label for="git_branch">Git 远程 / 分支</label> ${docker_msg | n}
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="input-group git-group">
@@ -328,32 +328,32 @@
                                             % endif
                                         </select>
                                         <span class="input-group-btn">
-                                            <button class="btn btn-form" type="button" id="switch_git_branch" ${docker_setting}>Checkout Branch</button>
+                                            <button class="btn btn-form" type="button" id="switch_git_branch" ${docker_setting}>切换分支</button>
                                         </span>
                                     </div>
                                 </div>
                             </div>
-                            <p class="help-block">The git tracking remote and branch (default "origin/master"). Select to switch the git branch (requires restart).</p>
+                            <p class="help-block">git 追踪的远程和分支（默认为"origin/master"）。选择以切换 git 分支（需要重新启动）。</p>
                         </div>
                         <div class="form-group advanced-setting">
-                            <label for="git_path">Git Path</label> ${docker_msg | n}
+                            <label for="git_path">Git 路径</label> ${docker_msg | n}
                             <div class="row">
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" id="git_path" name="git_path" value="${config['git_path']}" size="30" ${docker_setting}>
                                 </div>
                             </div>
-                            <p class="help-block">Optional: The path to your git environment variable. Leave blank for default.</p>
+                            <p class="help-block">可选项：您的 git 环境变量的路径。留空使用默认值。</p>
                         </div>
                         <div class="form-group advanced-setting">
-                            <label>Repair Git Install</label>
+                            <label>修复 Git 安装</label>
                             <p class="help-block">
-                                Attempt to fix updating by resetting your Tautulli installation back to <strong>${common.RELEASE}</strong>.<br />
-                                Note: This will not affect any saved history or settings.
+                                尝试通过将您的Tautulli安装重置回 <strong>${common.RELEASE}</strong> 来修复更新问题。<br />
+                                注意：这不会影响任何保存的历史记录或设置。
                             </p>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="btn-group">
-                                        <button class="btn btn-form" type="button" id="reset_git_install">Reset</button>
+                                        <button class="btn btn-form" type="button" id="reset_git_install">重置</button>
                                     </div>
                                 </div>
                             </div>
@@ -367,27 +367,27 @@
                     <div role="tabpanel" class="tab-pane" id="tabs-homepage">
 
                         <div class="padded-header">
-                            <h3>Activity</h3>
+                            <h3>活动</h3>
                         </div>
 
                         <div class="form-group">
-                            <label for="home_refresh_interval">Activity Refresh Interval</label>
+                            <label for="home_refresh_interval">活动刷新间隔</label>
                             <div class="row">
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" data-parsley-type="integer" id="home_refresh_interval" name="home_refresh_interval" value="${config['home_refresh_interval']}" size="5" data-parsley-min="2" data-parsley-trigger="change" data-parsley-errors-container="#home_refresh_interval_error" required>
                                 </div>
                                 <div id="home_refresh_interval_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
-                            <p class="help-block">Set the interval (in seconds) to refresh the current activity on the homepage. Minimum 2, default 10.</p>
+                            <p class="help-block">设置主页上刷新当前活动的间隔时间（以秒为单位）。最小值为2，默认值为10。</p>
                         </div>
 
                         <div class="padded-header">
-                            <h3>Sections</h3>
+                            <h3>章节</h3>
                         </div>
 
                         <p class="help-block">
-                            Select the sections to show on the homepage.
-                            Drag the items below to reorder your homepage content.
+                            选择在主页上显示的部分。
+                            将下面的项目拖动以重新排列主页内容。
                         </p>
                         <div class="row">
                             <div class="col-md-6">
@@ -422,13 +422,13 @@
                         </div>
 
                         <div class="padded-header">
-                            <h3>Watch Statistics</h3>
+                            <h3>观看统计</h3>
                         </div>
 
                         <div class="form-group">
                             <p class="help-block">
-                                Select the cards to show in the watch statistics on the home page.
-                                Drag the items below to reorder your homepage content.
+                                在主页上选择要显示在观看统计中的卡片。
+                                将下面的项目拖动以重新排列您的主页内容。
                             </p>
                             <div class="row">
                                 <div class="col-md-6">
@@ -436,37 +436,37 @@
                                         <li class="card card-sortable">
                                             <div class="card-handle"><i class="fa fa-bars"></i></div>
                                             <label>
-                                                <input type="checkbox" id="hscard-top_movies" name="hscard-top_movies" value="top_movies"> Most Watched Movie
+                                                <input type="checkbox" id="hscard-top_movies" name="hscard-top_movies" value="top_movies"> 最多观看的电影
                                             </label>
                                         </li>
                                         <li class="card card-sortable">
                                             <div class="card-handle"><i class="fa fa-bars"></i></div>
                                             <label>
-                                                <input type="checkbox" id="hscard-popular_movies" name="hscard-popular_movies" value="popular_movies"> Most Popular Movie
+                                                <input type="checkbox" id="hscard-popular_movies" name="hscard-popular_movies" value="popular_movies"> 最流行的电影
                                             </label>
                                         </li>
                                         <li class="card card-sortable">
                                             <div class="card-handle"><i class="fa fa-bars"></i></div>
                                             <label>
-                                                <input type="checkbox" id="hscard-top_tv" name="hscard-top_tv" value="top_tv"> Most Watched TV
+                                                <input type="checkbox" id="hscard-top_tv" name="hscard-top_tv" value="top_tv"> 最多观看的电视剧
                                             </label>
                                         </li>
                                         <li class="card card-sortable">
                                             <div class="card-handle"><i class="fa fa-bars"></i></div>
                                             <label>
-                                                <input type="checkbox" id="hscard-popular_tv" name="hscard-popular_tv" value="popular_tv"> Most Popular TV
+                                                <input type="checkbox" id="hscard-popular_tv" name="hscard-popular_tv" value="popular_tv"> 最流行的电视剧
                                             </label>
                                         </li>
                                         <li class="card card-sortable">
                                             <div class="card-handle"><i class="fa fa-bars"></i></div>
                                             <label>
-                                                <input type="checkbox" id="hscard-top_music" name="hscard-top_music" value="top_music"> Most Listened to Artist
+                                                <input type="checkbox" id="hscard-top_music" name="hscard-top_music" value="top_music"> 最多收听的艺术家
                                             </label>
                                         </li>
                                         <li class="card card-sortable">
                                             <div class="card-handle"><i class="fa fa-bars"></i></div>
                                             <label>
-                                                <input type="checkbox" id="hscard-popular_music" name="hscard-popular_music" value="popular_music"> Most Popular Artist
+                                                <input type="checkbox" id="hscard-popular_music" name="hscard-popular_music" value="popular_music"> 最流行的艺术家
                                             </label>
                                         </li>
                                         <li class="card card-sortable">
@@ -478,25 +478,25 @@
                                         <li class="card card-sortable">
                                             <div class="card-handle"><i class="fa fa-bars"></i></div>
                                             <label>
-                                                <input type="checkbox" id="hscard-top_libraries" name="hscard-top_libraries" value="top_libraries"> Most Active Libraries
+                                                <input type="checkbox" id="hscard-top_libraries" name="hscard-top_libraries" value="top_libraries"> 最活跃的库
                                             </label>
                                         </li>
                                         <li class="card card-sortable">
                                             <div class="card-handle"><i class="fa fa-bars"></i></div>
                                             <label>
-                                                <input type="checkbox" id="hscard-top_users" name="hscard-top_users" value="top_users"> Most Active User
+                                                <input type="checkbox" id="hscard-top_users" name="hscard-top_users" value="top_users"> 最活跃用户
                                             </label>
                                         </li>
                                         <li class="card card-sortable">
                                             <div class="card-handle"><i class="fa fa-bars"></i></div>
                                             <label>
-                                                <input type="checkbox" id="hscard-top_platforms" name="hscard-top_platforms" value="top_platforms"> Most Active Platform
+                                                <input type="checkbox" id="hscard-top_platforms" name="hscard-top_platforms" value="top_platforms"> 最活跃的平台
                                             </label>
                                         </li>
                                         <li class="card card-sortable">
                                             <div class="card-handle"><i class="fa fa-bars"></i></div>
                                             <label>
-                                                <input type="checkbox" id="hscard-most_concurrent" name="hscard-most_concurrent" value="most_concurrent"> Most Concurrent Streams
+                                                <input type="checkbox" id="hscard-most_concurrent" name="hscard-most_concurrent" value="most_concurrent"> 最大并发流
                                             </label>
                                         </li>
                                     </ul>
@@ -545,35 +545,35 @@
                         %>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" class="http-settings" name="sys_tray_icon" id="sys_tray_icon" value="1" ${config['sys_tray_icon']} ${tray_disabled}> Enable ${tray[common.PLATFORM]} Icon ${tray_disabled_msg | n}
+                                <input type="checkbox" class="http-settings" name="sys_tray_icon" id="sys_tray_icon" value="1" ${config['sys_tray_icon']} ${tray_disabled}> 启用 ${tray[common.PLATFORM]} 图标 ${tray_disabled_msg | n}
                             </label>
-                            <p class="help-block">Show Tautulli shortcut in the ${tray[common.PLATFORM].lower()}.</p>
+                            <p class="help-block">在 ${tray[common.PLATFORM].lower()} 中显示 Tautulli 快捷方式。</p>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="launch_startup" id="launch_startup" value="1" ${config['launch_startup']}> Launch at System Startup
+                                <input type="checkbox" name="launch_startup" id="launch_startup" value="1" ${config['launch_startup']}> 系统启动时自动启动
                             </label>
-                            <p class="help-block">Start Tautulli automatically after Login.</p>
+                            <p class="help-block">在登录后自动启动 Tautulli。</p>
                         </div>
                         % endif
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="launch_browser" id="launch_browser" value="1" ${config['launch_browser']}> Launch Browser on Startup
+                                <input type="checkbox" name="launch_browser" id="launch_browser" value="1" ${config['launch_browser']}> 启动时启动浏览器
                             </label>
-                            <p class="help-block">Launch browser pointed to Tautulli on startup.</p>
+                            <p class="help-block">启动时打开浏览器并指向 Tautulli。</p>
                         </div>
                         <div class="form-group">
-                            <label for="http_port">HTTP Port</label> ${docker_msg | n}
+                            <label for="http_port">HTTP端口</label> ${docker_msg | n}
                             <div class="row">
                                 <div class="col-md-2">
                                     <input type="text" class="form-control http-settings" data-parsley-type="integer" id="http_port" name="http_port" value="${config['http_port']}" data-parsley-trigger="change" data-parsley-errors-container="#http_port_error" required ${docker_setting}>
                                 </div>
                                 <div id="http_port_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
-                            <p class="help-block">Port to bind web server to. Note that ports below 1024 may require root.</p>
+                            <p class="help-block">绑定Web服务器的端口。请注意，端口号低于1024可能需要root权限。</p>
                         </div>
                         <div class="form-group advanced-setting">
-                            <label for="http_base_url">Public Tautulli Domain</label>
+                            <label for="http_base_url">公共 Tautulli 域名</label>
                             <div class="row">
                                 <div class="col-md-8">
                                     <input type="text" class="form-control" id="http_base_url" name="http_base_url" value="${config['http_base_url']}" placeholder="http://mydomain.com" data-parsley-trigger="change" data-parsley-pattern="^https?:\/\/\S+$" data-parsley-errors-container="#http_base_url_error"  data-parsley-error-message="Invalid URL">
@@ -581,59 +581,59 @@
                                 <div id="http_base_url_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
                             <p class="help-block">
-                                Set your public Tautulli domain for self-hosted notification images and newsletters. (e.g. http://mydomain.com)
+                                设置您的公共Tautulli域名，用于自托管的通知图片和新闻简报。（例如，http://mydomain.com）
                             </p>
                         </div>
                         <div class="form-group advanced-setting">
-                            <label for="http_root">HTTP Root</label>
+                            <label for="http_root">HTTP 根目录</label>
                             <div class="row">
                                 <div class="col-md-6">
                                     <input type="text" class="form-control http-settings" id="http_root" name="http_root" value="${config['http_root']}" data-parsley-trigger="change">
                                 </div>
                             </div>
-                            <p class="help-block">The base URL of the web server. Used for reverse proxies.</p>
+                            <p class="help-block"Web服务器的基本URL。用于反向代理。</p>
                         </div>
                        <div class="checkbox advanced-setting">
                             <label>
-                                <input type="checkbox" class="http-settings" name="http_proxy" id="http_proxy" value="1" ${config['http_proxy']}> Enable HTTP Proxy
+                                <input type="checkbox" class="http-settings" name="http_proxy" id="http_proxy" value="1" ${config['http_proxy']}> 启用 HTTP 代理
                             </label>
-                            <p class="help-block">Respect the X-Forwarded-Proto header. Used for reverse proxies with SSL.</p>
+                            <p class="help-block">请尊重 X-Forwarded-Proto 头部。用于带有 SSL 的反向代理。</p>
                         </div>
                         <div class="checkbox advanced-setting">
                             <label>
-                                <input type="checkbox" class="http-settings" name="enable_https" id="enable_https" value="1" ${config['enable_https']} /> Enable HTTPS
+                                <input type="checkbox" class="http-settings" name="enable_https" id="enable_https" value="1" ${config['enable_https']} /> 启用 HTTPS
                             </label>
-                            <p class="help-block">Enable HTTPS for web server for encrypted communication.</p>
+                            <p class="help-block">为Web服务器启用HTTPS以进行加密通信。</p>
                         </div>
                         <div id="https_options">
                             <div class="checkbox advanced-setting">
                                 <label>
-                                    <input type="checkbox" class="http-settings" name="https_create_cert" id="https_create_cert" value="1" ${config['https_create_cert']} /> Create Self-signed Certificate
+                                    <input type="checkbox" class="http-settings" name="https_create_cert" id="https_create_cert" value="1" ${config['https_create_cert']} /> 创建自签名证书
                                 </label>
-                                <p class="help-block">Check to have Tautulli create a self-signed SSL certificate. Uncheck if you want to use your own certificate.</p>
+                                <p class="help-block">请勾选以让Tautulli创建一个自签名的SSL证书。如果您想使用自己的证书，请取消勾选。</p>
                             </div>
                             <div id="https_options_self-signed">
                                 <div class="form-group advanced-setting">
-                                    <label for="https_domain">HTTPS Domains</label>
+                                    <label for="https_domain">HTTPS 域名</label>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <input type="text" class="form-control http-settings" id="https_domain" name="https_domain" value="${config['https_domain']}">
                                         </div>
                                     </div>
-                                    <p class="help-block">The domain names used to access Tautulli, separated by commas (,).</p>
+                                    <p class="help-block">用于访问Tautulli的域名，用逗号（,）分隔。</p>
                                 </div>
                                 <div class="form-group advanced-setting">
-                                    <label for="https_ip">HTTPS IPs</label>
+                                    <label for="https_ip">HTTPS IP地址</label>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <input type="text" class="form-control http-settings" id="https_ip" name="https_ip" value="${config['https_ip']}">
                                         </div>
                                     </div>
-                                    <p class="help-block">The IP addresses used to access Tautulli, separated by commas (,).</p>
+                                    <p class="help-block">用逗号（,）分隔的用于访问Tautulli的IP地址。</p>
                                 </div>
                             </div>
                             <div class="form-group advanced-setting">
-                                <label for="https_cert">HTTPS Certificate</label>
+                                <label for="https_cert">HTTPS证书</label>
                                 <div class="row">
                                     <div class="col-md-7">
                                         <div class="input-group">
@@ -644,10 +644,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="help-block">The location of the SSL certificate in PEM format.</p>
+                                <p class="help-block">PEM格式的SSL证书的位置。</p>
                             </div>
                             <div class="form-group advanced-setting">
-                                <label for="https_cert_chain">HTTPS Certificate Chain</label>
+                                <label for="https_cert_chain">HTTPS证书链</label>
                                 <div class="row">
                                     <div class="col-md-7">
                                         <div class="input-group">
@@ -658,10 +658,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="help-block">The location of the SSL certificate chain in PEM format.</p>
+                                <p class="help-block">SSL证书链的位置，格式为PEM。</p>
                             </div>
                             <div class="form-group advanced-setting">
-                                <label for="https_key">HTTPS Key</label>
+                                <label for="https_key">HTTPS密钥</label>
                                 <div class="row">
                                     <div class="col-md-7">
                                         <div class="input-group">
@@ -672,70 +672,70 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="help-block">The location of the SSL key in PEM format.</p>
+                                <p class="help-block">SSL密钥的位置，以PEM格式。</p>
                             </div>
                         </div>
 
                         <div class="checkbox advanced-setting">
                             <label>
-                                <input type="checkbox" name="anon_redirect_dynamic" id="anon_redirect_dynamic" value="1" ${config['anon_redirect_dynamic']} /> Use Dynamic Anonymous Redirect Service
+                                <input type="checkbox" name="anon_redirect_dynamic" id="anon_redirect_dynamic" value="1" ${config['anon_redirect_dynamic']} /> 使用动态匿名重定向服务
                             </label>
                             <p class="help-block">
-                                Allow Tautulli to use the dynamic anonymous redirect service listed <a href="${anon_url('https://tautulli.com/anonymizer.txt')}" target="_blank" rel="noreferrer">here</a>.
-                                Disable to specify your own service.
+                                允许Tautulli使用动态匿名重定向服务，该服务在<a href="${anon_url('https://tautulli.com/anonymizer.txt')}" target="_blank" rel="noreferrer">这里</a>列出。.
+                                禁用指定自己的服务。
                             </p>
                         </div>
                         <div id="anon_redirect_options">
                             <div class="form-group advanced-setting">
-                                <label for="anon_redirect">Anonymous Redirect Service</label>
+                                <label for="anon_redirect">匿名重定向服务</label>
                                 <div class="row">
                                     <div class="col-md-4">
                                         <input type="text" class="form-control" id="anon_redirect" name="anon_redirect" value="${config['anon_redirect']}" size="30">
                                     </div>
                                 </div>
-                                <p class="help-block">Backlink protection via anonymizer service, must end in "?". Leave blank to disable.</p>
+                                <p class="help-block">通过匿名化服务进行反向链接保护，必须以"?"结尾。留空以禁用。</p>
                             </div>
                         </div>
 
                         <div class="padded-header">
-                            <h3>Authentication</h3>
+                            <h3>认证</h3>
                         </div>
 
-                        <p class="help-block">Note: Authentication changes require a restart.</p>
+                        <p class="help-block">注意：身份验证更改需要重新启动。</p>
                         <div class="form-group">
-                            <label for="http_username">HTTP Username</label>
+                            <label for="http_username">HTTP用户名</label>
                             <div class="row">
                                 <div class="col-md-4">
                                     <input type="text" class="form-control auth-settings" id="http_username" name="http_username" value="${config['http_username']}" size="30">
                                 </div>
                             </div>
-                            <p class="help-block">Username for web server authentication. Leave empty to disable.</p>
+                            <p class="help-block">用于Web服务器身份验证的用户名。留空以禁用。</p>
                         </div>
                         <div class="form-group">
-                            <label for="http_password">HTTP Password</label>
+                            <label for="http_password">HTTP密码</label>
                             <div class="row">
                                 <div class="col-md-4">
                                     <input type="password" class="form-control auth-settings" id="http_password" name="http_password" value="${config['http_password']}" size="30" autocomplete="new-password">
                                 </div>
                             </div>
-                            <p class="help-block">Password for web server authentication. Leave empty to disable.</p>
+                            <p class="help-block">用于Web服务器身份验证的密码。留空以禁用。</p>
                         </div>
 
                         <input type="checkbox" name="auth_changed" id="auth_changed" value="1" style="display: none;">
 
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" class="auth-settings" name="http_plex_admin" id="http_plex_admin" value="1" ${config['http_plex_admin']} data-parsley-trigger="change"> Allow Plex Admin
+                                <input type="checkbox" class="auth-settings" name="http_plex_admin" id="http_plex_admin" value="1" ${config['http_plex_admin']} data-parsley-trigger="change"> 允许 Plex 管理员
                             </label>
                             <span id="allowPlexCheck" class="settings-warning"></span>
-                            <p class="help-block">Allow the Plex server admin to login as a Tautulli admin using their Plex.tv account.</p>
+                            <p class="help-block">允许 Plex 服务器管理员使用他们的 Plex.tv 账户登录为 Tautulli 管理员。</p>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="allow_guest_access" name="allow_guest_access" value="1" ${config['allow_guest_access']}> Allow Guest Access to Tautulli
+                                <input type="checkbox" id="allow_guest_access" name="allow_guest_access" value="1" ${config['allow_guest_access']}> 允许访客访问Tautulli
                             </label>
                             <span id="allowGuestCheck" class="settings-warning"></span>
-                            <p class="help-block">Allow shared users to login to Tautulli using their Plex.tv account. Individual user access needs to be enabled from Users > Edit Mode.</p>
+                            <p class="help-block">允许共享用户使用他们的Plex.tv账户登录Tautulli。需要从“用户”>“编辑模式”中启用单独的用户访问权限。</p>
                         </div>
 
                         <div class="padded-header">
@@ -744,13 +744,13 @@
 
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="api_enabled" name="api_enabled" value="1" ${config['api_enabled']}> Enable API
+                                <input type="checkbox" id="api_enabled" name="api_enabled" value="1" ${config['api_enabled']}> 启用 API
                             </label>
-                            <p class="help-block">Allow external applications to interface with Tautulli.</p>
+                            <p class="help-block">允许外部应用与Tautulli进行接口交互。</p>
                         </div>
                         <div id="apioptions">
                             <div class="form-group">
-                                <label for="api_key">API key</label>
+                                <label for="api_key">API密钥</label>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="input-group">
@@ -759,12 +759,12 @@
                                             </span>
                                             <input type="password" class="form-control" name="api_key" id="api_key" value="${config['api_key']}" size="20" readonly>
                                             <span class="input-group-btn">
-                                                <button class="btn btn-form" type="button" id="generate_api">Generate</button>
+                                                <button class="btn btn-form" type="button" id="generate_api">生成</button>
                                             </span>
                                         </div>
                                     </div>
                                 </div>
-                                <p class="help-block">API key used to access the Tautulli API.</p>
+                                <p class="help-block">用于访问Tautulli API的API密钥。</p>
                             </div>
                         </div>
 
@@ -775,11 +775,11 @@
                     <div role="tabpanel" class="tab-pane" id="tabs-plex_media_server">
 
                         <div class="padded-header">
-                            <h3 id="resources-xml">Plex Media Server <small style="color: #fff;">Version <span id="pms_version">${config['pms_version']}</span></small></h3>
+                            <h3 id="resources-xml">Plex 媒体服务器 <small style="color: #fff;">版本<span id="pms_version">${config['pms_version']}</span></small></h3>
                         </div>
 
                         <div class="form-group has-feedback" id="pms_ip_group">
-                            <label for="pms_ip_selectize">Plex IP Address or Hostname</label>
+                            <label for="pms_ip_selectize">Plex IP地址或主机名</label>
                             <div class="row">
                                 <div class="col-md-9" id="selectize-pms-ip-container">
                                     <div class="input-group">
@@ -795,52 +795,52 @@
                                                     selected>${config['pms_ip']}</option>
                                         </select>
                                         <span class="input-group-btn">
-                                            <button class="btn btn-form" type="button" id="verify_server_button">Verify Server</button>
+                                            <button class="btn btn-form" type="button" id="verify_server_button">验证服务器</button>
                                         </span>
                                     </div>
                                     <span class="form-control-feedback" id="pms_verify" aria-hidden="true" style="display: none; right: 110px;"></span>
                                 </div>
                                 <div id="pms_ip_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
-                            <p class="help-block">Select your Plex Media Server from the dropdown menu or enter an IP address or hostname.</p>
+                            <p class="help-block">从下拉菜单中选择您的 Plex 媒体服务器，或输入 IP 地址或主机名。</p>
                         </div>
                         <div class="form-group">
-                            <label for="pms_port">Plex Port</label>
+                            <label for="pms_port">Plex 端口</label>
                             <div class="row">
                                 <div class="col-md-2">
                                     <input data-parsley-type="integer" class="form-control pms-settings" type="text" id="pms_port" name="pms_port" value="${config['pms_port']}" size="30" data-parsley-trigger="change" data-parsley-errors-container="#pms_port_error" required>
                                 </div>
                                 <div id="pms_port_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
-                            <p class="help-block">Port that Plex Media Server is listening on.</p>
+                            <p class="help-block">Plex Media Server正在监听的端口。</p>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="pms_ssl_checkbox" class="checkbox-toggle pms-settings" data-id="pms_ssl" value="1" ${checked(config['pms_ssl'])}> Use Secure Connection
+                                <input type="checkbox" id="pms_ssl_checkbox" class="checkbox-toggle pms-settings" data-id="pms_ssl" value="1" ${checked(config['pms_ssl'])}> 使用安全连接
                                 <input type="hidden" id="pms_ssl" name="pms_ssl" value="${config['pms_ssl']}">
                             </label>
-                            <p class="help-block">Connect to your Plex server using HTTPS if you have <a href="${anon_url('https://support.plex.tv/articles/206225077-how-to-use-secure-server-connections')}" target="_blank" rel="noreferrer">secure connections</a> enabled.</p>
+                            <p class="help-block">如果您已启用<a href="${anon_url('https://support.plex.tv/articles/206225077-how-to-use-secure-server-connections')}" target="_blank" rel="noreferrer">安全连接</a>，请使用HTTPS连接到您的Plex服务器。</p>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="pms_is_remote_checkbox" class="checkbox-toggle pms-settings" data-id="pms_is_remote" value="1" ${checked(config['pms_is_remote'])}> Remote Server
+                                <input type="checkbox" id="pms_is_remote_checkbox" class="checkbox-toggle pms-settings" data-id="pms_is_remote" value="1" ${checked(config['pms_is_remote'])}> 远程服务器
                                 <input type="hidden" id="pms_is_remote" name="pms_is_remote" value="${config['pms_is_remote']}">
                             </label>
-                            <p class="help-block">Check this if your Plex Server is not on the same local network as Tautulli.</p>
+                            <p class="help-block">如果你的Plex服务器不在与Tautulli相同的本地网络上，请勾选此选项。</p>
                         </div>
                         <div class="form-group">
-                            <label for="pms_url">Plex Server URL</label>
+                            <label for="pms_url">Plex 服务器网址</label>
                             <div class="row">
                                 <div class="col-md-9">
                                     <input type="text" class="form-control" id="pms_url" name="pms_url" value="${config['pms_url']}" size="30" readonly>
                                 </div>
                             </div>
                             <p class="help-block">
-                                The server URL that Tautulli will use to connect to your Plex server. Retrieved automatically.
+                                Tautulli将用于连接到您的Plex服务器的服务器URL。自动检索。
                             </p>
                         </div>
                         <div class="form-group advanced-setting">
-                            <label for="pms_url">Plex Server Identifier</label>
+                            <label for="pms_url">Plex 服务器标识符</label>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="input-group">
@@ -852,30 +852,30 @@
                                 </div>
                             </div>
                             <p class="help-block">
-                                The unique identifier for your Plex server. Retrieved automatically.
+                                您的Plex服务器的唯一标识符。自动检索。
                             </p>
                         </div>
                         <div class="checkbox advanced-setting">
                             <label>
-                                <input type="checkbox" class="pms-settings" id="pms_url_manual" name="pms_url_manual" value="1" ${config['pms_url_manual']}> Manual Connection
+                                <input type="checkbox" class="pms-settings" id="pms_url_manual" name="pms_url_manual" value="1" ${config['pms_url_manual']}> 手动连接
                             </label>
-                            <p class="help-block">Use the user defined connection details. Do not retrieve the server connection URL automatically.</p>
+                            <p class="help-block">使用用户定义的连接详细信息。不要自动检索服务器连接URL。</p>
                         </div>
                         <div class="form-group advanced-setting">
-                            <label for="pms_web_url">Plex Web URL</label>
+                            <label for="pms_web_url">Plex Web 网址</label>
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="pms_web_url" name="pms_web_url" value="${config['pms_web_url']}" size="30" data-parsley-trigger="change" data-parsley-pattern="^https?:\/\/\S+$|^https:\/\/app.plex.tv\/desktop$" data-parsley-errors-container="#pms_web_url_error"  data-parsley-error-message="Invalid Plex Web URL">
                                         <span class="input-group-btn">
-                                            <button class="btn btn-form" type="button" id="test_pms_web_button">Test URL</button>
+                                            <button class="btn btn-form" type="button" id="test_pms_web_button">测试网址</button>
                                         </span>
                                     </div>
                                 </div>
                                 <div id="pms_web_url_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
                             <p class="help-block">
-                                Optional: Manually override the Plex Web URL used for click-through links on the media info pages and notifications. Default <strong>https://app.plex.tv/desktop</strong>.
+                                可选：手动覆盖用于媒体信息页面和通知中的点击链接的 Plex Web URL。默认为<strong>https://app.plex.tv/desktop</strong>。
                             </p>
                         </div>
 
@@ -884,31 +884,31 @@
                         <input type="checkbox" name="server_changed" id="server_changed" value="1" style="display: none;">
 
                         <div class="form-group advanced-setting">
-                            <label for="pms_logs_folder">Plex Logs Folder</label>
+                            <label for="pms_logs_folder">Plex 日志文件夹</label>
                             <div class="row">
                                 <div class="col-md-7">
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="pms_logs_folder" name="pms_logs_folder" value="${config['pms_logs_folder']}" size="30" data-parsley-trigger="change" data-parsley-pattern="^[^\~\%]" data-parsley-errors-container="#pms_logs_folder_error"  data-parsley-error-message="Shortcuts are not recognized.">
                                         <span class="input-group-btn">
-                                            <button class="btn btn-form" type="button" id="pms_logs_folder_browse" data-toggle="browse" data-filter=".folderonly" data-target="#pms_logs_folder">Browse</button>
+                                            <button class="btn btn-form" type="button" id="pms_logs_folder_browse" data-toggle="browse" data-filter=".folderonly" data-target="#pms_logs_folder">浏览</button>
                                         </span>
                                     </div>
                                 </div>
                                 <div id="pms_logs_folder_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
                             <p class="help-block">
-                                Optional: Set your Plex logs folder to use Tautulli as a log viewer. Plex logs are not needed for Tautulli to function.
-                                A complete folder path is required, shortcuts are not recognized, and the logs must be accessible from the machine where Tautulli is installed.
-                                <a href="${anon_url('https://support.plex.tv/hc/en-us/articles/200250417-Plex-Media-Server-Log-Files')}" target="_blank" rel="noreferrer">Click here</a> for help.
+                                可选：将您的Plex日志文件夹设置为使用Tautulli作为日志查看器。Tautulli的功能不需要Plex日志。
+                                需要提供完整的文件夹路径，不支持快捷方式，并且日志必须可以从安装Tautulli的机器上访问。
+                                <a href="${anon_url('https://support.plex.tv/hc/en-us/articles/200250417-Plex-Media-Server-Log-Files')}" target="_blank" rel="noreferrer">点击这里</a>获取帮助。
                             </p>
                         </div>
                         <div class="checkbox advanced-setting">
                             <label>
-                                <input type="checkbox" id="cache_images" name="cache_images" value="1" ${config['cache_images']}> Cache Plex Images
+                                <input type="checkbox" id="cache_images" name="cache_images" value="1" ${config['cache_images']}> 缓存 Plex 图像
                             </label>
                             <p class="help-block">
-                                Enable to cache images from Plex to reduce API calls and improve loading times.<br />
-                                Note: Video preview thumbnails (BIF) are not cached.
+                                启用缓存功能，将 Plex 中的图像缓存以减少 API 调用并提高加载速度。<br />
+                                注意：视频预览缩略图（BIF）不会被缓存。
                             </p>
                         </div>
 
@@ -918,22 +918,22 @@
 
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="monitor_pms_updates" name="monitor_pms_updates" value="1" ${config['monitor_pms_updates']}> Monitor Plex Updates
+                                <input type="checkbox" id="monitor_pms_updates" name="monitor_pms_updates" value="1" ${config['monitor_pms_updates']}> 监控 Plex 更新
                             </label>
-                            <p class="help-block">Enable to have Tautulli check if updates are available for the Plex Media Server.</p>
+                            <p class="help-block">启用 Tautulli 检查 Plex Media Server 是否有可用的更新。</p>
                         </div>
                         <div id="pms_update_options">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <label for="pms_update_channel">Update Channel</label>
+                                        <label for="pms_update_channel">更新通道</label>
                                         <select class="form-control" id="pms_update_channel" name="pms_update_channel">
-                                            <option value="plex">Use Server Setting</option>
-                                            <option value="public">Public</option>
+                                            <option value="plex">使用服务器设置</option>
+                                            <option value="public">公共</option>
                                         </select>
                                     </div>
                                     <div class="col-md-5">
-                                        <label for="pms_update_distro_build">Release</label>
+                                        <label for="pms_update_distro_build">发布</label>
                                         <select class="form-control" id="pms_update_distro_build" name="pms_update_distro_build">
                                         </select>
                                         <input type="hidden" class="form-control" id="pms_update_distro" name="pms_update_distro">
@@ -941,7 +941,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="pms_update_check_interval">Plex Update Check Interval</label>
+                                <label for="pms_update_check_interval">Plex 更新检查间隔</label>
                                 <div class="row">
                                     <div class="col-md-2">
                                         <input type="text" class="form-control" data-parsley-type="integer" id="pms_update_check_interval" name="pms_update_check_interval" value="${config['pms_update_check_interval']}" size="3" data-parsley-min="1" data-parsley-trigger="change" data-parsley-errors-container="#pms_update_check_interval_error" required>
@@ -949,67 +949,67 @@
                                     <div id="pms_update_check_interval_error" class="alert alert-danger settings-alert" role="alert"></div>
                                 </div>
                                 <p class="help-block">
-                                    The interval (in hours) Tautulli will check for a new Plex Media Server update. Minimum 1, default 24.
+                                    Tautulli 将检查新的 Plex Media Server 更新的时间间隔（以小时为单位）。最小值为 1 ，默认值为 24 。
                                 </p>
                             </div>
                             <div class="checkbox advanced-setting">
                                 <label>
-                                    <input type="checkbox" name="notify_server_update_repeat" id="notify_server_update_repeat" value="1" ${config['notify_server_update_repeat']}> Repeat Plex Server Update Notifications
+                                    <input type="checkbox" name="notify_server_update_repeat" id="notify_server_update_repeat" value="1" ${config['notify_server_update_repeat']}> 重复 Plex 服务器更新通知
                                 </label>
                                 <p class="help-block">
-                                    Enable to allow Tautulli to send repeat Plex server update notifications everytime it checks for updates.
-                                    Disable to only send one notifications for each Plex server version.
+                                    启用此选项，允许 Tautulli 在每次检查更新时发送重复的 Plex 服务器更新通知。
+                                    禁用仅发送一条有关每个 Plex 服务器版本的通知。
                                 </p>
                             </div>
                         </div>
 
                         <div class="form-group advanced-setting">
-                            <label for="refresh_users_interval">Users List Refresh Interval</label>
+                            <label for="refresh_users_interval">用户列表刷新间隔</label>
                             <div class="row">
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" data-parsley-type="integer" id="refresh_users_interval" name="refresh_users_interval" value="${config['refresh_users_interval']}" size="5" data-parsley-range="[1,24]" data-parsley-trigger="change" data-parsley-errors-container="#refresh_users_interval_error" required>
                                 </div>
                                 <div id="refresh_users_interval_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
-                            <p class="help-block">The interval (in hours) Tautulli will request an updated friends list from Plex.tv. Minimum 1, maximum 24, default 12.</p>
+                            <p class="help-block">Tautulli 将从 Plex.tv 请求更新的好友列表的时间间隔（以小时为单位）。最小值为 1 ，最大值为 24 ，默认值为 12 。</p>
                         </div>
                         <div class="checkbox advanced-setting">
                             <label>
-                                <input type="checkbox" id="refresh_users_on_startup" name="refresh_users_on_startup" value="1" ${config['refresh_users_on_startup']}> Refresh Users List on Startup
+                                <input type="checkbox" id="refresh_users_on_startup" name="refresh_users_on_startup" value="1" ${config['refresh_users_on_startup']}> 启动时刷新用户列表
                             </label>
-                            <p class="help-block">Refresh the users list when Tautulli starts.</p>
+                            <p class="help-block">当Tautulli启动时，刷新用户列表。</p>
                         </div>
 
                         <div class="form-group advanced-setting">
-                            <label for="refresh_libraries_interval">Libraries List Refresh Interval</label>
+                            <label for="refresh_libraries_interval">库列表刷新间隔</label>
                             <div class="row">
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" data-parsley-type="integer" id="refresh_libraries_interval" name="refresh_libraries_interval" value="${config['refresh_libraries_interval']}" size="5" data-parsley-range="[1,24]" data-parsley-trigger="change" data-parsley-errors-container="#refresh_libraries_interval_error" required>
                                 </div>
                                 <div id="refresh_libraries_interval_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
-                            <p class="help-block">The interval (in hours) Tautulli will request an updated libraries list from your Plex Media Server. Minimum 1, maximum 24, default 12.</p>
+                            <p class="help-block">Tautulli 将从你的 Plex 媒体服务器请求更新的库列表的时间间隔（以小时为单位）。最小值为 1，最大值为 24，默认值为 12。</p>
                         </div>
                         <div class="checkbox advanced-setting">
                             <label>
-                                <input type="checkbox" id="refresh_libraries_on_startup" name="refresh_libraries_on_startup" value="1" ${config['refresh_libraries_on_startup']}> Refresh Libraries List on Startup
+                                <input type="checkbox" id="refresh_libraries_on_startup" name="refresh_libraries_on_startup" value="1" ${config['refresh_libraries_on_startup']}> 启动时刷新库列表
                             </label>
-                            <p class="help-block">Refresh the libraries list when Tautulli starts.</p>
+                            <p class="help-block">Tautulli 启动时刷新库列表。</p>
                         </div>
 
                         <div class="padded-header">
-                            <h3>Plex.tv Authentication</h3>
+                            <h3>Plex.tv 身份验证</h3>
                         </div>
 
                         <div class="form-group has-feedback">
-                            <label for="pms_token">Plex.tv Account Token</label>
+                            <label for="pms_token">Plex.tv 账户令牌</label>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <button id="sign-in-plex" class="btn btn-form" type="button">Fetch New Token</button>
+                                    <button id="sign-in-plex" class="btn btn-form" type="button">获取新令牌</button>
                                     <span style="margin-left: 10px; display: none;" id="pms-token-status"></span>
                                 </div>
                             </div>
-                            <p class="help-block">Fetch a new Plex.tv account authentication token.</p>
+                            <p class="help-block">获取一个新的 Plex.tv 账户认证令牌。</p>
                         </div>
                         <input type="hidden" id="pms_client_id" name="pms_client_id" value="${config['pms_client_id']}">
 
@@ -1020,11 +1020,11 @@
                     <div role="tabpanel" class="tab-pane" id="tabs-notifications">
 
                         <div class="padded-header">
-                            <h3>Current Activity Notifications</h3>
+                            <h3>当前活动通知</h3>
                         </div>
 
                         <div class="form-group">
-                            <label for="buffer_threshold">Buffer Threshold</label>
+                            <label for="buffer_threshold">缓冲阈值</label>
                             <div class="row">
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" data-parsley-type="integer" id="buffer_threshold" name="buffer_threshold" value="${config['buffer_threshold']}" data-parsley-range="[0,50]" data-parsley-trigger="change" data-parsley-errors-container="#buffer_threshold_error" required>
@@ -1032,11 +1032,11 @@
                                 <div id="buffer_threshold_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
                             <p class="help-block">
-                                The number of buffer events required before triggering the first notification.
-                                Buffer events increment on each incoming websocket message if the play state is buffering.
+                                触发第一次通知之前所需的缓冲事件数量。
+                                如果播放状态为缓冲，则每次收到 WebSocket 消息时，缓冲事件都会递增。
                                 <br>
-                                Note: Buffer warnings only work on certain Plex clients. Some clients can send excessive buffer messages or no messages at all.
-                                This notification may be unreliable and not indicative of a real problem.
+                                注意：缓冲警告仅适用于某些 Plex 客户端。某些客户端可能会发送过多的缓冲消息，或者根本不发送任何消息。
+                                此通知可能不可靠，不代表真实问题的存在。
                             </p>
                         </div>
                         <div class="form-group advanced-setting">

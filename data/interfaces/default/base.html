@@ -137,25 +137,25 @@
                         <a href="#" class="dropdown-toggle" aria-haspopup="true" data-toggle="dropdown" data-hover="dropdown" data-href="${href}"><i class="fa fa-lg fa-cogs"></i> <span class="caret"></span></a>
                         <ul class="dropdown-menu" id="settings-dropdown-menu">
                             % if _session['user_group'] == 'admin':
-                            <li><a href="settings"><i class="fa fa-fw fa-cogs"></i> Settings</a></li>
+                            <li><a href="settings"><i class="fa fa-fw fa-cogs"></i> 设置</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="logs"><i class="fa fa-fw fa-list-alt"></i> View Logs</a></li>
+                            <li><a href="logs"><i class="fa fa-fw fa-list-alt"></i> 查看日志</a></li>
                             <li><a href="${anon_url('https://github.com/%s/%s/wiki/Frequently-Asked-Questions' % (plexpy.CONFIG.GIT_USER, plexpy.CONFIG.GIT_REPO))}" target="_blank" rel="noreferrer"><i class="fa fa-fw fa-question-circle"></i> FAQ</a></li>
-                            <li><a href="support"><i class="fa fa-fw fa-comment"></i> Support</a></li>
+                            <li><a href="support"><i class="fa fa-fw fa-comment"></i> 支持</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#" data-target="#donate-modal" data-toggle="modal"><i class="fa fa-fw fa-heart"></i> Donate</a></li>
+                            <li><a href="#" data-target="#donate-modal" data-toggle="modal"><i class="fa fa-fw fa-heart"></i> 捐赠</a></li>
                             <li role="separator" class="divider"></li>
                             % if plexpy.CONFIG.CHECK_GITHUB:
-                            <li><a href="#" id="nav-update"><i class="fa fa-fw fa-arrow-alt-circle-up"></i> Check for Updates</a></li>
+                            <li><a href="#" id="nav-update"><i class="fa fa-fw fa-arrow-alt-circle-up"></i> 检查更新</a></li>
                             % endif
-                            <li><a href="#" id="nav-restart"><i class="fa fa-fw fa-refresh"></i> Restart</a></li>
-                            <li><a href="#" id="nav-shutdown"><i class="fa fa-fw fa-power-off"></i> Shutdown</a></li>
+                            <li><a href="#" id="nav-restart"><i class="fa fa-fw fa-refresh"></i> 重新启动</a></li>
+                            <li><a href="#" id="nav-shutdown"><i class="fa fa-fw fa-power-off"></i> 关闭</a></li>
                             % else:
-                            <li><a href="#" data-target="#admin-login-modal" data-toggle="modal"><i class="fa fa-fw fa-lock"></i> Admin Login</a></li>
+                            <li><a href="#" data-target="#admin-login-modal" data-toggle="modal"><i class="fa fa-fw fa-lock"></i> 管理员登录</a></li>
                             <li role="separator" class="divider"></li>
                             % endif
                             % if _session['exp']:
-                            <li><a href="${http_root}auth/logout"><i class="fa fa-fw fa-sign-out"></i> Sign Out</a></li>
+                            <li><a href="${http_root}auth/logout"><i class="fa fa-fw fa-sign-out"></i> 退出登录</a></li>
                             % endif
                         </ul>
                     </li>
@@ -180,26 +180,26 @@ ${next.modalIncludes()}
             <form id="login-form">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-remove"></i></button>
-                    <h4 class="modal-title">Admin Login</h4>
+                    <h4 class="modal-title">管理员登录</h4>
                 </div>
                 <div class="modal-body">
                     <div class="col-md-6" style="margin: auto;">
                         <div class="form-group">
                             <label for="username" class="control-label">
-                                Username
+                                用户名
                             </label>
                             <input type="text" id="username" name="username" class="form-control" autocorrect="off" autocapitalize="off">
                         </div>
                         <div class="form-group">
                             <label for="password" class="control-label">
-                                Password
+                                密码
                             </label>
                             <input type="password" id="password" name="password" class="form-control">
                         </div>
                         <div class="form-footer">
                             <div class="remember-group">
                                 <label class="control-label">
-                                    <input type="checkbox" id="remember_me" name="remember_me" title="for 30 days" value="1" checked="checked" /> Remember me
+                                    <input type="checkbox" id="remember_me" name="remember_me" title="for 30 days" value="1" checked="checked" /> 记住我
                                 </label>
                             </div>
                         </div>
@@ -247,10 +247,10 @@ ${next.modalIncludes()}
                         </p>
                         <p>
                             <a href="${anon_url('https://github.com/sponsors/JonnyWong16')}" target="_blank" rel="noreferrer" class="btn btn-sm btn-default" style="font-weight: 600;">
-                                <i class="fa fa-heart fa-sm" style="color: #ea4aaa;"></i>&nbsp; Sponsor
+                                <i class="fa fa-heart fa-sm" style="color: #ea4aaa;"></i>&nbsp; 赞助商
                             </a>
                         </p>
-                        <p class="small-muted">(GitHub does not have a fee)</p>
+                        <p class="small-muted">（GitHub不收取费用）</p>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="patreon-donation" style="text-align: center">
                         <p>
@@ -261,7 +261,7 @@ ${next.modalIncludes()}
                                 <img src="images/become_a_patron_button.png" alt="Become a Patron" width="170" height="40">
                             </a>
                         </p>
-                        <p class="small-muted">(Patreon has a fee)</p>
+                        <p class="small-muted">（Patreon会收取费用）</p>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="stripe-donation" style="text-align: center">
                         <p>
@@ -272,7 +272,7 @@ ${next.modalIncludes()}
                                 <img src="images/Stripe_wordmark_-_white_small_28px.png" alt="Stripe" style="background-color: #7068fe; border-radius: 3px; padding: 3px;">
                             </a>
                         </p>
-                        <p class="small-muted">(Stripe has a fee)</p>
+                        <p class="small-muted">（Stripe会收取费用）</p>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="paypal-donation" style="text-align: center">
                         <p>
@@ -283,7 +283,7 @@ ${next.modalIncludes()}
                                 <img src="images/gold-rect-paypal-34px.png" alt="PayPal">
                             </a>
                         </p>
-                        <p class="small-muted">(PayPal has a fee)</p>
+                        <p class="small-muted">（PayPal会收取费用）</p>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="crypto-donation" style="text-align: center">
                         <p>
@@ -316,7 +316,7 @@ ${next.modalIncludes()}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-dark" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-danger btn-ok" data-dismiss="modal" id="confirm-button">Confirm</button>
+                <button type="button" class="btn btn-danger btn-ok" data-dismiss="modal" id="confirm-button">确认</button>
             </div>
         </div>
     </div>

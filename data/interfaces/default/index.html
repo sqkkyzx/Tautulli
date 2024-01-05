@@ -12,11 +12,11 @@
     <div class="row">
         <div class="col-md-12">
             <div class="padded-header" id="current-activity-header">
-                <h3><span id="sessions-xml">Activity</span> &nbsp;&nbsp;
+                <h3><span id="sessions-xml">活动</span> &nbsp;&nbsp;
                     <small>
                         <span id="currentActivityHeader" style="display: none;">
-                            Sessions: <span id="currentActivityHeader-streams"></span> |
-                            Bandwidth: <span id="currentActivityHeader-bandwidth"></span>
+                            会话: <span id="currentActivityHeader-streams"></span> |
+                            带宽: <span id="currentActivityHeader-bandwidth"></span>
                             <span id="currentActivityHeader-bandwidth-tooltip" data-toggle="tooltip" title="Streaming Brain Estimate (Reserved Bandwidth)"><i class="fa fa-info-circle"></i></span>
                         </span>
                     </small>
@@ -24,13 +24,13 @@
             </div>
             <div id="currentActivity">
                 % if PLEX_SERVER_UP:
-                <div class="text-muted" id="dashboard-checking-activity"><i class="fa fa-refresh fa-spin"></i>&nbsp; Checking for activity...</div>
+                <div class="text-muted" id="dashboard-checking-activity"><i class="fa fa-refresh fa-spin"></i>&nbsp; 检查活动情况...</div>
                 % elif config['pms_is_cloud']:
-                <div id="dashboard-no-activity" class="text-muted">Plex Cloud server is sleeping.</div>
+                <div id="dashboard-no-activity" class="text-muted">Plex 云服务器正在休眠。</div>
                 % elif not config['first_run_complete']:
-                <div id="dashboard-no-activity" class="text-muted">The Tautulli setup wizard has not been completed. Please click <a href="welcome">here</a> to go to the setup wizard.</div>
+                <div id="dashboard-no-activity" class="text-muted">Tautulli 的设置向导尚未完成。请点击<a href="welcome">这里</a>进入设置向导。</div>
                 % else:
-                <div class="text-muted" id="dashboard-checking-activity"><i class="fa fa-refresh fa-spin"></i>&nbsp; Tautulli is connecting to the Plex server...</div>
+                <div class="text-muted" id="dashboard-checking-activity"><i class="fa fa-refresh fa-spin"></i>&nbsp; Tautulli 正在连接到 Plex 服务器...</div>
                 % endif
             </div>
         </div>
@@ -39,20 +39,20 @@
     <div class="row">
         <div class="col-md-12">
             <div class="home-padded-header padded-header">
-                <h3 class="pull-left">Watch Statistics</h3>
+                <h3 class="pull-left">观看统计</h3>
                 <div class="button-bar">
                     <div class="btn-group pull-left" data-toggle="buttons" id="watch-stats-toggles" style="margin-right: 3px">
                         <label class="btn btn-dark btn-filter">
-                            <input type="radio" class="watched-stats-toggle" name="watched-stats-type" id="watched-stats-plays" value="plays" autocomplete="off"> Play Count
+                            <input type="radio" class="watched-stats-toggle" name="watched-stats-type" id="watched-stats-plays" value="plays" autocomplete="off"> 播放次数
                         </label>
                         <label class="btn btn-dark btn-filter">
-                            <input type="radio" class="watched-stats-toggle" name="watched-stats-type" id="watched-stats-duration" value="duration" autocomplete="off"> Play Duration
+                            <input type="radio" class="watched-stats-toggle" name="watched-stats-type" id="watched-stats-duration" value="duration" autocomplete="off"> 播放时长
                         </label>
                     </div>
                     <div class="input-group pull-left" style="width: 1px; margin-right: 3px" id="watched-stats-days-selection">
-                        <span class="input-group-addon btn-dark inactive">Last</span>
+                        <span class="input-group-addon btn-dark inactive">最新</span>
                         <input type="number" class="form-control number-input" name="watched-stats-days" id="watched-stats-days" value="30" min="1" data-default="30" data-toggle="tooltip" title="Min: 1 day" />
-                        <span class="input-group-addon btn-dark inactive">days</span>
+                        <span class="input-group-addon btn-dark inactive">天</span>
                     </div>
                 </div>
             </div>
@@ -61,7 +61,7 @@
     <div class="row">
         <div class="col-md-12">
             <div id="home-stats" class="home-platforms">
-                <div class="text-muted"><i class="fa fa-refresh fa-spin"></i>&nbsp; Loading stats...</div>
+                <div class="text-muted"><i class="fa fa-refresh fa-spin"></i>&nbsp; 加载统计数据...</div>
                 <br>
             </div>
         </div>
@@ -70,7 +70,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="home-padded-header padded-header" id="library-statistics-header">
-                <h3 class="pull-left">Library Statistics</h3>
+                <h3 class="pull-left">库统计数据</h3>
                 <div class="button-bar">
                     <span class="btn btn-dark active" style="cursor: default">${config['pms_name']}</span>
                 </div>
@@ -80,7 +80,7 @@
     <div class="row">
         <div class="col-md-12">
             <div id="library-stats" class="library-platforms">
-                <div class="text-muted"><i class="fa fa-refresh fa-spin"></i>&nbsp; Loading stats...</div>
+                <div class="text-muted"><i class="fa fa-refresh fa-spin"></i>&nbsp; 正在加载统计数据...</div>
                 <br>
             </div>
         </div>
@@ -89,7 +89,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="home-padded-header padded-header">
-                <h3 class="pull-left"><span id="recently-added-xml">Recently Added</span></h3>
+                <h3 class="pull-left"><span id="recently-added-xml">最近添加的</span></h3>
                 <ul class="nav nav-header nav-dashboard pull-right" style="margin-top: -3px;">
                     <li>
                         <a href="#" id="recently-added-page-left" class="paginate btn-gray disabled" data-id="+1"><i class="fa fa-lg fa-chevron-left"></i></a>
@@ -101,24 +101,24 @@
                 <div class="button-bar">
                     <div class="btn-group pull-left" data-toggle="buttons" id="recently-added-toggles" style="margin-right: 3px">
                         <label class="btn btn-dark btn-filter" id="recently-added-label-all">
-                            <input type="radio" name="recently-added-toggle" id="recently-added-toggle-all" value="all" autocomplete="off"> All
+                            <input type="radio" name="recently-added-toggle" id="recently-added-toggle-all" value="all" autocomplete="off"> 所有
                         </label>
                         <label class="btn btn-dark btn-filter" id="recently-added-label-movies">
-                            <input type="radio" name="recently-added-toggle" id="recently-added-toggle-movie" value="movie" autocomplete="off"> Movies
+                            <input type="radio" name="recently-added-toggle" id="recently-added-toggle-movie" value="movie" autocomplete="off"> 电影
                         </label>
                         <label class="btn btn-dark btn-filter" id="recently-added-label-tv">
-                            <input type="radio" name="recently-added-toggle" id="recently-added-toggle-show" value="show" autocomplete="off"> TV Shows
+                            <input type="radio" name="recently-added-toggle" id="recently-added-toggle-show" value="show" autocomplete="off"> 电视节目
                         </label>
                         <label class="btn btn-dark btn-filter" id="recently-added-label-music">
-                            <input type="radio" name="recently-added-toggle" id="recently-added-toggle-artist" value="artist" autocomplete="off"> Music
+                            <input type="radio" name="recently-added-toggle" id="recently-added-toggle-artist" value="artist" autocomplete="off"> 音乐
                         </label>
                         <label class="btn btn-dark btn-filter" id="recently-added-label-other_video">
-                            <input type="radio" name="recently-added-toggle" id="recently-added-toggle-other_video" value="other_video" autocomplete="off"> Videos
+                            <input type="radio" name="recently-added-toggle" id="recently-added-toggle-other_video" value="other_video" autocomplete="off"> 视频
                         </label>
                     </div>
                     <div class="input-group pull-left" style="width: 1px;" id="recently-added-count-selection">
                         <input type="number" class="form-control number-input" name="recently-added-count" id="recently-added-count" value="50" min="1" max="50" data-default="50" data-toggle="tooltip" title="Min: 1 item<br>Max: 50 items" />
-                        <span class="input-group-addon btn-dark inactive">items</span>
+                        <span class="input-group-addon btn-dark inactive">项目</span>
                     </div>
                 </div>
             </div>
@@ -128,11 +128,11 @@
         <div class="col-md-12">
             <div id="recentlyAdded" style="margin-right: -15px;">
                 % if PLEX_SERVER_UP:
-                <div id="dashboard-checking-recently-added" class="text-muted"><i class="fa fa-refresh fa-spin"></i>&nbsp; Looking for new items...</div>
+                <div id="dashboard-checking-recently-added" class="text-muted"><i class="fa fa-refresh fa-spin"></i>&nbsp; 寻找新项目...</div>
                 % elif config['pms_is_cloud']:
-                <div class="text-muted">Plex Cloud server is sleeping.</div>
+                <div class="text-muted">Plex 云服务器正在休眠。.</div>
                 % else:
-                <div id="dashboard-no-recently-added" class="text-muted"><i class="fa fa-refresh fa-spin"></i>&nbsp; Tautulli is connecting to your Plex server...</div>
+                <div id="dashboard-no-recently-added" class="text-muted"><i class="fa fa-refresh fa-spin"></i>&nbsp; Tautulli 正在连接到您的 Plex 服务器...</div>
                 % endif
             </div>
         </div>
@@ -151,12 +151,12 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-remove"></i></button>
-                <h4 class="modal-title">Tautulli Updated to <strong>${RELEASE}</strong></h4>
+                <h4 class="modal-title">Tautulli 已更新至<strong>${RELEASE}</strong></h4>
             </div>
             <div class="modal-body">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-target="#donate-modal" data-toggle="modal" style="float: left;"><i class="fa fa-fw fa-heart"></i> Donate</button>
+                <button type="button" class="btn btn-danger" data-target="#donate-modal" data-toggle="modal" style="float: left;"><i class="fa fa-fw fa-heart"></i> 捐赠</button>
                 <input type="button" class="btn btn-bright" data-dismiss="modal" value="Close">
             </div>
         </div>
@@ -173,7 +173,7 @@
                 <h4 class="modal-title">Terminate Stream</h4>
             </div>
             <div class="modal-body" style="text-align: center;">
-                <p>Are you sure you want to terminate this stream?</p>
+                <p>你确定要终止这个流吗？</p>
                 <p>
                     <strong>
                         <span id="terminate-user"></span><br />
@@ -201,7 +201,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-remove"></i></button>
-                <h4 class="modal-title">Raw Stream Info: <strong><span id="raw-stream-info-title"></span> (<span id="raw-stream-info-user"></span>)</strong></h4>
+                <h4 class="modal-title">原始流信息：<strong><span id="raw-stream-info-title"></span> (<span id="raw-stream-info-user"></span>)</strong></h4>
             </div>
             <div class="modal-body">
                 <pre id="raw-stream-info"></pre>
@@ -218,14 +218,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-remove"></i></button>
-                <h4 class="modal-title">Unable to Update</h4>
+                <h4 class="modal-title">无法更新</h4>
             </div>
             <div class="modal-body" style="text-align: center;">
-                <p>Tautulli is still running using Python 2 and cannot be updated past v2.6.3.</p>
-                <p>Python 3 is required to continue receiving updates.</p>
+                <p>Tautulli 仍在使用 Python 2 运行，无法更新到 v2.6.3 之后的版本。</p>
+                <p>需要使用 Python 3 才能继续接收更新。</p>
                 <p>
-                    <strong>Please see the <a href="${anon_url('https://github.com/Tautulli/Tautulli/wiki/Upgrading-to-Python-3-%28Tautulli-v2.5%29')}" target="_blank" rel="noreferrer">wiki</a>
-                    for instructions on how to upgrade to Python 3.</strong>
+                    <strong>请前往 <a href="${anon_url('https://github.com/Tautulli/Tautulli/wiki/Upgrading-to-Python-3-%28Tautulli-v2.5%29')}" target="_blank" rel="noreferrer">wiki</a>
+                    查看有关如何升级到Python 3的说明.</strong>
                 </p>
             </div>
             <div class="modal-footer">
@@ -273,7 +273,7 @@
     }
 
     % if _session['user_group'] == 'admin':
-    var msg_settings = ' Check the <a href="logs">logs</a> and verify your server connection in the <a href="settings#tab_tabs-plex_media_server">settings</a>.';
+    var msg_settings = ' 在<a href="settings#tab_tabs-plex_media_server">设置</a>检查 <a href="logs">日志</a> 并验证您的服务器连接。';
     % else:
     var msg_settings = '';
     % endif
@@ -287,11 +287,11 @@
             if (data.connected === true) {
                 clearInterval(server_status);
                 % if 'current_activity' in config['home_sections']:
-                $('#currentActivity').html('<div id="dashboard-checking-activity" class="text-muted"><i class="fa fa-refresh fa-spin"></i>&nbsp; Checking for activity...</div>');
+                $('#currentActivity').html('<div id="dashboard-checking-activity" class="text-muted"><i class="fa fa-refresh fa-spin"></i>&nbsp; 检查活动情况...</div>');
                 activityConnected();
                 % endif
                 % if 'recently_added' in config['home_sections']:
-                $('#recentlyAdded').html('<div id="dashboard-checking-recently-added" class="text-muted"><i class="fa fa-refresh fa-spin"></i>&nbsp; Looking for new items...</div>');
+                $('#recentlyAdded').html('<div id="dashboard-checking-recently-added" class="text-muted"><i class="fa fa-refresh fa-spin"></i>&nbsp; 寻找新的项目...</div>');
                 recentlyAddedConnected();
                 % endif
             } else if (data.connected === false) {
@@ -620,7 +620,7 @@
 
                 } else {
                     $('#currentActivityHeader').hide();
-                    $('#currentActivity').html('<div id="dashboard-no-activity" class="text-muted">Nothing is currently being played.</div>');
+                    $('#currentActivity').html('<div id="dashboard-no-activity" class="text-muted">目前没有正在播放的内容。</div>');
                 }
 
                 activity_ready = true;
@@ -750,7 +750,7 @@
         $('#terminate-session-modal').one('click', '#confirm-terminate-session', function () {
             var message = $('#terminate-message').val();
 
-            showMsg('Terminating session', true);
+            showMsg('终止会话', true);
 
             $.ajax({
                 url: 'terminate_session',
@@ -882,7 +882,7 @@
 % if 'watch_stats' in config['home_sections']:
 <script>
     function getHomeStats(time_range, stats_type) {
-        showMsg("Loading watch statistics...", true, false, 0);
+        showMsg("正在加载观看统计数据...", true, false, 0);
 
         $.ajax({
             url: 'home_stats',
@@ -947,7 +947,7 @@
 % if 'recently_added' in config['home_sections']:
 <script>
     function recentlyAdded(recently_added_count, recently_added_type) {
-        showMsg("Loading recently added items...", true, false, 0);
+        showMsg("正在加载最近添加的项目...", true, false, 0);
 
         $.ajax({
             url: 'get_recently_added',

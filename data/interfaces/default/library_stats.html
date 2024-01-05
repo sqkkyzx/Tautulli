@@ -28,10 +28,10 @@ DOCUMENTATION :: END
     from plexpy.helpers import page
 
     types = ('movie', 'show', 'artist', 'photo')
-    headers = {'movie': ('Movie Libraries', ('Movies', '', '')),
-               'show': ('TV Show Libraries', ('Shows', 'Seasons', 'Episodes')),
-               'artist': ('Music Libraries', ('Artists', 'Albums', 'Tracks')),
-               'photo': ('Photo Libraries', ('Albums', 'Photos', 'Videos'))}
+    headers = {'movie': ('电影', ('电影', '', '')),
+               'show': ('电视剧', ('电视剧', '季', '集')),
+               'artist': ('音乐', ('艺术家', '专辑', '曲目')),
+               'photo': ('照片库', ('相册', '照片', '视频'))}
 %>
 % for section_type in types:
 % if section_type in data:

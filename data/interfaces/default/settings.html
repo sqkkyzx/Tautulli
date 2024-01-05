@@ -26,7 +26,7 @@
         <div class="col-md-12">
             <div class="alert alert-danger docker-mount" role="alert">
                 The <span class="inline-pre">/config</span> volume mount was not configured properly for the Docker container.
-                All data may be cleared when the container is recreated or updated.
+                当容器被重新创建或更新时，所有数据可能会被清除。
             </div>
         </div>
     </div>
@@ -35,7 +35,7 @@
         <div class="col-md-12">
             <div class='card-back-full'>
                 <div class="header-bar">
-                    <span><i class="fa fa-cogs"></i> Settings</span>
+                    <span><i class="fa fa-cogs"></i> 设置</span>
                 </div>
                 <div class="button-bar">
                     % if config['show_advanced_settings'] == 1:
@@ -56,17 +56,17 @@
         <!-- Nav tabs -->
         <div class="col-md-3">
             <ul class="nav-settings list-unstyled" role="tablist">
-                <li role="presentation" class="active"><a id="nav-help_info" href="#tabs-help_info" aria-controls="tabs-help_info" role="tab" data-toggle="tab">Help & Info</a></li>
-                <li role="presentation"><a id="nav-tabs-general" href="#tabs-general" aria-controls="tabs-general" role="tab" data-toggle="tab">General</a></li>
-                <li role="presentation"><a id="nav-tabs-homepage" href="#tabs-homepage" aria-controls="tabs-homepage" role="tab" data-toggle="tab">Homepage</a></li>
-                <li role="presentation"><a id="nav-tabs-web_interface" href="#tabs-web_interface" aria-controls="tabs-web_interface" role="tab" data-toggle="tab">Web Interface</a></li>
-                <li role="presentation"><a id="nav-tabs-plex_media_server" href="#tabs-plex_media_server" aria-controls="tabs-plex_media_server" role="tab" data-toggle="tab">Plex Media Server</a></li>
-                <li role="presentation"><a id="nav-tabs-notifications" href="#tabs-notifications" aria-controls="tabs-notifications" role="tab" data-toggle="tab">Notifications & Newsletters</a></li>
-                <li role="presentation"><a id="nav-tabs-notification_agents" href="#tabs-notification_agents" aria-controls="tabs-notification_agents" role="tab" data-toggle="tab">Notification Agents</a></li>
-                <li role="presentation"><a id="nav-tabs-newsletter_agents" href="#tabs-newsletter_agents" aria-controls="tabs-newsletter_agents" role="tab" data-toggle="tab">Newsletter Agents</a></li>
-                <li role="presentation"><a id="nav-tabs-3rd_party_apis" href="#tabs-3rd_party_apis" aria-controls="tabs-3rd_party_apis" role="tab" data-toggle="tab">3rd Party APIs</a></li>
-                <li role="presentation"><a id="nav-tabs-import_backups" href="#tabs-import_backups" aria-controls="tabs-import_backups" role="tab" data-toggle="tab">Import & Backups</a></li>
-                <li role="presentation"><a id="nav-tabs-remote_app" href="#tabs-remote_app" aria-controls="tabs-remote_app" role="tab" data-toggle="tab">Tautulli Remote App <span class="pull-right"><i class="fa fa-fw fa-android"></i><i class="fa fa-fw fa-apple"></i></span></a></li>
+                <li role="presentation" class="active"><a id="nav-help_info" href="#tabs-help_info" aria-controls="tabs-help_info" role="tab" data-toggle="tab">帮助与信息</a></li>
+                <li role="presentation"><a id="nav-tabs-general" href="#tabs-general" aria-controls="tabs-general" role="tab" data-toggle="tab">通用</a></li>
+                <li role="presentation"><a id="nav-tabs-homepage" href="#tabs-homepage" aria-controls="tabs-homepage" role="tab" data-toggle="tab">主页</a></li>
+                <li role="presentation"><a id="nav-tabs-web_interface" href="#tabs-web_interface" aria-controls="tabs-web_interface" role="tab" data-toggle="tab">Web界面</a></li>
+                <li role="presentation"><a id="nav-tabs-plex_media_server" href="#tabs-plex_media_server" aria-controls="tabs-plex_media_server" role="tab" data-toggle="tab">Plex 媒体服务器</a></li>
+                <li role="presentation"><a id="nav-tabs-notifications" href="#tabs-notifications" aria-controls="tabs-notifications" role="tab" data-toggle="tab">通知和新闻</a></li>
+                <li role="presentation"><a id="nav-tabs-notification_agents" href="#tabs-notification_agents" aria-controls="tabs-notification_agents" role="tab" data-toggle="tab">通知代理</a></li>
+                <li role="presentation"><a id="nav-tabs-newsletter_agents" href="#tabs-newsletter_agents" aria-controls="tabs-newsletter_agents" role="tab" data-toggle="tab">新闻代理</a></li>
+                <li role="presentation"><a id="nav-tabs-3rd_party_apis" href="#tabs-3rd_party_apis" aria-controls="tabs-3rd_party_apis" role="tab" data-toggle="tab">第三方API</a></li>
+                <li role="presentation"><a id="nav-tabs-import_backups" href="#tabs-import_backups" aria-controls="tabs-import_backups" role="tab" data-toggle="tab">导入和备份</a></li>
+                <li role="presentation"><a id="nav-tabs-remote_app" href="#tabs-remote_app" aria-controls="tabs-remote_app" role="tab" data-toggle="tab">Tautulli 远程应用程序 <span class="pull-right"><i class="fa fa-fw fa-android"></i><i class="fa fa-fw fa-apple"></i></span></a></li>
             </ul>
         </div>
         <div class="col-md-9">
@@ -76,28 +76,28 @@
                     <div role="tabpanel" class="tab-pane active" id="tabs-help_info">
                         % if common.RELEASE:
                         <div class="padded-header">
-                            <h3>Version ${common.RELEASE} <small><a id="changelog-modal-link" href="#"><i class="fa fa-info-circle"></i> Changelog</a></small></h3>
+                            <h3>版本 ${common.RELEASE} <small><a id="changelog-modal-link" href="#"><i class="fa fa-info-circle"></i> 更新日志</a></small></h3>
                         </div>
                         % endif
                         <div class="padded-header">
-                            <h3>Tautulli News</h3>
+                            <h3>Tautulli 新闻</h3>
                         </div>
                         <div id="tautulli-news">
-                            <div class='text-muted'><i class="fa fa-refresh fa-spin"></i> Loading news...</div>
+                            <div class='text-muted'><i class="fa fa-refresh fa-spin"></i> 正在加载新闻...</div>
                             <br>
                         </div>
                         <div class="padded-header">
-                            <h3>Tautulli Configuration</h3>
+                            <h3>Tautulli 配置</h3>
                         </div>
                         <div id="plexpy-configuration-table">
-                            <div class='text-muted'><i class="fa fa-refresh fa-spin"></i> Loading configuration table...</div>
+                            <div class='text-muted'><i class="fa fa-refresh fa-spin"></i> 正在加载配置...</div>
                             <br>
                         </div>
                         <div class="padded-header">
-                            <h3>Tautulli Scheduled Tasks</h3>
+                            <h3>Tautulli 计划任务</h3>
                         </div>
                         <div id="plexpy-scheduler-table">
-                            <div class='text-muted'><i class="fa fa-refresh fa-spin"></i> Loading scheduler table...</div>
+                            <div class='text-muted'><i class="fa fa-refresh fa-spin"></i> 正在加载计划任务...</div>
                             <br>
                         </div>
                     </div>
@@ -115,7 +115,7 @@
                                     <input type="text" class="form-control" id="date_format" name="date_format" value="${config['date_format']}" data-parsley-trigger="change" required>
                                 </div>
                             </div>
-                            <p class="help-block">Set your preferred date format. <a href="javascript:void(0)" data-target="#dateTimeOptionsModal" data-toggle="modal">Click here</a> to see the parameter list.</p>
+                            <p class="help-block">设置您首选的日期格式。<a href="javascript:void(0)" data-target="#dateTimeOptionsModal" data-toggle="modal">点击这里</a> 查看参数列表。</p>
                         </div>
                         <div class="form-group">
                             <label for="date_format">Time Format</label>
@@ -124,25 +124,25 @@
                                     <input type="text" class="form-control" id="time_format" name="time_format" value="${config['time_format']}" data-parsley-trigger="change" required>
                                 </div>
                             </div>
-                            <p class="help-block">Set your preferred time format. <a href="javascript:void(0)" data-target="#dateTimeOptionsModal" data-toggle="modal">Click here</a> to see the parameter list.</p>
+                            <p class="help-block">设置您首选的时间格式。<a href="javascript:void(0)" data-target="#dateTimeOptionsModal" data-toggle="modal">点击这里</a>查看参数列表。</p>
                         </div>
                         <div class="checkbox advanced-setting">
                             <label>
                                 <input type="checkbox" id="week_start_monday" name="week_start_monday" value="1" ${config['week_start_monday']}> Week Starting on Monday
                             </label>
-                            <p class="help-block">Change the "<em>Play by day of week</em>" graph to start on Monday. Default is start on Sunday.</p>
+                            <p class="help-block">改变 "<em>播放 - 周视图</em>" 图表从星期一开始。默认情况下，图表从星期日开始。</p>
                         </div>
                         <div class="checkbox advanced-setting">
                             <label>
                                 <input type="checkbox" id="history_table_activity" name="history_table_activity" value="1" ${config['history_table_activity']}> Current Activity in History Tables
                             </label>
-                            <p class="help-block">Include current activity in the history tables. Statistics will not be counted until the stream has ended.</p>
+                            <p class="help-block">将当前活动包括在历史中。统计数据将在流结束之前不会被计算。</p>
                         </div>
                         <div class="checkbox advanced-setting">
                             <label>
                                 <input type="checkbox" id="get_file_sizes" name="get_file_sizes" value="1" ${config['get_file_sizes']}> Calculate Total File Sizes
                             </label>
-                            <p class="help-block">Enable if you want Tautulli to calculate the total file size for TV Shows/Seasons and Artists/Albums on the media info tables.</p>
+                            <p class="help-block">如果您希望 Tautulli 在媒体信息表中计算电视节目/季度和艺术家/专辑的总文件大小，请启用此选项。</p>
                         </div>
                         <div class="checkbox advanced-setting">
                             <label>
@@ -395,25 +395,25 @@
                                     <li class="card card-sortable">
                                         <div class="card-handle"><i class="fa fa-bars"></i></div>
                                         <label>
-                                            <input type="checkbox" id="hsec-current_activity" name="hsec-current_activity" value="current_activity"> Current Activity
+                                            <input type="checkbox" id="hsec-current_activity" name="hsec-current_activity" value="current_activity"> 当前活动
                                         </label>
                                     </li>
                                     <li class="card card-sortable">
                                         <div class="card-handle"><i class="fa fa-bars"></i></div>
                                         <label>
-                                            <input type="checkbox" id="hsec-watch_stats" name="hsec-watch_stats" value="watch_stats"> Watch Statistics
+                                            <input type="checkbox" id="hsec-watch_stats" name="hsec-watch_stats" value="watch_stats"> 观看统计
                                         </label>
                                     </li>
                                     <li class="card card-sortable">
                                         <div class="card-handle"><i class="fa fa-bars"></i></div>
                                         <label>
-                                            <input type="checkbox" id="hsec-library_stats" name="hsec-library_stats" value="library_stats"> Library Statistics
+                                            <input type="checkbox" id="hsec-library_stats" name="hsec-library_stats" value="library_stats"> 库统计数据
                                         </label>
                                     </li>
                                     <li class="card card-sortable">
                                         <div class="card-handle"><i class="fa fa-bars"></i></div>
                                         <label>
-                                            <input type="checkbox" id="hsec-recently_added" name="hsec-recently_added" value="recently_added"> Recently Added
+                                            <input type="checkbox" id="hsec-recently_added" name="hsec-recently_added" value="recently_added"> 最近添加的
                                         </label>
                                     </li>
                                 </ul>
@@ -506,13 +506,13 @@
                         </div>
 
                         <div class="padded-header">
-                            <h3>Library Statistics</h3>
+                            <h3>库统计数据</h3>
                         </div>
 
                         <div class="form-group">
                             <p class="help-block">
-                                Select the cards to show in the library statistics on the home page.
-                                Drag the items below to reorder your homepage content.
+                                在主页上选择要显示在库统计信息中的卡片。
+                                将下面的项目拖动以重新排列主页内容。
                             </p>
                             <div class="row">
                                 <div class="col-md-6">
@@ -529,10 +529,10 @@
                     <div role="tabpanel" class="tab-pane" id="tabs-web_interface">
 
                         <div class="padded-header">
-                            <h3>Web Interface</h3>
+                            <h3>Web界面</h3>
                         </div>
 
-                        <p class="help-block">Note: Web interface changes require a restart.</p>
+                        <p class="help-block">注意：Web界面的更改需要重新启动。</p>
                         % if common.PLATFORM in ('Windows', 'Darwin'):
                         <%
                             tray = {'Windows': 'System Tray', 'Darwin': 'Menu Bar'}
@@ -2205,7 +2205,7 @@ Rating: {rating}/10   --> Rating: /10
     }
 
     function loadNotifierConfig(notifier_id) {
-        showMsg('<i class="fa fa-refresh fa-spin"></i>&nbsp; Loading Configuration', false);
+        showMsg('<i class="fa fa-refresh fa-spin"></i>&nbsp; 加载配置', false);
         $.ajax({
             url: 'get_notifier_config_modal',
             data: { notifier_id: notifier_id },
@@ -2213,7 +2213,7 @@ Rating: {rating}/10   --> Rating: /10
             async: true,
             complete: function (xhr, status) {
                 $("#notifier-config-modal").html(xhr.responseText).modal('show');
-                showMsg('<i class="fa fa-check"></i> Configuration Loaded', false, true, 2000);
+                showMsg('<i class="fa fa-check"></i> 配置已加载', false, true, 2000);
             }
         });
     }
@@ -2230,7 +2230,7 @@ Rating: {rating}/10   --> Rating: /10
     }
 
     function loadNewsletterConfig(newsletter_id) {
-        showMsg('<i class="fa fa-refresh fa-spin"></i>&nbsp; Loading Configuration', false);
+        showMsg('<i class="fa fa-refresh fa-spin"></i>&nbsp; 加载配置', false);
         $.ajax({
             url: 'get_newsletter_config_modal',
             data: { newsletter_id: newsletter_id },
@@ -2238,7 +2238,7 @@ Rating: {rating}/10   --> Rating: /10
             async: true,
             complete: function (xhr, status) {
                 $("#newsletter-config-modal").html(xhr.responseText).modal('show');
-                showMsg('<i class="fa fa-check"></i> Configuration Loaded', false, true, 2000);
+                showMsg('<i class="fa fa-check"></i> 配置已加载', false, true, 2000);
             }
         });
     }
@@ -2255,7 +2255,7 @@ Rating: {rating}/10   --> Rating: /10
     }
 
     function loadMobileDeviceConfig(mobile_device_id) {
-        showMsg('<i class="fa fa-refresh fa-spin"></i>&nbsp; Loading Configuration', false);
+        showMsg('<i class="fa fa-refresh fa-spin"></i>&nbsp; 加载配置', false);
         $.ajax({
             url: 'get_mobile_device_config_modal',
             data: { mobile_device_id: mobile_device_id },
@@ -2263,7 +2263,7 @@ Rating: {rating}/10   --> Rating: /10
             async: true,
             complete: function (xhr, status) {
                 $("#mobile-device-config-modal").html(xhr.responseText).modal('show');
-                showMsg('<i class="fa fa-check"></i> Configuration Loaded', false, true, 2000);
+                showMsg('<i class="fa fa-check"></i> 配置已加载', false, true, 2000);
             }
         });
     }
@@ -2381,7 +2381,7 @@ $(document).ready(function() {
             doAjaxCall('configUpdate', $(this), 'tabs', true, showMsg, _callback);
             return true;
         } else {
-            showMsg('<i class="fa fa-exclamation-circle"></i> Please verify your settings.', false, true, 5000, true);
+            showMsg('<i class="fa fa-exclamation-circle"></i> 请验证您的设置。', false, true, 5000, true);
             return false;
         }
     }
@@ -2522,7 +2522,7 @@ $(document).ready(function() {
         var new_branch = $("#git_branch option:selected").val();
 
         if (new_remote === current_remote && new_branch === current_branch) {
-            showMsg('<i class="fa fa-exclamation-circle"></i> Already on the ' + current_remote + ' ' + current_branch + ' branch.', false, true, 5000, true)
+            showMsg('<i class="fa fa-exclamation-circle"></i> 已经在 ' + current_remote + ' ' + current_branch + ' 分支。', false, true, 5000, true)
         } else {
             var msg = 'Are you sure you want to switch to the <strong>' + new_remote + '/' + new_branch + '</strong> branch?' +
                 '<br />Switching branches may cause Tautulli to become unstable.<br /><br />Tautulli will restart.';
@@ -2693,7 +2693,7 @@ $(document).ready(function() {
 
         if (($("#pms_ip").val() !== '') || ($("#pms_port").val() !== '')) {
             $("#pms_verify").html('<i class="fa fa-refresh fa-spin"></i>').fadeIn('fast');
-            showMsg('Verifying Plex server...', true, true, 10000, false);
+            showMsg('正在验证 Plex 服务器...', true, true, 10000, false);
             $.ajax({
                 url: 'get_server_id',
                 data: {
@@ -2734,11 +2734,11 @@ $(document).ready(function() {
                         if (ws === false) {
                             $("#pms_verify").html('<i class="fa fa-close"></i>').fadeIn('fast');
                             $("#pms_ip_group").addClass("has-error");
-                            showMsg('<i class="fa fa-exclamation-circle"></i> Server found but unable to connect websocket.<br>Check the <a href="logs">logs</a> for errors.', false, true, 5000, true)
+                            showMsg('<i class="fa fa-exclamation-circle"></i> 服务器已找到，但无法连接到 WebSocket 。<br>检查错误，请查看<a href="logs">日志</a>。', false, true, 5000, true)
                         } else {
                             $("#pms_verify").html('<i class="fa fa-check"></i>').fadeIn('fast');
                             $("#pms_ip_group").removeClass("has-error");
-                            showMsg('<i class="fa fa-check"></i> Server verified.', false, true, 5000);
+                            showMsg('<i class="fa fa-check"></i> 服务器已验证。', false, true, 5000);
                             serverChanged = false;
                         }
 
@@ -2748,14 +2748,14 @@ $(document).ready(function() {
                     } else {
                         $("#pms_verify").html('<i class="fa fa-close"></i>').fadeIn('fast');
                         $("#pms_ip_group").addClass("has-error");
-                        showMsg('<i class="fa fa-exclamation-circle"></i> Could not verify your server.', false, true, 5000, true)
+                        showMsg('<i class="fa fa-exclamation-circle"></i> 无法验证您的服务器。', false, true, 5000, true)
                     }
                 }
             });
         } else {
             $("#pms_verify").html('<i class="fa fa-close"></i>').fadeIn('fast');
             $("#pms_ip_group").addClass("has-error");
-            showMsg('<i class="fa fa-exclamation-circle"></i> Plex IP address and port cannot be blank.', false, true, 5000, true)
+            showMsg('<i class="fa fa-exclamation-circle"></i> Plex 的 IP 地址和端口不能为空。', false, true, 5000, true)
         }
     }
 
@@ -2789,14 +2789,14 @@ $(document).ready(function() {
     }
     function OAuthSuccessCallback(authToken) {
         $.post('save_pms_token', { token: authToken, client_id: $('#pms_client_id').val() }, function() {
-            showMsg('<i class="fa fa-check"></i> Saved new Plex.tv token.', false, true, 5000);
+            showMsg('<i class="fa fa-check"></i> 保存了新的 Plex.tv 令牌。', false, true, 5000);
             getServerOptions();
         });
-        $("#pms-token-status").html('<i class="fa fa-check"></i>&nbsp; Authentication successful.').fadeIn('fast');
+        $("#pms-token-status").html('<i class="fa fa-check"></i>&nbsp; 认证成功。').fadeIn('fast');
         $("#token_error_bar").hide();
     }
     function OAuthErrorCallback() {
-        $("#pms-token-status").html('<i class="fa fa-exclamation-circle"></i>&nbsp; Error communicating with Plex.tv.').fadeIn('fast');
+        $("#pms-token-status").html('<i class="fa fa-exclamation-circle"></i>&nbsp; 与 Plex.tv 通信出现错误。').fadeIn('fast');
     }
 
     $('#sign-in-plex').click(function() {

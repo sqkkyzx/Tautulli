@@ -6,7 +6,7 @@
 %>
 <!doctype html>
 
-<html lang="en">
+<html lang="zh-cn">
 <head>
     <meta charset="utf-8">
     <title>Tautulli - ${title} | ${server_name}</title>
@@ -48,10 +48,10 @@
     % if plexpy.CONFIG.CHECK_GITHUB and plexpy.UPDATE_AVAILABLE is not False:
     <div id="updatebar" style="display: none;">
         % if plexpy.UPDATE_AVAILABLE is None:
-        You are running an unknown version of Tautulli.<br />
+        您正在运行一个未知版本的 Tautulli 。<br />
         % elif plexpy.UPDATE_AVAILABLE == 'release':
-        A <a href="${anon_url('https://github.com/%s/%s/releases/tag/%s' % (plexpy.CONFIG.GIT_USER, plexpy.CONFIG.GIT_REPO, plexpy.LATEST_RELEASE))}" target="_blank" rel="noreferrer">
-        new release (${plexpy.LATEST_RELEASE})</a> of Tautulli is available!<br />
+        Tautulli 的最新版本 <a href="${anon_url('https://github.com/%s/%s/releases/tag/%s' % (plexpy.CONFIG.GIT_USER, plexpy.CONFIG.GIT_REPO, plexpy.LATEST_RELEASE))}" target="_blank" rel="noreferrer">
+        (${plexpy.LATEST_RELEASE})</a> 已经发布！<br />
         % elif plexpy.UPDATE_AVAILABLE == 'commit':
         A <a href="${anon_url('https://github.com/%s/%s/compare/%s...%s' % (plexpy.CONFIG.GIT_USER, plexpy.CONFIG.GIT_REPO, plexpy.CURRENT_VERSION, plexpy.LATEST_VERSION))}" target="_blank" rel="noreferrer">
         newer version</a> of Tautulli is available!<br />
@@ -104,29 +104,29 @@
                     <li><a href="home"><i class="fa fa-lg fa-home"></i></a></li>
                     % endif
                     % if title == "Libraries" or title == "Library" or title == "Info":
-                    <li class="active"><a href="libraries">Libraries</a></li>
+                    <li class="active"><a href="libraries">库</a></li>
                     % else:
-                    <li><a href="libraries">Libraries</a></li>
+                    <li><a href="libraries">库</a></li>
                     % endif
                     % if title == "Users" or title == "User":
-                    <li class="active"><a href="users">Users</a></li>
+                    <li class="active"><a href="users">用户</a></li>
                     % else:
-                    <li><a href="users">Users</a></li>
+                    <li><a href="users">用户</a></li>
                     % endif
                     % if title == "History":
-                    <li class="active"><a href="history">History</a></li>
+                    <li class="active"><a href="history">历史</a></li>
                     % else:
-                    <li><a href="history">History</a></li>
+                    <li><a href="history">历史</a></li>
                     % endif
                     % if title == "Graphs":
-                    <li class="active"><a href="graphs">Graphs</a></li>
+                    <li class="active"><a href="graphs">图表</a></li>
                     % else:
-                    <li><a href="graphs">Graphs</a></li>
+                    <li><a href="graphs">图表</a></li>
                     % endif
                     % if title == "Synced Items":
-                    <li class="active"><a href="sync">Synced Items</a></li>
+                    <li class="active"><a href="sync">同步项目</a></li>
                     % else:
-                    <li><a href="sync">Synced Items</a></li>
+                    <li><a href="sync">同步项目</a></li>
                     % endif
                     % if title == "Settings":
                     <li class="dropdown active">
@@ -220,16 +220,16 @@ ${next.modalIncludes()}
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-remove"></i></button>
-                <h4 class="modal-title">Tautulli Donation</h4>
+                <h4 class="modal-title">Tautulli 捐赠</h4>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12" style="text-align: center;">
                         <h4>
-                            <strong>Thank you for supporting Tautulli!</strong>
+                            <strong>感谢您对 Tautulli 的支持！</strong>
                         </h4>
                         <p>
-                            Please select a donation method.
+                            请选择一种捐赠方式。
                         </p>
                     </div>
                 </div>
@@ -243,7 +243,7 @@ ${next.modalIncludes()}
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="github-donation" style="text-align: center">
                         <p>
-                            Click the button below to continue to GitHub.
+                            点击下面的按钮继续访问 GitHub 。
                         </p>
                         <p>
                             <a href="${anon_url('https://github.com/sponsors/JonnyWong16')}" target="_blank" rel="noreferrer" class="btn btn-sm btn-default" style="font-weight: 600;">
@@ -254,7 +254,7 @@ ${next.modalIncludes()}
                     </div>
                     <div role="tabpanel" class="tab-pane" id="patreon-donation" style="text-align: center">
                         <p>
-                            Click the button below to continue to Patreon.
+                            点击下面的按钮继续访问 Patreon 。
                         </p>
                         <p>
                             <a href="${anon_url('https://www.patreon.com/join/tautulli')}" target="_blank" rel="noreferrer">
@@ -265,7 +265,7 @@ ${next.modalIncludes()}
                     </div>
                     <div role="tabpanel" class="tab-pane" id="stripe-donation" style="text-align: center">
                         <p>
-                            Click the button below to continue to Stripe.
+                            点击下面的按钮继续前往 Stripe 。
                         </p>
                         <p>
                             <a href="${anon_url('https://donate.stripe.com/5kA7vnb7dczVbxC9AA')}" target="_blank" rel="noreferrer">
@@ -276,7 +276,7 @@ ${next.modalIncludes()}
                     </div>
                     <div role="tabpanel" class="tab-pane" id="paypal-donation" style="text-align: center">
                         <p>
-                            Click the button below to continue to PayPal.
+                            点击下方按钮继续前往 PayPal 。
                         </p>
                         <p>
                             <a href="${anon_url('https://www.paypal.com/donate/?hosted_button_id=CUHSQ99KAKC5Q')}" target="_blank" rel="noreferrer">
@@ -287,10 +287,10 @@ ${next.modalIncludes()}
                     </div>
                     <div role="tabpanel" class="tab-pane" id="crypto-donation" style="text-align: center">
                         <p>
-                            Click the button below to continue to Coinbase.
+                            点击下面的按钮继续访问 Coinbase 。
                         </p>
                         <a href="${anon_url('https://commerce.coinbase.com/checkout/8a9fa08c-8a38-409e-9220-868124c4ba0c')}" target="_blank" rel="noreferrer" class="donate-with-crypto">
-                            <span>Donate with Crypto</span>
+                            <span>使用加密货币捐赠</span>
                         </a>
                     </div>
                 </div>
@@ -388,7 +388,7 @@ ${next.modalIncludes()}
     }
 
     $("#nav-shutdown").click(function() {
-        $("#confirm-message").text("Are you sure you want to shutdown Tautulli?");
+        $("#confirm-message").text("你确定要关闭 Tautulli 吗？");
         $('#confirm-modal').modal();
         $('#confirm-modal').one('click', '#confirm-button', function () {
             window.location.href = "shutdown";
@@ -396,7 +396,7 @@ ${next.modalIncludes()}
     });
 
     $("#nav-restart").click(function() {
-        $("#confirm-message").text("Are you sure you want to restart Tautulli?");
+        $("#confirm-message").text("你确定要重新启动 Tautulli 吗？");
         $('#confirm-modal').modal();
         $('#confirm-modal').one('click', '#confirm-button', function () {
             window.location.href = "restart";
@@ -501,16 +501,16 @@ ${next.modalIncludes()}
                    window.location = "${http_root}";
                 },
                 401: function(xhr, status) {
-                    $('#sign-in-alert').text('Incorrect username or password.').show();
+                    $('#sign-in-alert').text('用户名或密码错误。').show();
                     $('#username').focus();
                 },
                 429: function(xhr, status) {
                     var retry = Math.ceil(xhr.getResponseHeader('Retry-After') / 60)
-                    $('#sign-in-alert').text('Too many login attempts. Try again in ' + retry + ' minute(s).').show();
+                    $('#sign-in-alert').text('登录尝试过多。请在 ' + retry + ' 分钟后再试。').show();
                 }
             },
             complete: function() {
-                $('#sign-in').prop('disabled', false).html('<i class="fa fa-sign-in"></i>&nbsp; Sign In');
+                $('#sign-in').prop('disabled', false).html('<i class="fa fa-sign-in"></i>&nbsp; 登录');
             }
         });
     });

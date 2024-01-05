@@ -4,7 +4,7 @@
 %>
 <!doctype html>
 
-<html lang="en">
+<html lang="zh-cn">
 <head>
     <meta charset="utf-8">
     <title>Tautulli - ${title}</title>
@@ -54,16 +54,16 @@
                             % if plex_login:
                             <li class="open">
                                 <div class="link login-method-header">
-                                    Sign In with Plex
+                                    使用 Plex 登录
                                 </div>
                                 <ul class="submenu login-button-plex" style="display: block;">
                                     <li>
                                         <div>
-                                            <button id="sign-in-plex" class="btn btn-bright login-button"><i class="fa fa-sign-in"></i>&nbsp; Sign In</button>
+                                            <button id="sign-in-plex" class="btn btn-bright login-button"><i class="fa fa-sign-in"></i>&nbsp; 登录</button>
                                         </div>
                                         <div class="remember-group">
                                             <label class="control-label">
-                                                <input type="checkbox" id="remember_me_plex" name="remember_me_plex" title="for 30 days" value="1" checked="checked" /> Remember me
+                                                <input type="checkbox" id="remember_me_plex" name="remember_me_plex" title="for 30 days" value="1" checked="checked" /> 记住我
                                             </label>
                                         </div>
                                     </li>
@@ -72,30 +72,30 @@
                             % endif
                             <li class="${'open' if not plex_login else ''}">
                                 <div class="link login-method-header">
-                                    Sign In with Tautulli
+                                    使用 Tautulli 登录
                                 </div>
                                 <ul class="submenu" style="${'display: block;' if not plex_login else ''}">
                                     <li>
                                         <form id="login-form">
                                             <div class="form-group">
                                                 <label for="username" class="control-label">
-                                                    Username
+                                                    用户名
                                                 </label>
                                                 <input type="text" id="username" name="username" class="form-control" autocorrect="off" autocapitalize="off" autofocus>
                                             </div>
                                             <div class="form-group">
                                                 <label for="password" class="control-label">
-                                                    Password
+                                                    密码
                                                 </label>
                                                 <input type="password" id="password" name="password" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <span class="remember-group">
                                                     <label class="control-label">
-                                                        <input type="checkbox" id="remember_me" name="remember_me" title="for 30 days" value="1" checked="checked" /> Remember me
+                                                        <input type="checkbox" id="remember_me" name="remember_me" title="for 30 days" value="1" checked="checked" /> 记住我
                                                     </label>
                                                 </span>
-                                                <button id="sign-in" type="submit" class="btn btn-bright login-button"><i class="fa fa-sign-in"></i>&nbsp; Sign In</button>
+                                                <button id="sign-in" type="submit" class="btn btn-bright login-button"><i class="fa fa-sign-in"></i>&nbsp; 登录</button>
                                             </div>
                                         </form>
                                     </li>
@@ -134,9 +134,9 @@
     function signIn(plex, token) {
         $('.login-container button').prop('disabled', true);
         if (plex) {
-            $('#sign-in-plex').html('<i class="fa fa-refresh fa-spin"></i>&nbsp; Sign In');
+            $('#sign-in-plex').html('<i class="fa fa-refresh fa-spin"></i>&nbsp; 登录');
         } else {
-            $('#sign-in').html('<i class="fa fa-refresh fa-spin"></i>&nbsp; Sign In');
+            $('#sign-in').html('<i class="fa fa-refresh fa-spin"></i>&nbsp; 登录');
         }
 
         const username = plex ? null : $('#username').val();
@@ -178,9 +178,9 @@
             complete: function() {
                 $('.login-container button').prop('disabled', false);
                 if (plex) {
-                    $('#sign-in-plex').html('<i class="fa fa-sign-in"></i>&nbsp; Sign In');
+                    $('#sign-in-plex').html('<i class="fa fa-sign-in"></i>&nbsp; 登录');
                 } else {
-                    $('#sign-in').html('<i class="fa fa-sign-in"></i>&nbsp; Sign In');
+                    $('#sign-in').html('<i class="fa fa-sign-in"></i>&nbsp; 登录');
                 }
             }
         });

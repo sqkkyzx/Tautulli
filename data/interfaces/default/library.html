@@ -64,7 +64,7 @@ DOCUMENTATION :: END
                             % if data['library_thumb'].startswith('http'):
                             <div class="library-info-poster-face" style="background-image: url(${page('pms_image_proxy', data['library_thumb'], None, 80, 80)});">
                                 % if not data['is_active']:
-                                <span class="inactive-library-tooltip" data-toggle="tooltip" title="Library not on Plex server">
+                                <span class="inactive-library-tooltip" data-toggle="tooltip" title="库不在 Plex 服务器上">
                                     <i class="fa fa-2x fa-exclamation-triangle"></i>
                                 </span>
                                 % endif
@@ -72,7 +72,7 @@ DOCUMENTATION :: END
                             % else:
                             <div class="library-info-poster-face svg-icon library-${data['section_type']}">
                                 % if not data['is_active']:
-                                <span class="inactive-library-tooltip" data-toggle="tooltip" title="Library not on Plex server">
+                                <span class="inactive-library-tooltip" data-toggle="tooltip" title="库未在 Plex 服务器上">
                                     <i class="fa fa-2x fa-exclamation-triangle"></i>
                                 </span>
                                 % endif
@@ -81,25 +81,25 @@ DOCUMENTATION :: END
                             <div class="user-info-username">
                                 <span class="set-username">${data['section_name']}</span>
                                 % if _session['user_group'] == 'admin':
-                                <span id="edit-library-tooltip" data-target="tooltip" title="Edit library details">
+                                <span id="edit-library-tooltip" data-target="tooltip" title="编辑库详情">
                                     <a href="#" data-toggle="modal" data-target="#edit-library-modal" id="toggle-edit-library-modal"><i class="fa fa-pencil"></i></a>
                                 </span>
                                 % endif
                             </div>
                             <div class="user-info-nav">
                                 <ul class="nav nav-list nav-pills" role="tablist">
-                                    <li class="active"><a id="nav-tabs-profile" href="#tabs-profile" role="tab" data-toggle="tab">Profile</a></li>
-                                    <li><a id="nav-tabs-history" href="#tabs-history" role="tab" data-toggle="tab">History</a></li>
+                                    <li class="active"><a id="nav-tabs-profile" href="#tabs-profile" role="tab" data-toggle="tab">概述</a></li>
+                                    <li><a id="nav-tabs-history" href="#tabs-history" role="tab" data-toggle="tab">历史</a></li>
                                     % if data['section_id'] != LIVE_TV_SECTION_ID:
                                     % if _session['user_group'] == 'admin':
-                                    <li><a id="nav-tabs-mediainfo" href="#tabs-mediainfo" role="tab" data-toggle="tab">Media Info</a></li>
+                                    <li><a id="nav-tabs-mediainfo" href="#tabs-mediainfo" role="tab" data-toggle="tab">媒体信息</a></li>
                                     % endif
                                     % if data['section_type'] != 'photo':
-                                    <li><a id="nav-tabs-collections" href="#tabs-collections" role="tab" data-toggle="tab">Collections</a></li>
+                                    <li><a id="nav-tabs-collections" href="#tabs-collections" role="tab" data-toggle="tab">集合</a></li>
                                     % endif
-                                    <li><a id="nav-tabs-playlists" href="#tabs-playlists" role="tab" data-toggle="tab">Playlists</a></li>
+                                    <li><a id="nav-tabs-playlists" href="#tabs-playlists" role="tab" data-toggle="tab">播放列表</a></li>
                                     % if _session['user_group'] == 'admin':
-                                    <li><a id="nav-tabs-export" href="#tabs-export" role="tab" data-toggle="tab">Export</a></li>
+                                    <li><a id="nav-tabs-export" href="#tabs-export" role="tab" data-toggle="tab">导出</a></li>
                                     % endif
                                     % endif
                                 </ul>
@@ -114,12 +114,12 @@ DOCUMENTATION :: END
                                 <div class="col-md-12">
                                     <div class="table-card-header">
                                         <div class="header-bar">
-                                            <span><i class="fa fa-line-chart"></i> Global Stats</span>
+                                            <span><i class="fa fa-line-chart"></i> 全局统计</span>
                                         </div>
                                     </div>
                                     <div class="table-card-back">
                                         <div id="library-time-stats" class="user-overview-stats-wrapper">
-                                            <div class='muted'><i class="fa fa-refresh fa-spin"></i> Loading data...</div>
+                                            <div class='muted'><i class="fa fa-refresh fa-spin"></i> 加载数据中...</div>
                                             <br>
                                         </div>
                                     </div>
@@ -131,12 +131,12 @@ DOCUMENTATION :: END
                                 <div class="col-md-12">
                                     <div class="table-card-header">
                                         <div class="header-bar">
-                                            <span><i class="fa fa-group"></i> User Stats</span>
+                                            <span><i class="fa fa-group"></i> 用户统计</span>
                                         </div>
                                     </div>
                                     <div class="table-card-back">
                                         <div id="library-user-stats" class="user-player">
-                                            <div class='muted'><i class="fa fa-refresh fa-spin"></i> Loading data...</div>
+                                            <div class='muted'><i class="fa fa-refresh fa-spin"></i> 加载数据中...</div>
                                             <br>
                                         </div>
                                     </div>
@@ -156,12 +156,12 @@ DOCUMENTATION :: END
                                             </li>
                                         </ul>
                                         <div class="header-bar">
-                                            <span><i class="fa fa-history"></i> Recently Played</span>
+                                            <span><i class="fa fa-history"></i> 最近播放</span>
                                         </div>
                                     </div>
                                     <div class="table-card-back">
                                         <div id="library-recently-watched">
-                                            <div class='muted'><i class="fa fa-refresh fa-spin"></i> Loading data...</div>
+                                            <div class='muted'><i class="fa fa-refresh fa-spin"></i> 加载数据中...</div>
                                             <br>
                                         </div>
                                     </div>
@@ -187,7 +187,7 @@ DOCUMENTATION :: END
                                     </div>
                                     <div class="table-card-back">
                                         <div id="library-recently-added">
-                                            <div class='muted'><i class="fa fa-refresh fa-spin"></i> Loading data...</div>
+                                            <div class='muted'><i class="fa fa-refresh fa-spin"></i> 加载数据中...</div>
                                             <br>
                                         </div>
                                     </div>
@@ -266,15 +266,15 @@ DOCUMENTATION :: END
                                 <div class="col-md-12">
                                     % if config['get_file_sizes'] and data['section_id'] in config['get_file_sizes_hold']['section_ids']:
                                     <div id="get_file_sizes_message" style="text-align: center; margin-top: 20px;">
-                                        <i class="fa fa-refresh fa-spin"></i>&nbsp; Tautulli is calculating the file sizes for the library's media info. This could take a few minutes depending on the size of your library.
+                                        <i class="fa fa-refresh fa-spin"></i>&nbsp; Tautulli 正在计算库中媒体信息的文件大小。根据您的库的大小，这可能需要几分钟。
                                         <br />
-                                        You may leave this page and check back later.
+                                        你可以离开此页面，稍后再回来查看。
                                     </div>
                                     % endif
                                     <div class='table-card-header'>
                                         <div class="header-bar">
                                             <span>
-                                                <i class="fa fa-info-circle"></i> Media Info for <strong>
+                                                <i class="fa fa-info-circle"></i> 媒体信息： <strong>
                                                     <span class="set-username">${data['section_name']}</span>
                                                 </strong>
                                             </span>
@@ -284,11 +284,11 @@ DOCUMENTATION :: END
                                             <div class="btn-group">
                                                 % if config['get_file_sizes'] and data['section_id'] in config['get_file_sizes_hold']['section_ids']:
                                                 <button class="btn btn-dark refresh-media-info-table-button" id="refresh-media-info-table" disabled>
-                                                    <i class="fa fa-refresh"></i> Refresh media info
+                                                    <i class="fa fa-refresh"></i> 刷新媒体信息
                                                 </button>
                                                 % else:
                                                 <button class="btn btn-dark refresh-media-info-table-button" id="refresh-media-info-table">
-                                                    <i class="fa fa-refresh"></i> Refresh media info
+                                                    <i class="fa fa-refresh"></i> 刷新媒体信息
                                                 </button>
                                                 % endif
                                             </div>
@@ -300,18 +300,18 @@ DOCUMENTATION :: END
                                         <table class="display media_info_table" id="media_info_table-SID-${data['section_id']}" width="100%">
                                             <thead>
                                                 <tr>
-                                                    <th align="left" id="added_at">Added At</th>
-                                                    <th align="left" id="title">Title</th>
-                                                    <th align="left" id="container">Container</th>
-                                                    <th align="left" id="bitrate">Bitrate</th>
-                                                    <th align="left" id="video_codec">Video Codec</th>
-                                                    <th align="left" id="video_resolution">Video Resolution</th>
-                                                    <th align="left" id="video_resolution">Video Framerate</th>
-                                                    <th align="left" id="audio_codec">Audio Codec</th>
-                                                    <th align="left" id="audio_channels">Audio Channels</th>
-                                                    <th align="left" id="file_size">File Size</th>
-                                                    <th align="left" id="last_played">Last Played</th>
-                                                    <th align="left" id="total_plays">Total Plays</th>
+                                                    <th align="left" id="added_at">添加于</th>
+                                                    <th align="left" id="title">标题</th>
+                                                    <th align="left" id="container">容器</th>
+                                                    <th align="left" id="bitrate">比特率</th>
+                                                    <th align="left" id="video_codec">视频编码</th>
+                                                    <th align="left" id="video_resolution">分辨率</th>
+                                                    <th align="left" id="video_resolution">视频帧率</th>
+                                                    <th align="left" id="audio_codec">音频编码</th>
+                                                    <th align="left" id="audio_channels">声道</th>
+                                                    <th align="left" id="file_size">文件大小</th>
+                                                    <th align="left" id="last_played">上次播放</th>
+                                                    <th align="left" id="total_plays">总计播放</th>
                                                 </tr>
                                             </thead>
                                             <tbody></tbody>
@@ -583,7 +583,7 @@ DOCUMENTATION :: END
         };
         history_table = $('#history_table-SID-${data["section_id"]}').DataTable(history_table_options);
 
-        var colvis = new $.fn.dataTable.ColVis(history_table, { buttonText: '<i class="fa fa-columns"></i> Select columns', buttonClass: 'btn btn-dark', exclude: [0, 12] });
+        var colvis = new $.fn.dataTable.ColVis(history_table, { buttonText: '<i class="fa fa-columns"></i> 选择列', buttonClass: 'btn btn-dark', exclude: [0, 12] });
         $(colvis.button()).appendTo('#button-bar-history');
 
         clearSearchButton('history_table-SID-${data["section_id"]}', history_table);
@@ -631,7 +631,7 @@ DOCUMENTATION :: END
         };
         collections_table = $('#collections_table-SID-${data["section_id"]}').DataTable(collections_table_options);
 
-        var colvis = new $.fn.dataTable.ColVis(collections_table, { buttonText: '<i class="fa fa-columns"></i> Select columns', buttonClass: 'btn btn-dark' });
+        var colvis = new $.fn.dataTable.ColVis(collections_table, { buttonText: '<i class="fa fa-columns"></i> 选择列', buttonClass: 'btn btn-dark' });
         $(colvis.button()).appendTo('#button-bar-collections');
 
         clearSearchButton('collections_table-SID-${data["section_id"]}', collections_table);
@@ -663,7 +663,7 @@ DOCUMENTATION :: END
         };
         playlists_table = $('#playlists_table-SID-${data["section_id"]}').DataTable(playlists_table_options);
 
-        var colvis = new $.fn.dataTable.ColVis(playlists_table, { buttonText: '<i class="fa fa-columns"></i> Select columns', buttonClass: 'btn btn-dark' });
+        var colvis = new $.fn.dataTable.ColVis(playlists_table, { buttonText: '<i class="fa fa-columns"></i> 选择列', buttonClass: 'btn btn-dark' });
         $(colvis.button()).appendTo('#button-bar-playlists');
 
         clearSearchButton('playlists_table-SID-${data["section_id"]}', playlists_table);
@@ -846,7 +846,7 @@ DOCUMENTATION :: END
         };
         media_info_table = $('#media_info_table-SID-${data["section_id"]}').DataTable(media_info_table_options);
 
-        var colvis = new $.fn.dataTable.ColVis(media_info_table, { buttonText: '<i class="fa fa-columns"></i> Select columns', buttonClass: 'btn btn-dark' });
+        var colvis = new $.fn.dataTable.ColVis(media_info_table, { buttonText: '<i class="fa fa-columns"></i> 选择列', buttonClass: 'btn btn-dark' });
         $(colvis.button()).appendTo('#button-bar-media-info');
 
         clearSearchButton('media_info_table-SID-${data["section_id"]}', media_info_table);
@@ -881,7 +881,7 @@ DOCUMENTATION :: END
         export_table = $('#export_table-SID-${data["section_id"]}').DataTable(export_table_options);
         export_table.columns([7]).visible(false);
 
-        var colvis = new $.fn.dataTable.ColVis(export_table, { buttonText: '<i class="fa fa-columns"></i> Select columns', buttonClass: 'btn btn-dark' });
+        var colvis = new $.fn.dataTable.ColVis(export_table, { buttonText: '<i class="fa fa-columns"></i> 选择列', buttonClass: 'btn btn-dark' });
         $(colvis.button()).appendTo('#button-bar-export');
 
         clearSearchButton('export_table-SID-${data["section_id"]}', export_table);

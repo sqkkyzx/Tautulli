@@ -13,13 +13,13 @@ sync_table_options = {
     },
     "stateDuration": 0,
     "language": {
-        "search": "Search: ",
-        "lengthMenu": "Show _MENU_ lines per page",
-        "emptyTable": "No synced items",
-        "info": "Showing _START_ to _END_ of _TOTAL_ lines",
-        "infoEmpty": "Showing 0 to 0 of 0 lines",
-        "infoFiltered": "(filtered from _MAX_ total lines)",
-        "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> Loading items...</div>'
+        "search": "搜索：",
+        "lengthMenu": "每页显示 _MENU_ 行",
+        "emptyTable": "没有已同步的项目",
+        "info": "显示第 _START_ 行到第 _END_ 行，共 _TOTAL_ 行",
+        "infoEmpty": "显示第 0 行到第 0 行，共 0 行",
+        "infoFiltered": "（从 _MAX_ 行中过滤）",
+        "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> 加载项目中...</div>'
     },
     "autoWidth": false,
     "scrollX": true,
@@ -152,7 +152,7 @@ sync_table_options = {
 
     },
     "preDrawCallback": function (settings) {
-        var msg = "<i class='fa fa-refresh fa-spin'></i>&nbsp; Fetching rows...";
+        var msg = "<i class='fa fa-refresh fa-spin'></i>&nbsp; 正在获取行...";
         showMsg(msg, false, false, 0)
     },
     "rowCallback": function (row, rowData, rowIndex) {

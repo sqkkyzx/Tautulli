@@ -228,7 +228,7 @@
                             <p class="help-block">当进度小于观看百分比时，将相同项目和用户的组播放历史作为单个条目。</p>
                         </div>
                         <div class="form-group advanced-setting">
-                            <label>Regroup Play History</label>
+                            <label>重新分组播放历史记录</label>
                             <p class="help-block">
                                 修复数据库中播放历史的分组。<br />
                             </p>
@@ -360,7 +360,7 @@
                         </div>
                         % endif
 
-                        <p><input type="button" class="btn btn-bright save-button" value="Save" data-success="Changes saved successfully"></p>
+                        <p><input type="button" class="btn btn-bright save-button" value="保存" data-success="Changes saved successfully"></p>
 
                     </div>
 
@@ -522,7 +522,7 @@
                             </div>
                         </div>
 
-                        <p><input type="button" class="btn btn-bright save-button" value="Save" data-success="Changes saved successfully"></p>
+                        <p><input type="button" class="btn btn-bright save-button" value="保存" data-success="Changes saved successfully"></p>
 
                     </div>
 
@@ -747,7 +747,7 @@
                             </div>
                         </div>
 
-                        <p><input type="button" class="btn btn-bright save-button" value="Save" data-success="Changes saved successfully"></p>
+                        <p><input type="button" class="btn btn-bright save-button" value="保存" data-success="Changes saved successfully"></p>
 
                     </div>
 
@@ -992,7 +992,7 @@
                         </div>
                         <input type="hidden" id="pms_client_id" name="pms_client_id" value="${config['pms_client_id']}">
 
-                        <p><input type="button" class="btn btn-bright save-button" value="Save" data-success="Changes saved successfully"></p>
+                        <p><input type="button" class="btn btn-bright save-button" value="保存" data-success="Changes saved successfully"></p>
 
                     </div>
 
@@ -1246,7 +1246,7 @@
                             <p class="help-block">请输入将要保存通讯文件的完整路径。</p>
                         </div>
 
-                        <p><input type="button" class="btn btn-bright save-button" value="Save" data-success="Changes saved successfully"></p>
+                        <p><input type="button" class="btn btn-bright save-button" value="保存" data-success="Changes saved successfully"></p>
 
                     </div>
 
@@ -1441,19 +1441,19 @@
                             </div>
                         </div>
 
-                        <p><input type="button" class="btn btn-bright save-button" value="Save" data-success="Changes saved successfully"></p>
+                        <p><input type="button" class="btn btn-bright save-button" value="保存" data-success="Changes saved successfully"></p>
 
                     </div>
 
                     <div role="tabpanel" class="tab-pane" id="tabs-import_backups">
 
                         <div class="padded-header">
-                            <h3>Import</h3>
+                            <h3>导入</h3>
                         </div>
 
                         <div class="form-group">
-                            <label for="database_import">Database Import</label>
-                            <p class="help-block">Click a button below to import an existing database from the selected app.</p>
+                            <label for="database_import">数据库导入</label>
+                            <p class="help-block">点击下方的按钮，从所选应用中导入现有数据库。</p>
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="btn-group">
@@ -1465,8 +1465,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="config_import">Configuration Import</label>
-                            <p class="help-block">Click the button below to import a previous Tautulli configuration.</p>
+                            <label for="config_import">配置导入</label>
+                            <p class="help-block">点击下方按钮以导入之前的 Tautulli 配置。</p>
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="btn-group">
@@ -1477,21 +1477,21 @@
                         </div>
 
                         <div class="padded-header">
-                            <h3>Backup</h3>
+                            <h3>备份</h3>
                         </div>
 
                         <div class="form-group">
-                            <label for="backup_interval">Backup Interval</label>
+                            <label for="backup_interval">备份间隔</label>
                             <div class="row">
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" data-parsley-type="integer" id="backup_interval" name="backup_interval" value="${config['backup_interval']}" size="5" data-parsley-range="[1,24]" data-parsley-trigger="change" data-parsley-errors-container="#backup_interval_error" required>
                                 </div>
                                 <div id="backup_interval_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
-                            <p class="help-block">The interval (in hours) Tautulli will backup the database and configuration file. Minimum 1, maximum 24, default 6.</p>
+                            <p class="help-block">Tautulli 备份数据库和配置文件的间隔时间（以小时为单位）。最小值为 1，最大值为 24，默认值为 6。</p>
                         </div>
                         <div class="form-group">
-                            <label for="backup_interval">Backup Days</label>
+                            <label for="backup_interval">备份天数</label>
                             <div class="row">
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" data-parsley-type="integer" id="backup_days" name="backup_days" value="${config['backup_days']}" size="5" data-parsley-min="1" data-parsley-trigger="change" data-parsley-errors-container="#backup_days_error" required>
@@ -1499,97 +1499,95 @@
                                 <div id="backup_days_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
                             <p class="help-block">
-                                The number of days to keep scheduled backups. Minimum 1, default 3.<br />
-                                Note: Manual backups are not removed automatically.
+                                保留计划备份的天数。最少 1 天，默认 3 天。<br />
+                                注意：手动备份不会自动删除。
                             </p>
                         </div>
 
                         <div class="padded-header">
-                            <h3>Directories</h3>
+                            <h3>目录</h3>
                         </div>
 
                         <div class="form-group">
-                            <label for="log_dir">Log Directory</label> ${docker_msg | n}
+                            <label for="log_dir">日志目录</label> ${docker_msg | n}
                             <div class="row">
                                 <div class="col-md-7">
                                     <div class="input-group">
                                         <input type="text" class="form-control directory-settings" id="log_dir" name="log_dir" value="${config['log_dir']}" ${docker_setting}>
                                         <span class="input-group-btn">
-                                            <button class="btn btn-form" type="button" id="log_dir_browse" data-toggle="browse" data-filter=".folderonly" data-target="#log_dir" ${docker_setting}>Browse</button>
+                                            <button class="btn btn-form" type="button" id="log_dir_browse" data-toggle="browse" data-filter=".folderonly" data-target="#log_dir" ${docker_setting}>浏览</button>
                                         </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="backup_dir">Backup Directory</label> ${docker_msg | n}
+                            <label for="backup_dir">备份目录</label> ${docker_msg | n}
                             <div class="row">
                                 <div class="col-md-7">
                                     <div class="input-group">
                                         <input type="text" class="form-control directory-settings" id="backup_dir" name="backup_dir" value="${config['backup_dir']}" ${docker_setting}>
                                         <span class="input-group-btn">
-                                            <button class="btn btn-form" type="button" id="backup_dir_browse" data-toggle="browse" data-filter=".folderonly" data-target="#backup_dir" ${docker_setting}>Browse</button>
+                                            <button class="btn btn-form" type="button" id="backup_dir_browse" data-toggle="browse" data-filter=".folderonly" data-target="#backup_dir" ${docker_setting}>浏览</button>
                                         </span>
                                     </div>
                                     <div class="btn-group">
-                                        <button class="btn btn-form" type="button" id="backup_config">Backup Config</button>
-                                        <button class="btn btn-form" type="button" id="backup_database">Backup Database</button>
+                                        <button class="btn btn-form" type="button" id="backup_config">备份配置</button>
+                                        <button class="btn btn-form" type="button" id="backup_database">备份数据库</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="cache_dir">Cache Directory</label> ${docker_msg | n}
+                            <label for="cache_dir">缓存目录</label> ${docker_msg | n}
                             <div class="row">
                                 <div class="col-md-7">
                                     <div class="input-group">
                                         <input type="text" class="form-control directory-settings" id="cache_dir" name="cache_dir" value="${config['cache_dir']}" ${docker_setting}>
                                         <span class="input-group-btn">
-                                            <button class="btn btn-form" type="button" id="cache_dir_browse" data-toggle="browse" data-filter=".folderonly" data-target="#cache_dir" ${docker_setting}>Browse</button>
+                                            <button class="btn btn-form" type="button" id="cache_dir_browse" data-toggle="browse" data-filter=".folderonly" data-target="#cache_dir" ${docker_setting}>浏览</button>
                                         </span>
                                     </div>
                                     <div class="btn-group">
-                                        <button class="btn btn-form" type="button" id="clear_cache">Clear All Cache</button>
-                                        <button class="btn btn-form" type="button" id="clear_image_cache">Clear Image Cache</button>
+                                        <button class="btn btn-form" type="button" id="clear_cache">清除所有缓存</button>
+                                        <button class="btn btn-form" type="button" id="clear_image_cache">清除图片缓存</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="export_dir">Export Directory</label> ${docker_msg | n}
+                            <label for="export_dir">导出目录</label> ${docker_msg | n}
                             <div class="row">
                                 <div class="col-md-7">
                                     <div class="input-group">
                                         <input type="text" class="form-control directory-settings" id="export_dir" name="export_dir" value="${config['export_dir']}" ${docker_setting}>
                                         <span class="input-group-btn">
-                                            <button class="btn btn-form" type="button" id="export_dir_browse" data-toggle="browse" data-filter=".folderonly" data-target="#export_dir" ${docker_setting}>Browse</button>
+                                            <button class="btn btn-form" type="button" id="export_dir_browse" data-toggle="browse" data-filter=".folderonly" data-target="#export_dir" ${docker_setting}>浏览</button>
                                         </span>
                                     </div>
                                     <div class="btn-group">
-                                        <button class="btn btn-form" type="button" id="clear_exports">Clear All Exports</button>
+                                        <button class="btn btn-form" type="button" id="clear_exports">清除所有导出</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <p><input type="button" class="btn btn-bright save-button" value="Save" data-success="Changes saved successfully"></p>
+                        <p><input type="button" class="btn btn-bright save-button" value="保存" data-success="Changes saved successfully"></p>
 
                     </div>
 
                     <div role="tabpanel" class="tab-pane" id="tabs-remote_app">
 
                         <div class="padded-header">
-                            <h3>Tautulli Remote App</h3>
+                            <h3>Tautulli Remote 应用</h3>
                         </div>
 
                         <div class="form-group">
                             <label>Get the App</label>
                             <p class="help-block">
-                                Get the Tautulli Remote app on
-                                <a href="${anon_url('https://play.google.com/store/apps/details?id=com.tautulli.tautulli_remote')}" target="_blank" rel="noreferrer">Google Play</a>
-                                or the
-                                <a href="${anon_url('https://apps.apple.com/us/app/tautulli-remote/id1570909086?platform=iphone')}" target="_blank" rel="noreferrer">App Store</a>
-                                to access Tautulli from your mobile device.
+                                在 <a href="${anon_url('https://play.google.com/store/apps/details?id=com.tautulli.tautulli_remote')}" target="_blank" rel="noreferrer">Google Play</a>
+                                或 <a href="${anon_url('https://apps.apple.com/us/app/tautulli-remote/id1570909086?platform=iphone')}" target="_blank" rel="noreferrer">App Store</a>
+                                获取 Tautulli Remote 应用，以便从您的移动设备访问 Tautulli。
                                 <br />
                             </p>
                             <p class="help-block">
@@ -1600,21 +1598,21 @@
                                     <a href="${anon_url('https://apps.apple.com/us/app/tautulli-remote/id1570909086?platform=iphone')}" target="_blank" rel="noreferrer"><img alt="Download on the App Store" src="images/app-store-badge.svg" /></a>
                                 </span>
                                 <span class="app-badge">
-                                    <small>Google Play and the Google Play logo are trademarks of Google LLC.</small>
+                                    <small>Google Play 和 Google Play 标志是 Google LLC 的商标。</small>
                                     <br>
-                                    <small>Apple and the Apple Logo are trademarks of Apple Inc.</small>
+                                    <small>Apple 和 Apple Logo 是 Apple Inc. 的商标。</small>
                                 </span>
                             </p>
                             <br style="clear: both">
                         </div>
                         <div class="form-group">
-                            <label>Registered Devices</label>
-                            <p class="help-block">Register a new device using a QR code, or configure an existing device by clicking on the item below.</p>
-                            <p id="app_api_msg" style="color: #eb8600;">Warning: The API must be enabled under <a data-tab-destination="web_interface" data-target="api_enabled">Web Interface</a> to use the app.</p>
+                            <label>已注册设备</label>
+                            <p class="help-block">使用 QR 码注册新设备，或通过点击下方项目配置现有设备。</p>
+                            <p id="app_api_msg" style="color: #eb8600;">警告：必须在 <a data-tab-destination="web_interface" data-target="api_enabled">Web 界面</a> 下启用 API 才能使用该应用程序。</p>
                             <br />
                             <div class="row">
                                 <div id="plexpy-mobile-devices-table" class="col-md-12">
-                                    <div class='text-muted'><i class="fa fa-refresh fa-spin"></i> Loading registered devices...</div>
+                                    <div class='text-muted'><i class="fa fa-refresh fa-spin"></i>加载已注册的设备...</div>
                                     <br>
                                 </div>
                             </div>
@@ -1627,8 +1625,8 @@
     </div>
 </div>
 <div id="token_error_bar" style="display: none;">
-    <i class="fa fa-exclamation-triangle"></i> Your Plex.tv token is no longer valid.<br>
-    Please <a data-tab-destination="plex_media_server" data-target="sign-in-plex">fetch a new token</a>.
+    <i class="fa fa-exclamation-triangle"></i> 你的 Plex.tv 令牌已失效。<br>
+    请<a data-tab-destination="plex_media_server" data-target="sign-in-plex">获取一个新的token</a>.
 </div>
 </%def>
 
@@ -1639,18 +1637,18 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-remove"></i></button>
-                <h4 class="modal-title">Guidelines</h4>
+                <h4 class="modal-title">指南</h4>
             </div>
             <div class="modal-body">
                 <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
-                    <strong>Please read the <a href="${anon_url('https://github.com/%s/%s/blob/master/README.md' % (plexpy.CONFIG.GIT_USER, plexpy.CONFIG.GIT_REPO))}" target="_blank" rel="noreferrer">guidelines</a>
-                        in the README document <br />before submitting a new <span id="guidelines-type"></span>!</strong>
+                    <strong>请阅读 <a href="${anon_url('https://github.com/%s/%s/blob/master/README.md' % (plexpy.CONFIG.GIT_USER, plexpy.CONFIG.GIT_REPO))}" target="_blank" rel="noreferrer">指南</a>
+                        在提交新的 <span id="guidelines-type"></span> 之前，请先查看 README 文档中的内容！</strong>
                     <br /><br />
-                    Your post may be removed for failure to follow the guidelines.
+                    您的帖子可能会因未遵守指南而被删除。
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="#" target="_blank" rel="noreferrer" id="guidelines-continue" class="btn btn-bright">Continue</a>
+                <a href="#" target="_blank" rel="noreferrer" id="guidelines-continue" class="btn btn-bright">继续</a>
             </div>
         </div>
     </div>
@@ -1661,16 +1659,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-remove"></i></button>
-                <h4 class="modal-title">Support</h4>
+                <h4 class="modal-title">支持</h4>
             </div>
             <div class="modal-body">
                 <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
-                    <strong>Please read the <a href="${anon_url('https://github.com/%s/%s/wiki/Frequently-Asked-Questions' % (plexpy.CONFIG.GIT_USER, plexpy.CONFIG.GIT_REPO))}" target="_blank" rel="noreferrer">FAQ</a>
-                        before asking for help!</strong>
+                    <strong>请在寻求帮助之前阅读 <a href="${anon_url('https://github.com/%s/%s/wiki/Frequently-Asked-Questions' % (plexpy.CONFIG.GIT_USER, plexpy.CONFIG.GIT_REPO))}" target="_blank" rel="noreferrer">常见问题解答</a>！</strong>
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="#" target="_blank" rel="noreferrer" id="support-continue" class="btn btn-bright">Continue</a>
+                <a href="#" target="_blank" rel="noreferrer" id="support-continue" class="btn btn-bright">继续</a>
             </div>
         </div>
     </div>
@@ -1718,7 +1715,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-remove"></i></button>
-                <h4 class="modal-title">Add a Notification Agent</h4>
+                <h4 class="modal-title">添加通知代理</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">

@@ -55,7 +55,7 @@ DOCUMENTATION :: END
                         <div class="user-info-wrapper">
                             <div class="user-info-poster-face" style="background-image: url(${page('pms_image_proxy', data['user_thumb'], None, 80, 80, fallback='user')});">
                                 % if not data['is_active']:
-                                <span class="inactive-user-tooltip" data-toggle="tooltip" title="User not on Plex server">
+                                <span class="inactive-user-tooltip" data-toggle="tooltip" title="用户不在 Plex 服务器上">
                                     <i class="fa fa-2x fa-exclamation-triangle"></i>
                                 </span>
                                 % endif
@@ -90,12 +90,12 @@ DOCUMENTATION :: END
                                 <div class="col-md-12">
                                     <div class="table-card-header">
                                         <div class="header-bar">
-                                            <span><i class="fa fa-line-chart"></i> Global Stats</span>
+                                            <span><i class="fa fa-line-chart"></i> 全局统计</span>
                                         </div>
                                     </div>
                                     <div class="table-card-back">
                                         <div id="user-time-stats" class="user-overview-stats-wrapper">
-                                            <div class='muted'><i class="fa fa-refresh fa-spin"></i> Loading data...</div>
+                                            <div class='muted'><i class="fa fa-refresh fa-spin"></i> 加载数据中...</div>
                                             <br>
                                         </div>
                                     </div>
@@ -107,12 +107,12 @@ DOCUMENTATION :: END
                                 <div class="col-md-12">
                                     <div class="table-card-header">
                                         <div class="header-bar">
-                                            <span><i class="fa fa-television"></i> Player Stats</span>
+                                            <span><i class="fa fa-television"></i> 用户状态</span>
                                         </div>
                                     </div>
                                     <div class="table-card-back">
                                         <div id="user-player-stats" class="user-player">
-                                            <div class='muted'><i class="fa fa-refresh fa-spin"></i> Loading data...</div>
+                                            <div class='muted'><i class="fa fa-refresh fa-spin"></i> 加载数据中...</div>
                                             <br>
                                         </div>
                                     </div>
@@ -132,12 +132,12 @@ DOCUMENTATION :: END
                                             </li>
                                         </ul>
                                         <div class="header-bar">
-                                            <span><i class="fa fa-history"></i> Recently Played</span>
+                                            <span><i class="fa fa-history"></i> 最近播放</span>
                                         </div>
                                     </div>
                                     <div class="table-card-back">
                                         <div id="user-recently-watched">
-                                            <div class='muted'><i class="fa fa-refresh fa-spin"></i> Loading data...</div>
+                                            <div class='muted'><i class="fa fa-refresh fa-spin"></i> 加载数据中...</div>
                                             <br>
                                         </div>
                                     </div>

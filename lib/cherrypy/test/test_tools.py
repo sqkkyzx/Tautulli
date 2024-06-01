@@ -213,12 +213,12 @@ class ToolTests(helper.CPWebCase):
             # this:
             # @tools.check_access()
             def restricted(self):
-                return 'Welcome!'
+                return '欢迎！'
             restricted = myauthtools.check_access()(restricted)
             userid = restricted
 
             def err_in_onstart(self):
-                return 'success!'
+                return '成功！'
 
             @cherrypy.config(**{'response.stream': True})
             def stream(self, id=None):

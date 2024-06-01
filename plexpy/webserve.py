@@ -1073,10 +1073,10 @@ class WebInterface(object):
             if result:
                 return result
             else:
-                logger.warn("Unable to retrieve data for get_library_user_stats.")
+                logger.warn("无法检索 get_library_user_stats 的数据。")
                 return result
         else:
-            logger.warn("Library user stats requested but no section_id received.")
+            logger.warn("请求了库用户统计数据，但未收到 section_id。")
 
     @cherrypy.expose
     @cherrypy.tools.json_out()
@@ -4587,10 +4587,10 @@ class WebInterface(object):
             if result:
                 return result
             else:
-                logger.warn("Unable to retrieve data for get_item_user_stats.")
+                logger.warn("无法检索 get_item_user_stats 的数据。")
                 return result
         else:
-            logger.warn("Item user stats requested but no rating_key received.")
+            logger.warn("项目用户统计已请求，但未收到 rating_key。")
 
     @cherrypy.expose
     @cherrypy.tools.json_out()

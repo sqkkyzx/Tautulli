@@ -59,7 +59,7 @@ class CacheTest(helper.CPWebCase):
                     time.sleep(float(seconds))
                 finally:
                     self.longlock.release()
-                return 'success!'
+                return '成功！'
 
             @cherrypy.expose
             def clear_cache(self, path):
@@ -346,7 +346,7 @@ class CacheTest(helper.CPWebCase):
         # AntiStampedeCache object, and populate its selecting_headers,
         # before the actual stampede.
         self.getPage(slow_url)
-        self.assertBody('success!')
+        self.assertBody('成功！')
         path = urllib.parse.quote(slow_url, safe='')
         self.getPage('/clear_cache?path=' + path)
         self.assertStatus(200)
@@ -356,7 +356,7 @@ class CacheTest(helper.CPWebCase):
         def run():
             self.getPage(slow_url)
             # The response should be the same every time
-            self.assertBody('success!')
+            self.assertBody('成功！')
         ts = [threading.Thread(target=run) for i in range(100)]
         for t in ts:
             t.start()

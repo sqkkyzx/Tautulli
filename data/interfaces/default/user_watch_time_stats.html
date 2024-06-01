@@ -23,11 +23,11 @@ DOCUMENTATION :: END
         <li>
             <div class='user-overview-stats-instance-text'>
                 % if a['query_days'] == 0:
-                <h4>All Time</h4>
+                <h4>所有时间</h4>
                 % elif a['query_days'] == 1:
-                <h4>Last 24 hours</h4>
+                <h4>过去 24 小时</h4>
                 % else:
-                <h4>Last ${a['query_days']} days</h4>
+                <h4>最近 ${a['query_days']} 天</h4>
                 % endif
                 <h3>${a['total_plays']}</h3>
                 <p>plays</p>

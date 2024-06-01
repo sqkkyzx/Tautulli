@@ -22,7 +22,7 @@ DOCUMENTATION :: END
     <tbody>
         % if plexpy.CURRENT_VERSION:
         <tr>
-            <td>Git Branch:</td>
+            <td>Git 分支:</td>
             <td><a class="no-highlight" href="${anon_url('https://github.com/%s/%s/tree/%s' % (plexpy.CONFIG.GIT_USER, plexpy.CONFIG.GIT_REPO, plexpy.CONFIG.GIT_BRANCH))}" target="_blank" rel="noreferrer">${plexpy.CONFIG.GIT_BRANCH}</a></td>
         </tr>
         <tr>
@@ -31,61 +31,61 @@ DOCUMENTATION :: END
         </tr>
         % endif
         <tr>
-            <td>Configuration File:</td>
+            <td>配置文件:</td>
             <td><a class="no-highlight" href="download_config" data-toggle="tooltip" data-placement="right" title="Download Configuration">${plexpy.CONFIG_FILE}</a></td>
         </tr>
         <tr>
-            <td>Database File:</td>
+            <td>数据库文件:</td>
             <td><a class="no-highlight" href="download_database" data-toggle="tooltip" data-placement="right" title="Download Database">${plexpy.DB_FILE}</a> | <a class="no-highlight" href="status/database">Status</a></td>
         </tr>
         <tr>
-            <td>Log File:</td>
+            <td>日志文件:</td>
             <td><a class="no-highlight" href="download_log" data-toggle="tooltip" data-placement="right" title="Download Log">${os.path.join(plexpy.CONFIG.LOG_DIR, logger.FILENAME)}</a></td>
         </tr>
         <tr>
-            <td>Backup Directory:</td>
+            <td>备份目录:</td>
             <td>${plexpy.CONFIG.BACKUP_DIR}</td>
         </tr>
         <tr>
-            <td>Cache Directory:</td>
+            <td>缓存目录:</td>
             <td>${plexpy.CONFIG.CACHE_DIR}</td>
         </tr>
         <tr>
-            <td>Export Directory:</td>
+            <td>导出目录:</td>
             <td>${plexpy.CONFIG.EXPORT_DIR}</td>
         </tr>
         <tr>
-            <td>Newsletter Directory:</td>
+            <td>通讯目录:</td>
             <td>${plexpy.CONFIG.NEWSLETTER_DIR}</td>
         </tr>
         % if plexpy.ARGS:
         <tr>
-            <td>Arguments:</td>
+            <td>参数:</td>
             <td>${plexpy.ARGS}</td>
         </tr>
         % endif
         <tr>
-            <td>Platform:</td>
+            <td>平台:</td>
             <td>${'[Docker] ' if plexpy.DOCKER else ''}${common.PLATFORM} ${common.PLATFORM_RELEASE} (${common.PLATFORM_VERSION + (' - {}'.format(common.PLATFORM_LINUX_DISTRO) if common.PLATFORM_LINUX_DISTRO else '')})</td>
         </tr>
         <tr>
-            <td>System Timezone:</td>
+            <td>系统时区:</td>
             <td>${str(plexpy.SYS_TIMEZONE)} (${'UTC{}'.format(plexpy.SYS_UTC_OFFSET)})
         </tr>
         <tr>
-            <td>System Language:</td>
+            <td>系统语言:</td>
             <td>${plexpy.SYS_LANGUAGE}${' (override {})'.format(plexpy.CONFIG.PMS_LANGUAGE) if plexpy.CONFIG.PMS_LANGUAGE else ''}</td>
         </tr>
         <tr>
-            <td>Python Version:</td>
+            <td>Python 版本:</td>
             <td>${sys.version}</td>
         </tr>
         <tr>
-            <td>SQLite Version:</td>
+            <td>SQLite 版本:</td>
             <td>${sqlite3.sqlite_version}</td>
         </tr>
         <tr>
-            <td class="top-line">Resources:</td>
+            <td class="top-line">资源:</td>
             <td class="top-line">
                 <a class="no-highlight" href="${anon_url('https://tautulli.com')}" target="_blank" rel="noreferrer">Tautulli Website</a> |
                 <a class="no-highlight" href="${anon_url('https://github.com/%s/%s' % (plexpy.CONFIG.GIT_USER, plexpy.CONFIG.GIT_REPO))}" target="_blank" rel="noreferrer">Source</a> |
@@ -95,7 +95,7 @@ DOCUMENTATION :: END
             </td>
         </tr>
         <tr>
-            <td>Support:</td>
+            <td>支持:</td>
             <td>
                 <a class="no-highlight support-modal-link" href="${anon_url('https://tautulli.com/discord')}" target="_blank" rel="noreferrer">Tautulli Discord Server</a> |
                 <a class="no-highlight support-modal-link" href="${anon_url('https://www.reddit.com/r/Tautulli')}" target="_blank" rel="noreferrer">Tautulli Subreddit</a> |

@@ -7,12 +7,12 @@
                 <strong><span id="modal_header_ip_address">
                     % if data.get('media_type'):
                     <% h = {'episode': 'TV Show', 'track': 'Music', 'live': 'Live TV'} %>
-                    <i class="fa fa-history"></i> ${h.get(data['media_type'], data['media_type'].title())} History for <span id="date-header">${data['start_date']}</span>
+                    <i class="fa fa-history"></i> ${h.get(data['media_type'], data['media_type'].title())} 历史记录 <span id="date-header">${data['start_date']}</span>
                     % elif data.get('transcode_decision'):
                     <% h = {'copy': 'Direct Stream'} %>
-                    <i class="fa fa-history"></i> ${h.get(data['transcode_decision'], data['transcode_decision'].title())} History for <span id="date-header">${data['start_date']}</span>
+                    <i class="fa fa-history"></i> ${h.get(data['transcode_decision'], data['transcode_decision'].title())} 历史记录 <span id="date-header">${data['start_date']}</span>
                     % else:
-                    <i class="fa fa-history"></i> History for <span id="date-header">${data['start_date']}</span>
+                    <i class="fa fa-history"></i> 历史记录 <span id="date-header">${data['start_date']}</span>
                     % endif
                 </span></strong>
             </h4>
@@ -75,11 +75,11 @@
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-remove"></i></button>
             <h4 class="modal-title">
-                <strong><i class="fa fa-history"></i> History</strong>
+                <strong><i class="fa fa-history"></i>历史</strong>
             </h4>
         </div>
         <div class="modal-body">
-            <h3>No data.</h3>
+            <h3>没有数据。</h3>
         </div>
         <div class="modal-footer"></div>
     </div>

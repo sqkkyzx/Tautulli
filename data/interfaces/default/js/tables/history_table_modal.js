@@ -13,12 +13,12 @@ $.ajax({
 history_table_modal_options = {
     "destroy": true,
     "language": {
-        "search": "Search: ",
-        "info": "Showing _START_ to _END_ of _TOTAL_ history items",
-        "infoEmpty": "Showing 0 to 0 of 0 entries",
+        "search": "搜索：",
+        "info": "显示第 _START_ 条到第 _END_ 条，共 _TOTAL_ 条历史记录",
+        "infoEmpty": "显示第 0 条到第 0 条，共 0 条记录",
         "infoFiltered": "",
-        "emptyTable": "No data in table",
-        "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> Loading items...</div>'
+        "emptyTable": "表中无数据",
+        "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> 加载项目中...</div>'
     },
     "pagingType": "simple_numbers",
     "stateSave": false,
@@ -157,7 +157,7 @@ history_table_modal_options = {
         });
     },
     "preDrawCallback": function(settings) {
-        var msg = "<i class='fa fa-refresh fa-spin'></i>&nbsp; Fetching rows...";
+        var msg = "<i class='fa fa-refresh fa-spin'></i>&nbsp; 正在获取行...";
         showMsg(msg, false, false, 0)
     }
 }

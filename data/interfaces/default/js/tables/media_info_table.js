@@ -300,12 +300,12 @@ media_info_table_options = {
             get_file_sizes = false;
         }
 
-        $("#media_info_table-SID-" + section_id + "_info").append('<span class="hidden-md hidden-sm hidden-xs"> with a total file size of ' +
+        $("#media_info_table-SID-" + section_id + "_info").append('<span class="hidden-md hidden-sm hidden-xs"> 文件总大小为 ' +
             humanFileSize(settings.json.filtered_file_size) +
             ' (filtered from ' + humanFileSize(settings.json.total_file_size) + ')</span>');
     },
     "preDrawCallback": function (settings) {
-        var msg = "<i class='fa fa-refresh fa-spin'></i>&nbsp; Fetching rows...";
+        var msg = "<i class='fa fa-refresh fa-spin'></i>&nbsp; 正在获取行...";
         showMsg(msg, false, false, 0)
     },
     "rowCallback": function (row, rowData, rowIndex) {

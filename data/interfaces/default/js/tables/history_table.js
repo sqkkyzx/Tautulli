@@ -14,13 +14,13 @@ $.ajax({
 history_table_options = {
     "destroy": true,
     "language": {
-        "search": "Search: ",
-        "lengthMenu": "Show _MENU_ entries per page",
-        "info": "Showing _START_ to _END_ of _TOTAL_ history items",
-        "infoEmpty": "Showing 0 to 0 of 0 entries",
-        "infoFiltered": "<span class='hidden-md hidden-sm hidden-xs'>(filtered from _MAX_ total entries)</span>",
-        "emptyTable": "No data in table",
-        "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> Loading items...</div>'
+        "search": "搜索：",
+        "lengthMenu": "每页显示 _MENU_ 条",
+        "info": "显示第 _START_ 条到第 _END_ 条，共 _TOTAL_ 条历史记录",
+        "infoEmpty": "显示第 0 条到第 0 条，共 0 条记录",
+        "infoFiltered": "<span class='hidden-md hidden-sm hidden-xs'>（从 _MAX_ 条目中过滤）</span>",
+        "emptyTable": "表中无数据",
+        "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> 加载项目中...</div>'
     },
     "pagingType": "full_numbers",
     "stateSave": true,
@@ -324,7 +324,7 @@ history_table_options = {
             ' (filtered from ' + settings.json.total_duration + ' total)</span>');
     },
     "preDrawCallback": function(settings) {
-        var msg = "<i class='fa fa-refresh fa-spin'></i>&nbsp; Fetching rows...";
+        var msg = "<i class='fa fa-refresh fa-spin'></i>&nbsp; 正在获取行...";
         showMsg(msg, false, false, 0);
         $('[data-toggle="tooltip"]').tooltip('destroy');
         $('[data-toggle="popover"]').popover('destroy');

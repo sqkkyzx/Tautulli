@@ -24,12 +24,12 @@ user_ip_table_options = {
     "destroy": true,
     "language": {
         "search": "搜索：",
-        "lengthMenu": "Show _MENU_ entries per page",
-        "info": "Showing _START_ to _END_ of _TOTAL_ results",
-        "infoEmpty": "Showing 0 to 0 of 0 entries",
-        "infoFiltered": "(filtered from _MAX_ total entries)",
-        "emptyTable": "No data in table",
-        "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> Loading items...</div>'
+        "lengthMenu": "每页显示 _MENU_ 条",
+        "info": "显示第 _START_ 到第 _END_ 条结果，共 _TOTAL_ 条结果",
+        "infoEmpty": "显示第 0 条到第 0 条，共 0 条记录",
+        "infoFiltered": "（从 _MAX_ 条目中过滤）",
+        "emptyTable": "表中无数据",
+        "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> 加载项目中...</div>'
     },
     "stateSave": true,
     "stateSaveParams": function (settings, data) {
@@ -185,7 +185,7 @@ user_ip_table_options = {
 
     },
     "preDrawCallback": function(settings) {
-        var msg = "<i class='fa fa-refresh fa-spin'></i>&nbsp; Fetching rows...";
+        var msg = "<i class='fa fa-refresh fa-spin'></i>&nbsp; 正在获取行...";
         showMsg(msg, false, false, 0)
     }
 }

@@ -64,7 +64,7 @@ users_list_table_options = {
             "data": "user_thumb",
             "createdCell": function (td, cellData, rowData, row, col) {
                 var inactive = '';
-                if (!rowData['is_active']) { inactive = '<span class="inactive-user-tooltip" data-toggle="tooltip" title="User not on Plex server"><i class="fa fa-exclamation-triangle"></i></span>'; }
+                if (!rowData['is_active']) { inactive = '<span class="inactive-user-tooltip" data-toggle="tooltip" title="用户不在 Plex 服务器上"><i class="fa fa-exclamation-triangle"></i></span>'; }
                 $(td).html('<a href="' + page('user', rowData['user_id']) + '"" title="' + rowData['username'] + '"><div class="users-poster-face" style="background-image: url(' + page('pms_image_proxy', cellData, null, 80, 80, null, null, null, 'user') + ');">' + inactive + '</div></a>');
             },
             "orderable": false,
@@ -288,7 +288,7 @@ users_list_table_options = {
         }
     },
     "preDrawCallback": function(settings) {
-        var msg = "<i class='fa fa-refresh fa-spin'></i>&nbsp; Fetching rows...";
+        var msg = "<i class='fa fa-refresh fa-spin'></i>&nbsp; 正在获取行...";
         showMsg(msg, false, false, 0)
     },
     "rowCallback": function (row, rowData) {

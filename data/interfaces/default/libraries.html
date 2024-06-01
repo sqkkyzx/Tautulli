@@ -92,7 +92,7 @@
         };
 
         libraries_list_table = $('#libraries_list_table').DataTable(libraries_list_table_options);
-        var colvis = new $.fn.dataTable.ColVis(libraries_list_table, { buttonText: '<i class="fa fa-columns"></i> Select columns', buttonClass: 'btn btn-dark', exclude: [0, 1] });
+        var colvis = new $.fn.dataTable.ColVis(libraries_list_table, { buttonText: '<i class="fa fa-columns"></i> 选择列', buttonClass: 'btn btn-dark', exclude: [0, 1] });
         $(colvis.button()).appendTo('div.colvis-button-bar');
 
         clearSearchButton('libraries_list_table', libraries_list_table);
@@ -137,7 +137,7 @@
                             cache: false,
                             async: true,
                             success: function (data) {
-                                var msg = "Library history purged";
+                                var msg = "库历史已清除";
                                 showMsg(msg, false, true, 2000);
                                 libraries_list_table.draw();
                             }

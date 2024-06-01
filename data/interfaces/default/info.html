@@ -558,12 +558,12 @@ DOCUMENTATION :: END
                 <div class="col-md-12">
                     <div class="table-card-header">
                         <div class="header-bar">
-                            <span><i class="fa fa-line-chart"></i> Global Stats</span>
+                            <span><i class="fa fa-line-chart"></i> 全局统计</span>
                         </div>
                     </div>
                     <div class="table-card-back">
                         <div id="watch-time-stats" class="user-overview-stats-wrapper">
-                            <div class='muted'><i class="fa fa-refresh fa-spin"></i> Loading data...</div>
+                            <div class='muted'><i class="fa fa-refresh fa-spin"></i> 加载数据中...</div>
                             <br>
                         </div>
                     </div>
@@ -571,12 +571,12 @@ DOCUMENTATION :: END
                 <div class="col-md-12">
                     <div class="table-card-header">
                         <div class="header-bar">
-                            <span><i class="fa fa-group"></i> User Stats</span>
+                            <span><i class="fa fa-group"></i> 用户统计</span>
                         </div>
                     </div>
                     <div class="table-card-back">
                         <div id="user-stats" class="user-player">
-                            <div class='muted'><i class="fa fa-refresh fa-spin"></i> Loading data...</div>
+                            <div class='muted'><i class="fa fa-refresh fa-spin"></i> 加载数据中...</div>
                             <br>
                         </div>
                     </div>
@@ -733,17 +733,17 @@ DOCUMENTATION :: END
                                         <table class="display export_table" id="export_table-RK-${data['rating_key']}" width="100%">
                                             <thead>
                                                 <tr>
-                                                    <th align="left" id="timestamp">Exported At</th>
-                                                    <th align="left" id="media_type_title">Media Type</th>
+                                                    <th align="left" id="timestamp">导出时间</th>
+                                                    <th align="left" id="media_type_title">媒体类型</th>
                                                     <th align="left" id="rating_key">Rating Key</th>
-                                                    <th align="left" id="filename">Filename</th>
-                                                    <th align="left" id="file_format">File Format</th>
-                                                    <th align="left" id="metadata_level">Metadata Level</th>
-                                                    <th align="left" id="media_info_level">Media Info Level</th>
-                                                    <th align="left" id="media_info_level">Custom Fields</th>
-                                                    <th align="left" id="file_size">File Size</th>
-                                                    <th align="left" id="complete">Download</th>
-                                                    <th align="left" id="delete">Delete</th>
+                                                    <th align="left" id="filename">文件名</th>
+                                                    <th align="left" id="file_format">文件格式</th>
+                                                    <th align="left" id="metadata_level">元数据级别</th>
+                                                    <th align="left" id="media_info_level">媒体信息级别</th>
+                                                    <th align="left" id="media_info_level">自定义字段</th>
+                                                    <th align="left" id="file_size">文件大小</th>
+                                                    <th align="left" id="complete">下载</th>
+                                                    <th align="left" id="delete">删除</th>
                                                 </tr>
                                             </thead>
                                             <tbody></tbody>
@@ -893,7 +893,7 @@ DOCUMENTATION :: END
             }
         }
         history_table = $('#history_table-RK-${data["rating_key"]}').DataTable(history_table_options);
-        var colvis = new $.fn.dataTable.ColVis(history_table, { buttonText: '<i class="fa fa-columns"></i> Select columns', buttonClass: 'btn btn-dark', exclude: [0, 12] });
+        var colvis = new $.fn.dataTable.ColVis(history_table, { buttonText: '<i class="fa fa-columns"></i> 选择列', buttonClass: 'btn btn-dark', exclude: [0, 12] });
         $(colvis.button()).appendTo('#button-bar-history');
 
         clearSearchButton('history_table-RK-${data["rating_key"]}', history_table);
@@ -1079,7 +1079,7 @@ DOCUMENTATION :: END
         export_table = $('#export_table-RK-${data["rating_key"]}').DataTable(export_table_options);
         export_table.columns([2, 7]).visible(false);
 
-        var colvis = new $.fn.dataTable.ColVis(export_table, { buttonText: '<i class="fa fa-columns"></i> Select columns', buttonClass: 'btn btn-dark' });
+        var colvis = new $.fn.dataTable.ColVis(export_table, { buttonText: '<i class="fa fa-columns"></i> 选择列', buttonClass: 'btn btn-dark' });
         $(colvis.button()).appendTo('#button-bar-export');
 
         clearSearchButton('export_table-RK-${data["rating_key"]}', export_table);

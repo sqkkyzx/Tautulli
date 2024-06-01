@@ -1,13 +1,13 @@
 collections_table_options = {
     "destroy": true,
     "language": {
-        "search": "Search: ",
-        "lengthMenu": "Show _MENU_ entries per page",
-        "info": "Showing _START_ to _END_ of _TOTAL_ collections",
-        "infoEmpty": "Showing 0 to 0 of 0 entries",
-        "infoFiltered": "<span class='hidden-md hidden-sm hidden-xs'>(filtered from _MAX_ total entries)</span>",
-        "emptyTable": "No data in table",
-        "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> Loading items...</div>'
+        "search": "搜索：",
+        "lengthMenu": "每页显示 _MENU_ 条",
+        "info": "显示第 _START_ 到第 _END_ 项，共 _TOTAL_ 项收藏",
+        "infoEmpty": "显示第 0 条到第 0 条，共 0 条记录",
+        "infoFiltered": "<span class='hidden-md hidden-sm hidden-xs'>（从 _MAX_ 条目中过滤）</span>",
+        "emptyTable": "表中无数据",
+        "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> 加载项目中...</div>'
     },
     "pagingType": "full_numbers",
     "stateSave": true,
@@ -122,7 +122,7 @@ collections_table_options = {
         });
     },
     "preDrawCallback": function(settings) {
-        var msg = "<i class='fa fa-refresh fa-spin'></i>&nbsp; Fetching rows...";
+        var msg = "<i class='fa fa-refresh fa-spin'></i>&nbsp; 正在获取行...";
         showMsg(msg, false, false, 0);
     },
     "rowCallback": function (row, rowData, rowIndex) {

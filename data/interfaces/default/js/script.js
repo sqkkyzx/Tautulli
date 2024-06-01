@@ -152,7 +152,7 @@ function doAjaxCall(url, elem, reload, form, showMsg, callback) {
     var dataSucces = $(elem).data('success');
     if (typeof dataSucces === "undefined") {
         // Standard Message when variable is not set
-        dataSucces = "Success!";
+        dataSucces = "成功！";
     }
     // Data Error Message
     var dataError = $(elem).data('error');

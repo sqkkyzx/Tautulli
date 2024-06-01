@@ -3,13 +3,13 @@ var libraries_to_purge = [];
 
 libraries_list_table_options = {
     "language": {
-        "search": "Search: ",
-        "lengthMenu": "Show _MENU_ entries per page",
-        "info": "Showing _START_ to _END_ of _TOTAL_ active libraries",
-        "infoEmpty": "Showing 0 to 0 of 0 entries",
+        "search": "搜索：",
+        "lengthMenu": "每页显示 _MENU_ 条",
+        "info": "显示 _START_ 到 _END_ ，共 _TOTAL_ 个活跃库",
+        "infoEmpty": "显示第 0 条到第 0 条，共 0 条记录",
         "infoFiltered": "",
-        "emptyTable": "No data in table",
-        "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> Loading items...</div>'
+        "emptyTable": "表中无数据",
+        "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> 加载项目中...</div>'
     },
     "destroy": true,
     "processing": false,
@@ -235,7 +235,7 @@ libraries_list_table_options = {
         }
     },
     "preDrawCallback": function(settings) {
-        var msg = "<i class='fa fa-refresh fa-spin'></i>&nbsp; Fetching rows...";
+        var msg = "<i class='fa fa-refresh fa-spin'></i>&nbsp; 正在获取行...";
         showMsg(msg, false, false, 0)
     },
     "rowCallback": function (row, rowData) {

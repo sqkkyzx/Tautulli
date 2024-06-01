@@ -11,21 +11,21 @@
 <div class='container-fluid'>
     % if config['database_is_importing']:
     <div style="text-align: center; margin-top: 20px;">
-        <i class="fa fa-refresh fa-spin"></i>&nbsp; Tautulli is importing history from another database. This could take a few minutes depending on the size of your database.
+        <i class="fa fa-refresh fa-spin"></i>&nbsp; Tautulli 正在从另一个数据库导入历史记录。根据数据库的大小，这可能需要几分钟时间。
         <br />
-        You may leave this page and check back later.
+        你可以离开此页面，稍后再回来查看。
     </div>
     % endif
     <div class='table-card-header'>
         <div class="header-bar">
-            <span><i class="fa fa-history"></i> History</span>
+            <span><i class="fa fa-history"></i> 历史</span>
         </div>
         <div class="button-bar">
             % if _session['user_group'] == 'admin':
             <div class="alert alert-danger alert-edit" role="alert" id="row-edit-mode-alert"><i class="fa fa-exclamation-triangle"></i>&nbsp</div>
             <div class="btn-group">
                 <button class="btn btn-danger btn-edit" data-toggle="button" aria-pressed="false" autocomplete="off" id="row-edit-mode">
-                    <i class="fa fa-trash-o"></i> Delete mode
+                    <i class="fa fa-trash-o"></i> 删除模式
                 </button>
             </div>
             % endif
@@ -39,31 +39,31 @@
             % endif
             <div class="btn-group" data-toggle="buttons" id="media_type-selection">
                 <label class="btn btn-dark btn-filter">
-                    <input type="checkbox" name="media_type-filter" id="history-media_type-movie" value="movie" autocomplete="off"><i class="fa fa-film"></i> Movies
+                    <input type="checkbox" name="media_type-filter" id="history-media_type-movie" value="movie" autocomplete="off"><i class="fa fa-film"></i> 电影
                 </label>
                 <label class="btn btn-dark btn-filter">
-                    <input type="checkbox" name="media_type-filter" id="history-media_type-episode" value="episode" autocomplete="off"><i class="fa fa-television"></i> TV Shows
+                    <input type="checkbox" name="media_type-filter" id="history-media_type-episode" value="episode" autocomplete="off"><i class="fa fa-television"></i> 电视节目
                 </label>
                 <label class="btn btn-dark btn-filter">
-                    <input type="checkbox" name="media_type-filter" id="history-media_type-track" value="track" autocomplete="off"><i class="fa fa-music"></i> Music
+                    <input type="checkbox" name="media_type-filter" id="history-media_type-track" value="track" autocomplete="off"><i class="fa fa-music"></i> 音乐
                 </label>
                 <label class="btn btn-dark btn-filter">
-                    <input type="checkbox" name="media_type-filter" id="history-media_type-live" value="live" autocomplete="off"><i class="fa fa-broadcast-tower"></i> Live TV
+                    <input type="checkbox" name="media_type-filter" id="history-media_type-live" value="live" autocomplete="off"><i class="fa fa-broadcast-tower"></i> 直播电视
                 </label>
             </div>
             <div class="btn-group" data-toggle="buttons" id="transcode_decision-selection">
                 <label class="btn btn-dark btn-filter">
-                    <input type="checkbox" name="transcode_decision-filter" id="history-transcode_decision-direct_play" value="direct play" autocomplete="off"><i class="fa fa-play-circle"></i> Direct Play
+                    <input type="checkbox" name="transcode_decision-filter" id="history-transcode_decision-direct_play" value="direct play" autocomplete="off"><i class="fa fa-play-circle"></i> 直接播放
                 </label>
                 <label class="btn btn-dark btn-filter">
-                    <input type="checkbox" name="transcode_decision-filter" id="history-transcode_decision-copy" value="copy" autocomplete="off"><i class="fa fa-stream"></i> Direct Stream
+                    <input type="checkbox" name="transcode_decision-filter" id="history-transcode_decision-copy" value="copy" autocomplete="off"><i class="fa fa-stream"></i> 直接串流
                 </label>
                 <label class="btn btn-dark btn-filter">
-                    <input type="checkbox" name="transcode_decision-filter" id="history-transcode_decision-transcode" value="transcode" autocomplete="off"><i class="fa fa-server"></i> Transcode
+                    <input type="checkbox" name="transcode_decision-filter" id="history-transcode_decision-transcode" value="transcode" autocomplete="off"><i class="fa fa-server"></i> 转码
                 </label>
             </div>
             <div class="btn-group">
-                <button class="btn btn-dark refresh-history-button" id="refresh-history-list"><i class="fa fa-refresh"></i> Refresh history</button>
+                <button class="btn btn-dark refresh-history-button" id="refresh-history-list"><i class="fa fa-refresh"></i> 刷新历史记录</button>
             </div>
             <div class="btn-group colvis-button-bar"></div>
         </div>
@@ -72,18 +72,18 @@
         <table class="display history_table" id="history_table" width="100%">
             <thead>
             <tr>
-                <th align="left" id="delete_row">Delete</th>
-                <th align="left" id="date">Date</th>
-                <th align="left" id="friendly_name">User</th>
-                <th align="left" id="ip_address">IP Address</th>
-                <th align="left" id="platform">Platform</th>
-                <th align="left" id="product">Product</th>
-                <th align="left" id="player">Player</th>
-                <th align="left" id="title">Title</th>
-                <th align="left" id="started">Started</th>
-                <th align="left" id="paused_counter">Paused</th>
-                <th align="left" id="stopped">Stopped</th>
-                <th align="left" id="play_duration">Duration</th>
+                <th align="left" id="delete_row">删除</th>
+                <th align="left" id="date">日期</th>
+                <th align="left" id="friendly_name">用户</th>
+                <th align="left" id="ip_address">IP地址</th>
+                <th align="left" id="platform">平台</th>
+                <th align="left" id="product">产品</th>
+                <th align="left" id="player">播放器</th>
+                <th align="left" id="title">标题</th>
+                <th align="left" id="started">开始</th>
+                <th align="left" id="paused_counter">暂停</th>
+                <th align="left" id="stopped">停止</th>
+                <th align="left" id="play_duration">时长</th>
                 <th align="left" id="percent_complete"></th>
             </tr>
             </thead>
@@ -104,15 +104,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-remove"></i></button>
-                <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                <h4 class="modal-title" id="myModalLabel">确认删除</h4>
             </div>
             <div class="modal-body" style="text-align: center;">
-                <p>Are you REALLY sure you want to delete <strong><span id="deleteCount"></span></strong> history item(s)?</p>
-                <p>This is permanent and cannot be undone!</p>
+                <p>你真的确定要删除 <strong><span id="deleteCount"></span></strong> 条历史记录吗？</p>
+                <p>这是永久性的，无法撤销！</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-dark" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-danger btn-ok" data-dismiss="modal" id="confirm-delete">Delete</button>
+                <button type="button" class="btn btn-dark" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-danger btn-ok" data-dismiss="modal" id="confirm-delete">删除</button>
             </div>
         </div>
     </div>
@@ -183,7 +183,7 @@
             };
             history_table = $('#history_table').DataTable(history_table_options);
             var colvis = new $.fn.dataTable.ColVis(history_table, {
-                buttonText: '<i class="fa fa-columns"></i> Select columns',
+                buttonText: '<i class="fa fa-columns"></i> 选择列',
                 buttonClass: 'btn btn-dark',
                 exclude: [0, 12]
             });

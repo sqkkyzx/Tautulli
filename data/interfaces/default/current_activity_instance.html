@@ -151,15 +151,15 @@ DOCUMENTATION :: END
                     <div class="dashboard-activity-info scoller-content">
                         <ul class="list-unstyled dashboard-activity-info-list">
                             <li class="dashboard-activity-info-item">
-                                <div class="sub-heading">Product</div>
+                                <div class="sub-heading">产品</div>
                                 <div class="sub-value platform-right">${data['product']}</div>
                             </li>
                             <li class="dashboard-activity-info-item">
-                                <div class="sub-heading">Player</div>
+                                <div class="sub-heading">播放器</div>
                                 <div class="sub-value platform-right">${data['player']}</div>
                             </li>
                             <li class="dashboard-activity-info-item">
-                                <div class="sub-heading">Quality</div>
+                                <div class="sub-heading">质量</div>
                                 <div class="sub-value platform-right">
                                     <span id="stream_quality-${sk}">
                                     % if data['media_type'] != 'photo' and data['quality_profile'] != 'Unknown':
@@ -176,12 +176,12 @@ DOCUMENTATION :: END
                                     ${data['quality_profile']}
                                     % endif
                                     </span>
-                                    <span data-toggle="tooltip" title="Quality profile is only an estimate based on bitrate and may be incorrect"><i class="fa fa-exclamation-circle"></i></span>
+                                    <span data-toggle="tooltip" title="质量配置文件仅基于比特率的估计，可能不准确"><i class="fa fa-exclamation-circle"></i></span>
                                 </div>
                             </li>
                             % if data['optimized_version'] == 1:
                             <li class="dashboard-activity-info-item">
-                                <div class="sub-heading">Optimized</div>
+                                <div class="sub-heading">优化</div>
                                 <div class="sub-value" id="optimized_version-${sk}">
                                     ${data['optimized_version_profile']} (${data['optimized_version_title']})
                                 </div>
@@ -189,7 +189,7 @@ DOCUMENTATION :: END
                             % endif
                             % if data['synced_version'] == 1:
                             <li class="dashboard-activity-info-item">
-                                <div class="sub-heading">Synced</div>
+                                <div class="sub-heading">同步</div>
                                 <div class="sub-value" id="synced_version-${sk}">
                                     ${data['synced_version_profile']}
                                 </div>
@@ -199,30 +199,30 @@ DOCUMENTATION :: END
                         <ul class="list-unstyled dashboard-activity-info-list">
                             <li class="dashboard-activity-info-item">
                                 % if _session['user_group'] == 'admin':
-                                <div class="sub-heading"><span class="raw-stream-info-modal" data-toggle="modal" data-target="#raw-stream-info-modal" data-key="${sk}">Stream</span></div>
+                                <div class="sub-heading"><span class="raw-stream-info-modal" data-toggle="modal" data-target="#raw-stream-info-modal" data-key="${sk}">流</span></div>
                                 % else:
-                                <div class="sub-heading">Stream</div>
+                                <div class="sub-heading">流</div>
                                 % endif
                                 <div class="sub-value" id="transcode_decision-${sk}">
                                     % if data['transcode_decision'] == 'transcode':
-                                    Transcode
+                                    转码
                                         % if data['transcode_throttled'] == 1:
-                                        (Throttled)
+                                        （节流）
                                         % else:
-                                        (Speed: ${data['transcode_speed']})
+                                        (速度: ${data['transcode_speed']})
                                         % endif
                                     % elif data['transcode_decision'] == 'copy':
-                                    Direct Stream
+                                    直接流
                                     % else:
-                                    Direct Play
+                                    直接播放
                                     % endif
                                 </div>
                             </li>
                             <li class="dashboard-activity-info-item">
-                                <div class="sub-heading">Container</div>
+                                <div class="sub-heading">容器</div>
                                 <div class="sub-value" id="transcode_container-${sk}">
                                     % if data['stream_container_decision'] == 'transcode':
-                                    Converting (${data['container'].upper()} <i class="fa fa-long-arrow-right"></i> ${data['stream_container'].upper()})
+                                    转换 (${data['container'].upper()} <i class="fa fa-long-arrow-right"></i> ${data['stream_container'].upper()})
                                     % else:
                                     Direct Play (${data['stream_container'].upper()})
                                     % endif
@@ -230,7 +230,7 @@ DOCUMENTATION :: END
                             </li>
                             % if data['media_type'] in ('movie', 'episode', 'clip', 'photo'):
                             <li class="dashboard-activity-info-item">
-                                <div class="sub-heading">Video</div>
+                                <div class="sub-heading">视频</div>
                                 <div class="sub-value" id="video_decision-${sk}">
                                     % if data['media_type'] in ('movie', 'episode', 'clip') and data['stream_video_decision']:
                                         <%
@@ -248,32 +248,32 @@ DOCUMENTATION :: END
                                             hw_d = ' (HW)' if data['transcode_hw_decoding'] else ''
                                             hw_e = ' (HW)' if data['transcode_hw_encoding'] else ''
                                         %>
-                                        Transcode (${data['video_codec'].upper()}${hw_d} ${data['video_full_resolution']}${video_dynamic_range} <i class="fa fa-long-arrow-right"></i> ${data['stream_video_codec'].upper()}${hw_e} ${data['stream_video_full_resolution']}${stream_video_dynamic_range})
+                                        转码 (${data['video_codec'].upper()}${hw_d} ${data['video_full_resolution']}${video_dynamic_range} <i class="fa fa-long-arrow-right"></i> ${data['stream_video_codec'].upper()}${hw_e} ${data['stream_video_full_resolution']}${stream_video_dynamic_range})
                                         % elif data['stream_video_decision'] == 'copy':
-                                        Direct Stream (${data['stream_video_codec'].upper()} ${data['stream_video_full_resolution']}${stream_video_dynamic_range})
+                                        直接流 (${data['stream_video_codec'].upper()} ${data['stream_video_full_resolution']}${stream_video_dynamic_range})
                                         % else:
-                                        Direct Play (${data['stream_video_codec'].upper()} ${data['stream_video_full_resolution']}${stream_video_dynamic_range})
+                                        直接播放 (${data['stream_video_codec'].upper()} ${data['stream_video_full_resolution']}${stream_video_dynamic_range})
                                         % endif
                                     % elif data['media_type'] == 'photo':
-                                    Direct Play (${data['width']}x${data['height']})
+                                    直接播放 (${data['width']}x${data['height']})
                                     % endif
                                 </div>
                             </li>
                             % endif
                             % if data['media_type'] in ('movie', 'episode', 'clip', 'track'):
                             <li class="dashboard-activity-info-item">
-                                <div class="sub-heading">Audio</div>
+                                <div class="sub-heading">音频</div>
                                 <div class="sub-value" id="audio_decision-${sk}">
                                     % if data['stream_audio_decision']:
                                         <%
                                             audio_language = (data['audio_language'] or 'Unknown') +  ' - ' if data['media_type'] != 'track' else ''
                                         %>
                                         % if data['stream_audio_decision'] == 'transcode':
-                                        Transcode (${audio_language}${AUDIO_CODEC_OVERRIDES.get(data['audio_codec'], data['audio_codec'].upper())} ${data['audio_channel_layout'].split('(')[0].capitalize()} <i class="fa fa-long-arrow-right"></i> ${AUDIO_CODEC_OVERRIDES.get(data['stream_audio_codec'], data['stream_audio_codec'].upper())} ${data['stream_audio_channel_layout'].split('(')[0].capitalize()})
+                                        转码 (${audio_language}${AUDIO_CODEC_OVERRIDES.get(data['audio_codec'], data['audio_codec'].upper())} ${data['audio_channel_layout'].split('(')[0].capitalize()} <i class="fa fa-long-arrow-right"></i> ${AUDIO_CODEC_OVERRIDES.get(data['stream_audio_codec'], data['stream_audio_codec'].upper())} ${data['stream_audio_channel_layout'].split('(')[0].capitalize()})
                                         % elif data['stream_audio_decision'] == 'copy':
-                                        Direct Stream (${audio_language}${AUDIO_CODEC_OVERRIDES.get(data['stream_audio_codec'], data['stream_audio_codec'].upper())} ${data['stream_audio_channel_layout'].split('(')[0].capitalize()})
+                                        直接流 (${audio_language}${AUDIO_CODEC_OVERRIDES.get(data['stream_audio_codec'], data['stream_audio_codec'].upper())} ${data['stream_audio_channel_layout'].split('(')[0].capitalize()})
                                         % else:
-                                        Direct Play (${audio_language}${AUDIO_CODEC_OVERRIDES.get(data['stream_audio_codec'], data['stream_audio_codec'].upper())} ${data['stream_audio_channel_layout'].split('(')[0].capitalize()})
+                                        直接播放 (${audio_language}${AUDIO_CODEC_OVERRIDES.get(data['stream_audio_codec'], data['stream_audio_codec'].upper())} ${data['stream_audio_channel_layout'].split('(')[0].capitalize()})
                                         % endif
                                     % endif
                                 </div>
@@ -281,20 +281,20 @@ DOCUMENTATION :: END
                             % endif
                             % if data['media_type'] in ('movie', 'episode', 'clip'):
                             <li class="dashboard-activity-info-item">
-                                <div class="sub-heading">Subtitle</div>
+                                <div class="sub-heading">字幕</div>
                                 <div class="sub-value" id="subtitle_decision-${sk}">
                                     % if data['subtitles'] == 1:
                                         <%
                                             subtitle_codec = 'None' if data['stream_subtitle_codec'] and data['stream_subtitle_transient'] else data['subtitle_codec'].upper()
                                         %>
                                         % if data['stream_subtitle_decision'] == 'transcode':
-                                        Transcode (${data['subtitle_language'] or 'Unknown'} - ${subtitle_codec} <i class="fa fa-long-arrow-right"></i> ${data['stream_subtitle_codec'].upper()})
+                                        转码 (${data['subtitle_language'] or 'Unknown'} - ${subtitle_codec} <i class="fa fa-long-arrow-right"></i> ${data['stream_subtitle_codec'].upper()})
                                         % elif data['stream_subtitle_decision'] == 'copy':
-                                        Direct Stream (${data['subtitle_language'] or 'Unknown'} - ${subtitle_codec})
+                                        直接流 (${data['subtitle_language'] or 'Unknown'} - ${subtitle_codec})
                                         % elif data['stream_subtitle_decision'] == 'burn':
-                                        Burn (${data['subtitle_language'] or 'Unknown'} - ${subtitle_codec})
+                                        烧录 (${data['subtitle_language'] or 'Unknown'} - ${subtitle_codec})
                                         % else:
-                                        Direct Play (${data['subtitle_language'] or 'Unknown'} - ${subtitle_codec if data['synced_version'] else data['stream_subtitle_codec'].upper()})
+                                        直接播放 (${data['subtitle_language'] or 'Unknown'} - ${subtitle_codec if data['synced_version'] else data['stream_subtitle_codec'].upper()})
                                         % endif
                                     % else:
                                     None
@@ -305,7 +305,7 @@ DOCUMENTATION :: END
                         </ul>
                         <ul class="list-unstyled dashboard-activity-info-list">
                             <li class="dashboard-activity-info-item">
-                                <div class="sub-heading">Location</div>
+                                <div class="sub-heading">LAN</div>
                                 <div class="sub-value time-right">
                                     % if data['secure'] is not None:
                                     % if data['secure']:
@@ -342,7 +342,7 @@ DOCUMENTATION :: END
                                 </div>
                             </li>
                             <li class="dashboard-activity-info-item">
-                                <div class="sub-heading">Bandwidth</div>
+                                <div class="sub-heading">带宽</div>
                                 <div class="sub-value time-right">
                                     % if data['media_type'] != 'photo' and data['bandwidth'] != 'Unknown':
                                     <%
@@ -399,7 +399,7 @@ DOCUMENTATION :: END
         <div class="dashboard-activity-progress">
             <div class="dashboard-activity-progress-bar">
                 % if data['live']:
-                <div id="progress-bar-${sk}" class="progress-bar" style="width: 100%" data-state="live" data-toggle="tooltip" title="Stream Progress Live">Live</div>
+                <div id="progress-bar-${sk}" class="progress-bar" style="width: 100%" data-state="live" data-toggle="tooltip" title="Stream Progress Live">直播</div>
                 % else:
                 <%  transcode_progress = get_percent(data['transcode_max_offset_available'] * 1000, data['duration']) or data['transcode_progress'] %>
                 <div id="buffer-bar-${sk}" class="buffer-bar" style="width: ${transcode_progress}%" data-toggle="tooltip" title="Transcoder Progress ${transcode_progress}%">${transcode_progress}%</div>

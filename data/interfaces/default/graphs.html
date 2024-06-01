@@ -28,28 +28,28 @@
                 </label>
             </div>
             <div class="input-group pull-right" style="width: 1px;" id="days-selection">
-                <span class="input-group-addon btn-dark inactive">Last</span>
+                <span class="input-group-addon btn-dark inactive">最近</span>
                 <input type="number" class="form-control number-input" name="graph-days" id="graph-days" value="30" min="1" data-default="7" data-toggle="tooltip" title="Min: 1 day" />
-                <span class="input-group-addon btn-dark inactive">天数</span>
+                <span class="input-group-addon btn-dark inactive">天</span>
             </div>
             <div class="input-group pull-right" style="width: 1px;" id="months-selection">
-                <span class="input-group-addon btn-dark inactive">Last</span>
+                <span class="input-group-addon btn-dark inactive">最近</span>
                 <input type="number" class="form-control number-input" name="graph-months" id="graph-months" value="12" min="1" data-default="12" data-toggle="tooltip" title="Min: 1 month" />
-                <span class="input-group-addon btn-dark inactive">月份</span>
+                <span class="input-group-addon btn-dark inactive">月</span>
 			</div>
         </div>
     </div>
     <div class="table-card-back">
         <ul class="nav nav-list nav-pills" role="tablist" id="graph-tabs">
-            <li role="presentation"><a id="nav-tabs-plays" href="#tabs-plays" aria-controls="tabs-plays" data-toggle="tab" role="tab">Media Type</a></li>
-            <li role="presentation"><a id="nav-tabs-stream" href="#tabs-stream" aria-controls="tabs-stream" data-toggle="tab" role="tab">Stream Type</a></li>
-            <li role="presentation"><a id="nav-tabs-total" href="#tabs-total" aria-controls="tabs-total" data-toggle="tab" role="tab">Play Totals</a></li>
+            <li role="presentation"><a id="nav-tabs-plays" href="#tabs-plays" aria-controls="tabs-plays" data-toggle="tab" role="tab">媒体类型</a></li>
+            <li role="presentation"><a id="nav-tabs-stream" href="#tabs-stream" aria-controls="tabs-stream" data-toggle="tab" role="tab">流类型</a></li>
+            <li role="presentation"><a id="nav-tabs-total" href="#tabs-total" aria-controls="tabs-total" data-toggle="tab" role="tab">播放总数</a></li>
         </ul>
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane" id="tabs-plays">
                 <div class="row">
                     <div class="col-md-12">
-                        <h4><i class="fa fa-history"></i> Daily <span class="yaxis-text" style="text-transform: lowercase;">play count</span> by media type <small>Last <span class="days">30</span> days</small></h4>
+                        <h4><i class="fa fa-history"></i> 每日 <span class="yaxis-text" style="text-transform: lowercase;">播放次数</span> 按媒体类型 <small>最近 <span class="days">30</span> 天</small></h4>
                         <p class="help-block">
                             每天播放的电视、电影和音乐的总播放次数或时长。点击图表上的一个点，可以打开播放该特定日期的项目列表。
                         </p>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <h4><i class="fa fa-calendar"></i> <span class="yaxis-text">Play count</span> by day of week <small>Last <span class="days">30</span> days</small></h4>
+                        <h4><i class="fa fa-calendar"></i> <span class="yaxis-text">播放次数</span> 按星期统计 <small>过去 <span class="days">30</span> 天</small></h4>
                         <p class="help-block">
                             每周每天播放的电视、电影和音乐的总时长。
                         </p>
@@ -77,7 +77,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <h4><i class="fa fa-clock-o"></i> <span class="yaxis-text">Play count</span> by hour of day <small>Last <span class="days">30</span> days</small></h4>
+                        <h4><i class="fa fa-clock-o"></i> <span class="yaxis-text">播放次数</span> 按一天中的小时 <small>最近 <span class="days">30</span> 天</small></h4>
                         <p class="help-block">
                             每小时播放的电视、电影和音乐的总时长。
                         </p>
@@ -93,28 +93,28 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <h4><i class="fa fa-television"></i> <span class="yaxis-text">Play count</span> by top 10 platforms <small>Last <span class="days">30</span> days</small></h4>
+                        <h4><i class="fa fa-television"></i> <span class="yaxis-text">播放次数</span> 按前 10 个平台 <small>最近 <span class="days">30</span> 天</small></h4>
                         <p class="help-block">
                             排名前十的最活跃平台播放的电视、电影和音乐的总量。
                         </p>
                         <div class="graphs-instance">
                             <div class="watch-chart" id="graph_plays_by_platform" style="float: left;">
                                 <div class="graphs-load">
-                                    <i class="fa fa-refresh fa-spin"></i> Loading chart...
+                                    <i class="fa fa-refresh fa-spin"></i> 加载图表中...
                                 </div>
                                 <br>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <h4><i class="fa fa-user"></i> <span class="yaxis-text">Play count</span> by top 10 users <small>Last <span class="days">30</span> days</small></h4>
+                        <h4><i class="fa fa-user"></i> <span class="yaxis-text">播放次数</span> 按前 10 名用户 <small>最近 <span class="days">30</span> 天</small></h4>
                         <p class="help-block">
                             最活跃的10个用户播放的电视、电影和音乐的总和。
                         </p>
                         <div class="graphs-instance">
                             <div class="watch-chart" id="graph_plays_by_user">
                                 <div class="graphs-load">
-                                    <i class="fa fa-refresh fa-spin"></i> Loading chart...
+                                    <i class="fa fa-refresh fa-spin"></i> 加载图表中...
                                 </div>
                                 <br>
                             </div>
@@ -125,7 +125,7 @@
             <div role="tabpanel" class="tab-pane" id="tabs-stream">
                 <div class="row">
                     <div class="col-md-12">
-                        <h4><i class="fa fa-video-camera"></i> Daily <span class="yaxis-text" style="text-transform: lowercase;">play count</span> by stream type <small>Last <span class="days">30</span> days</small></h4>
+                        <h4><i class="fa fa-video-camera"></i> 每日 <span class="yaxis-text" style="text-transform: lowercase;">播放次数</span> 按流类型 <small>最近 <span class="days">30</span> 天</small></h4>
                         <p class="help-block">
                             通过转码决策，电视、电影和音乐的总播放次数或持续时间。点击图表上的一个点，可以打开播放该特定日期的项目列表。
                         </p>
@@ -139,7 +139,7 @@
                 </div>
                 <div class="row" id="concurrent-graph">
                     <div class="col-md-12">
-                        <h4><i class="fa fa-video-camera"></i> Daily concurrent stream count</span> by stream type <small>Last <span class="days">30</span> days</small></h4>
+                        <h4><i class="fa fa-video-camera"></i> <span>按流类型划分的每日并发流计数</span> <small>最近 <span class="days">30</span> 天</small></h4>
                         <p class="help-block">
                             通过转码决策，电视、电影和音乐的并发流总数。
                         </p>
@@ -153,7 +153,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <h4><i class="fa fa-expand-arrows-alt"></i> <span class="yaxis-text">Play count</span> by source resolution <small>Last <span class="days">30</span> days</small></h4>
+                        <h4><i class="fa fa-expand-arrows-alt"></i> <span class="yaxis-text">播放次数</span> 按来源分辨率 <small>最近 <span class="days">30</span> 天</small></h4>
                         <p class="help-block">
                             原始分辨率（转码前）下的电视和电影的总和。
                         </p>
@@ -166,7 +166,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <h4><i class="fa fa-expand-arrows-alt"></i> <span class="yaxis-text">Play count</span> by stream resolution <small>Last <span class="days">30</span> days</small></h4>
+                        <h4><i class="fa fa-expand-arrows-alt"></i> <span class="yaxis-text">播放次数</span> 按流媒体分辨率 <small>最近 <span class="days">30</span> 天</small></h4>
                         <p class="help-block">
                             通过流媒体分辨率（转码后）来计算电视和电影的总数。
                         </p>
@@ -181,7 +181,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <h4><i class="fa fa-television"></i> <span class="yaxis-text">Play count</span> by platform and stream type <small>Last <span class="days">30</span> days</small></h4>
+                        <h4><i class="fa fa-television"></i> <span class="yaxis-text">播放次数</span> 按平台和流类型 <small>最近 <span class="days">30</span> 天</small></h4>
                         <p class="help-block">
                             各平台和流媒体类型的电视、电影和音乐的总量。
                         </p>
@@ -194,7 +194,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <h4><i class="fa fa-user"></i> <span class="yaxis-text">Play count</span> by user and stream type <small>Last <span class="days">30</span> days</small></h4>
+                        <h4><i class="fa fa-user"></i> <span class="yaxis-text">播放次数</span> 按用户和流类型 <small>最近 <span class="days">30</span> 天</small></h4>
                         <p class="help-block">
                             用户和流媒体类型的电视、电影和音乐的总和。
                         </p>
@@ -211,7 +211,7 @@
             <div role="tabpanel" class="tab-pane" id="tabs-total">
                 <div class="row">
                     <div class="col-md-12">
-                        <h4><i class="fa fa-calendar"></i> Total <span class="yaxis-text" style="text-transform: lowercase;">play count</span> by month <small>Last <span class="months">12</span> months</small></h4>
+                        <h4><i class="fa fa-calendar"></i> 总 <span class="yaxis-text" style="text-transform: lowercase;">播放次数</span> 按月 <small>过去 <span class="months">12</span> 个月</small></h4>
                         <p class="help-block">
                             每月电视、电影和音乐的总和。
                         </p>
@@ -769,7 +769,7 @@
                 stack_labels_format = function() {
                     return this.total;
                 }
-                $('.yaxis-text').html('Play count');
+                $('.yaxis-text').html('播放次数');
             } else {
                 yaxis_format = function() { return moment.duration(this.value, 'hours').format('H [h] m [m]'); };
                 tooltip_format = function() {
@@ -796,7 +796,7 @@
                     var s = moment.duration(this.total, 'hours').format('H [h] m [m]');
                     return s;
                 }
-                $('.yaxis-text').html('Play duration');
+                $('.yaxis-text').html('播放时长');
             }
 
             hc_plays_by_day_options.xAxis.plotBands = [];

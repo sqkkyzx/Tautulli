@@ -1040,54 +1040,54 @@
                             </p>
                         </div>
                         <div class="form-group advanced-setting">
-                            <label for="buffer_wait">Buffer Wait</label>
+                            <label for="buffer_wait">缓冲等待</label>
                             <div class="row">
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" data-parsley-type="integer" id="buffer_wait" name="buffer_wait" value="${config['buffer_wait']}" data-parsley-min="0" data-parsley-trigger="change" data-parsley-errors-container="#buffer_wait_error" required>
                                 </div>
                                 <div id="buffer_wait_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
-                            <p class="help-block">The value (in seconds) Tautulli should wait before triggering the next buffer warning. Set to 0 to always trigger.</p>
+                            <p class="help-block">Tautulli在触发下一个缓冲警告之前应等待的时间值（以秒为单位）。设置为0以始终触发。</p>
                         </div>
                         <div class="checkbox advanced-setting">
                             <label>
-                                <input type="checkbox" name="notify_consecutive" id="notify_consecutive" value="1" ${config['notify_consecutive']}> Allow Playback Stop Notifications Exceeding Watched Percent
+                                <input type="checkbox" name="notify_consecutive" id="notify_consecutive" value="1" ${config['notify_consecutive']}> 允许播放停止通知超过观看百分比
                             </label>
                             <p class="help-block">
-                                Enable to allow sending of playback stop notifications after the watched percent is exceeded.
-                                Disable to only send playback stop notifications below the watched percent.
+                                在超过观看百分比后，允许发送播放停止通知。
+                                禁用仅在观看百分比以下发送播放停止通知。
                             </p>
                         </div>
                         <div class="checkbox advanced-setting">
                             <label>
-                                <input type="checkbox" name="notify_concurrent_by_ip" id="notify_concurrent_by_ip" value="1" ${config['notify_concurrent_by_ip']}> User Concurrent Streams Notifications by IP Address
+                                <input type="checkbox" name="notify_concurrent_by_ip" id="notify_concurrent_by_ip" value="1" ${config['notify_concurrent_by_ip']}> 按IP地址的用户并发流通知
                             </label>
                             <p class="help-block">
-                                Enable to only send a concurrent streams notification by a single user from different IP addresses.
-                                Disable to send a concurrent streams notification anytime the concurrent stream threshold is exceeded regardless of IP address.
+                                允许仅由单个用户从不同的IP地址发送并发流通知。
+                                无论IP地址如何，只要超过并发流量阈值，就禁止发送并发流量通知。
                             </p>
                         </div>
                         <div class="form-group">
-                            <label for="notify_concurrent_threshold">User Concurrent Stream Threshold</label>
+                            <label for="notify_concurrent_threshold">用户并发流量阈值</label>
                             <div class="row">
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" data-parsley-type="integer" id="notify_concurrent_threshold" name="notify_concurrent_threshold" value="${config['notify_concurrent_threshold']}" data-parsley-min="2" data-parsley-trigger="change" data-parsley-errors-container="#notify_concurrent_threshold_error" required>
                                 </div>
                                 <div id="notify_concurrent_threshold_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
-                            <p class="help-block">The number of concurrent streams by a single user for Tautulli to trigger a notification. Minimum 2.</p>
+                            <p class="help-block">单个用户通过Tautulli同时观看的流媒体数量，以触发通知。最少为2个。</p>
                         </div>
                         <div class="checkbox advanced-setting">
                             <label>
-                                <input type="checkbox" name="notify_new_device_initial_only" id="notify_new_device_initial_only" value="1" ${config['notify_new_device_initial_only']}> User New Device Notification First Time Only
+                                <input type="checkbox" name="notify_new_device_initial_only" id="notify_new_device_initial_only" value="1" ${config['notify_new_device_initial_only']}> 用户新设备仅首次通知
                             </label>
                             <p class="help-block">
-                                Enable to only send a new device notification the first time a user streams from a new device.
-                                Disable to send a new device notification everytime a user streams from the device until it is recorded in history (i.e. exceeds the ignore interval).
+                                只有在用户首次使用新设备进行流媒体时，才发送新设备通知。
+                                在设备流媒体被记录在历史记录中之前（即超过忽略间隔），禁止每次用户从设备流媒体时发送新设备通知。
                             </p>
                         </div>
                         <div class="form-group advanced-setting">
-                            <label for="notify_concurrent_threshold">Continued Session Threshold</label>
+                            <label for="notify_concurrent_threshold">持续会话阈值</label>
                             <div class="row">
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" data-parsley-type="integer" id="notify_continued_session_threshold" name="notify_continued_session_threshold" value="${config['notify_continued_session_threshold']}" data-parsley-min="0" data-parsley-trigger="change" data-parsley-errors-container="#notify_continued_session_threshold_error" required>
@@ -1095,49 +1095,49 @@
                                 <div id="notify_continued_session_threshold_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
                             <p class="help-block">
-                                The number of seconds between stopping and starting a new stream to be considered as a continued session. Set to 0 to consider all streams as new sessions.
+                                停止和开始新流之间的秒数，以被视为连续会话。设置为0以将所有流视为新会话。
                                 <br>
-                                Note: The threshold is only used by the "Initial Stream" notification parameter to determine if a stream is the first stream of a continuous streaming session.
+                                注意：阈值仅由“初始流”通知参数使用，用于确定流是否是连续流传输会话的第一个流。
                             </p>
                         </div>
 
                         <div class="padded-header">
-                            <h3>Recently Added Notifications</h3>
+                            <h3>最近添加的通知</h3>
                         </div>
 
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="notify_group_recently_added_parent" id="notify_group_recently_added_parent" value="1" ${config['notify_group_recently_added_parent']}> Group Notifications by Season or Album
+                                <input type="checkbox" name="notify_group_recently_added_parent" id="notify_group_recently_added_parent" value="1" ${config['notify_group_recently_added_parent']}> 按季或专辑分组通知
                             </label>
                             <p class="help-block">
-                                Enable to only send one season or album notification when multiple episodes or tracks are added. Movies, single episodes, and single tracks are unaffected.<br />
-                                Note: An episode/track range can be shown (e.g. 01-12), but all other episode/track metadata will be unavailable.
+                                当添加多个剧集或曲目时，只发送一个季或专辑的通知。电影、单集和单曲不受影响。<br />
+                                注意：可以显示一系列的剧集/音轨（例如01-12），但所有其他剧集/音轨的元数据将无法使用。
                             </p>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="notify_group_recently_added_grandparent" id="notify_group_recently_added_grandparent" value="1" ${config['notify_group_recently_added_grandparent']}> Group Notifications by TV Show or Artist
+                                <input type="checkbox" name="notify_group_recently_added_grandparent" id="notify_group_recently_added_grandparent" value="1" ${config['notify_group_recently_added_grandparent']}> 按电视节目或艺术家分组通知
                             </label>
                             <p class="help-block">
-                                Enable to only send one TV show or artist notification when multiple seasons or albums are added. Movies, single episodes, and single tracks are unaffected.<br />
-                                Note: A season range can be shown (e.g. 1-3), but all other season/episode/album/track metadata will be unavailable.
+                                当添加多个季或专辑时，只发送一条电视节目或艺术家通知。电影、单集和单曲不受影响。<br />
+                                注意：可以显示季范围（例如1-3），但所有其他季/集数/专辑/曲目的元数据将不可用。
                             </p>
                         </div>
                         <div class="form-group">
-                            <label for="notify_recently_added_delay">Recently Added Notification Delay</label>
+                            <label for="notify_recently_added_delay">最近添加的通知延迟</label>
                             <div class="row">
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" data-parsley-type="integer" id="notify_recently_added_delay" name="notify_recently_added_delay" value="${config['notify_recently_added_delay']}" size="5" data-parsley-min="60" data-parsley-trigger="change" data-parsley-errors-container="#notify_recently_added_delay_error" required>
                                 </div>
                                 <div id="notify_recently_added_delay_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
-                            <p class="help-block">Set the delay (in seconds) to wait for consecutive recently added items to group together and to allow metadata to be processed before sending the recently added notification. Minimum 60 seconds, default 300.</p>
+                            <p class="help-block">将延迟时间（以秒为单位）设置为等待连续最近添加的项目进行分组，并在发送最近添加通知之前允许元数据处理。最小值为60秒，默认为300秒。</p>
                         </div>
                         <div class="form-group advanced-setting">
-                            <label>Flush Recently Added</label>
+                            <label>刷新最近添加的内容</label>
                             <p class="help-block">
-                                Attempt to fix recently added notifications by flushing out all of the recently added items in the database.<br />
-                                Warning: This will reset all recently added notifications. For emergency use only when recently added notifications are stuck!
+                                尝试通过清空数据库中所有最近添加的项目来修复最近添加的通知问题。<br />
+                                警告：这将重置所有最近添加的通知。仅在最近添加的通知卡住时紧急使用！
                             </p>
                             <div class="row">
                                 <div class="col-md-4">
@@ -1158,63 +1158,63 @@
                         </div>-->
 
                         <div class="padded-header">
-                            <h3>Server Notifications</h3>
+                            <h3>服务器通知</h3>
                         </div>
 
                         <div class="form-group">
-                            <label for="notify_server_connection_threshold">Plex Server Down Threshold</label>
+                            <label for="notify_server_connection_threshold">Plex 服务器宕机阈值</label>
                             <div class="row">
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" data-parsley-type="integer" id="notify_server_connection_threshold" name="notify_server_connection_threshold" value="${config['notify_server_connection_threshold']}" size="5" data-parsley-min="60" data-parsley-trigger="change" data-parsley-errors-container="#notify_server_connection_threshold_error" required>
                                 </div>
                                 <div id="notify_server_connection_threshold_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
-                            <p class="help-block">The duration (in seconds) for the Plex server to be down before sending a notification. Minimum 60, default 60.</p>
+                            <p class="help-block">Plex 服务器宕机后发送通知之前的持续时间（以秒为单位）。最小值为 60，默认值为 60。</p>
                         </div>
                         <div class="form-group">
-                            <label for="notify_remote_access_threshold">Remote Access Down Threshold</label>
+                            <label for="notify_remote_access_threshold">远程访问宕机阈值</label>
                             <div class="row">
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" data-parsley-type="integer" id="notify_remote_access_threshold" name="notify_remote_access_threshold" value="${config['notify_remote_access_threshold']}" size="5" data-parsley-min="60" data-parsley-trigger="change" data-parsley-errors-container="#notify_remote_access_threshold_error" required>
                                 </div>
                                 <div id="notify_remote_access_threshold_error" class="alert alert-danger settings-alert" role="alert"></div>
                             </div>
-                            <p class="help-block">The duration (in seconds) for Plex remote access to be down before sending a notification. Minimum 60, default 60.</p>
+                            <p class="help-block">Plex远程访问在发送通知之前的中断持续时间（以秒为单位）。最小值为60，默认值为60。</p>
                         </div>
 
                         <div class="padded-header">
-                            <h3>Newsletters</h3>
+                            <h3>新闻简报</h3>
                         </div>
 
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" id="newsletter_self_hosted" name="newsletter_self_hosted" value="1" ${config['newsletter_self_hosted']}> Self-Hosted Newsletters
+                                <input type="checkbox" id="newsletter_self_hosted" name="newsletter_self_hosted" value="1" ${config['newsletter_self_hosted']}> 自托管的新闻简报
                             </label>
-                            <p class="help-block">Enable to host newsletters on your own domain. This will generate a link to an HTML page where you can view the newsletter.</p>
+                            <p class="help-block">可以在您自己的域名上托管通讯订阅。这将生成一个链接到一个HTML页面，您可以在该页面上查看通讯订阅。</p>
                         </div>
                         <div id="self_host_newsletter_options" style="overflow: hidden; display: ${'block' if config['newsletter_self_hosted'] == 'checked' else 'none'}">
                             <div class="form-group">
                                 <p class="help-block" id="self_host_newsletter_message">
-                                    Note: The <span class="inline-pre">${http_root}newsletter</span> endpoint on your domain must be publicly accessible from the internet.
+                                    Note: The <span class="inline-pre">${http_root}newsletter</span> 您的域名上的端点必须能够从互联网公开访问。
                                 </p>
-                                <p class="help-block settings-warning base-url-warning">Warning: Public Tautulli domain not set under <a data-tab-destination="web_interface" data-target="http_base_url">Web Interface</a>.</p>
+                                <p class="help-block settings-warning base-url-warning">警告：未在<a data-tab-destination="web_interface" data-target="http_base_url">Web界面</a>下设置公共Tautulli域名。</p>
                             </div>
                             <div class="form-group">
-                                <label for="newsletter_auth">Newsletter Authentication</label>
+                                <label for="newsletter_auth">通讯认证</label>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <select class="form-control" id="newsletter_auth" name="newsletter_auth">
-                                            <option value="0" ${'selected' if config['newsletter_auth'] == 0 else ''}>Disabled</option>
-                                            <option value="1" ${'selected' if config['newsletter_auth'] == 1 else ''}>Password</option>
-                                            <option value="2" ${'selected' if config['newsletter_auth'] == 2 else ''}>Tautulli Guest Access</option>
+                                            <option value="0" ${'selected' if config['newsletter_auth'] == 0 else ''}>禁用</option>
+                                            <option value="1" ${'selected' if config['newsletter_auth'] == 1 else ''}>密码</option>
+                                            <option value="2" ${'selected' if config['newsletter_auth'] == 2 else ''}>Tautulli 客人访问</option>
                                         </select>
                                     </div>
                                 </div>
-                                <p class="help-block">Select the authentication method to use for self-hosted newsletters.</p>
-                                <p class="help-block settings-warning newsletter-guest-access-warning">Warning: Guest Access is not enabled under <a data-tab-destination="web_interface" data-target="allow_guest_access">Web Interface</a>.</p>
+                                <p class="help-block">选择用于自托管通讯的身份验证方法。</p>
+                                <p class="help-block settings-warning newsletter-guest-access-warning">警告：在<a data-tab-destination="web_interface" data-target="allow_guest_access">Web界面</a>下未启用访客访问权限。</p>
                             </div>
                             <div class="form-group" id="newsletter_password_option">
-                                <label for="newsletter_password">Newsletter Password</label>
+                                <label for="newsletter_password">通讯密码</label>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="input-group">
@@ -1225,32 +1225,32 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="help-block">Enter the password that will be required to view self-hosted newsletters.</p>
+                                <p class="help-block">输入将用于查看自托管通讯的密码。</p>
                             </div>
                         </div>
 
                         <div class="checkbox advanced-setting">
                             <label>
-                                <input type="checkbox" id="newsletter_inline_styles" name="newsletter_inline_styles" value="1" ${config['newsletter_inline_styles']}> Use Inline Styles Template
+                                <input type="checkbox" id="newsletter_inline_styles" name="newsletter_inline_styles" value="1" ${config['newsletter_inline_styles']}> 使用内联样式模板
                             </label>
                             <p class="help-block">
-                                Enable to use newsletter templates with inline CSS styles. Inline styles render better in email clients, but are larger in size which may cause long newsletters to be clipped.<br>
-                                Note: This setting does not affect custom templates. CSS styles will depend on your own template.
+                                启用使用内联CSS样式的通讯模板。内联样式在电子邮件客户端中呈现效果更好，但文件大小较大，可能导致较长的通讯被截断。<br>
+                                注意：此设置不影响自定义模板。CSS样式将取决于您自己的模板。
                             </p>
                         </div>
                         <div class="form-group advanced-setting">
-                            <label for="newsletter_custom_dir">Custom Newsletter Templates Folder</label>
+                            <label for="newsletter_custom_dir">自定义通讯模板文件夹</label>
                             <div class="row">
                                 <div class="col-md-7">
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="newsletter_custom_dir" name="newsletter_custom_dir" value="${config['newsletter_custom_dir']}">
                                         <span class="input-group-btn">
-                                            <button class="btn btn-form" type="button" id="newsletter_custom_dir_browse" data-toggle="browse" data-filter=".folderonly" data-target="#newsletter_custom_dir">Browse</button>
+                                            <button class="btn btn-form" type="button" id="newsletter_custom_dir_browse" data-toggle="browse" data-filter=".folderonly" data-target="#newsletter_custom_dir">浏览</button>
                                         </span>
                                     </div>
                                 </div>
                             </div>
-                            <p class="help-block">Optional: Enter the full path to your custom newsletter templates folder. Leave blank for default.</p>
+                            <p class="help-block">可选：输入您自定义的通讯模板文件夹的完整路径。留空使用默认设置。</p>
                         </div>
                         <div class="form-group advanced-setting">
                             <label for="newsletter_dir">Newsletter Output Directory</label> ${docker_msg | n}
@@ -1259,12 +1259,12 @@
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="newsletter_dir" name="newsletter_dir" value="${config['newsletter_dir']}" ${docker_setting}>
                                         <span class="input-group-btn">
-                                            <button class="btn btn-form" type="button" id="newsletter_dir_browse" data-toggle="browse" data-filter=".folderonly" data-target="#newsletter_dir" ${docker_setting}>Browse</button>
+                                            <button class="btn btn-form" type="button" id="newsletter_dir_browse" data-toggle="browse" data-filter=".folderonly" data-target="#newsletter_dir" ${docker_setting}>浏览</button>
                                         </span>
                                     </div>
                                 </div>
                             </div>
-                            <p class="help-block">Enter the full path to where newsletter files will be saved.</p>
+                            <p class="help-block">请输入将要保存通讯文件的完整路径。</p>
                         </div>
 
                         <p><input type="button" class="btn btn-bright save-button" value="Save" data-success="Changes saved successfully"></p>
@@ -1274,18 +1274,18 @@
                     <div role="tabpanel" class="tab-pane" id="tabs-notification_agents">
 
                         <div class="padded-header">
-                            <h3>Notification Agents</h3>
+                            <h3>通知代理</h3>
                         </div>
 
                         <p class="help-block">
-                            Add a new notification agent, or configure an existing notification agent by clicking on the item below.
+                            点击下方的项目，添加一个新的通知代理，或者配置一个已存在的通知代理。
                         </p>
                         <p class="help-block">
-                            Please see the <a href="${anon_url('https://github.com/%s/%s/wiki/Notification-Agents-Guide' % (plexpy.CONFIG.GIT_USER, plexpy.CONFIG.GIT_REPO))}" target="_blank" rel="noreferrer">Notification Agents Guide</a> for instructions on setting up each notification agent.
+                            请参考<a href="${anon_url('https://github.com/%s/%s/wiki/Notification-Agents-Guide' % (plexpy.CONFIG.GIT_USER, plexpy.CONFIG.GIT_REPO))}" target="_blank" rel="noreferrer">通知代理指南</a>，了解如何设置每个通知代理。
                         </p>
                         <br />
                         <div id="plexpy-notifiers-table">
-                            <div class='text-muted'><i class="fa fa-refresh fa-spin"></i> Loading notification agents...</div>
+                            <div class='text-muted'><i class="fa fa-refresh fa-spin"></i> 正在加载通知代理...</div>
                             <br>
                         </div>
 
@@ -1294,18 +1294,18 @@
                     <div role="tabpanel" class="tab-pane" id="tabs-newsletter_agents">
 
                         <div class="padded-header">
-                            <h3>Newsletter Agents</h3>
+                            <h3>通讯代理</h3>
                         </div>
 
                         <p class="help-block">
-                            Add a new newsletter agent, or configure an existing newsletter agent by clicking on the item below.
+                            点击下方的项目，添加一个新的通讯订阅代理，或配置现有的通讯订阅代理。
                         </p>
                         <p class="help-block settings-warning" id="newsletter_upload_warning">
-                            Warning: The <a data-tab-destination="3rd_party_apis" data-target="notify_upload_posters">Image Hosting</a> setting must be enabled for images to display on the newsletter.</span>
+                            警告：必须启用<a data-tab-destination="3rd_party_apis" data-target="notify_upload_posters">图像托管</a>设置，以便在通讯中显示图像。
                         </p>
                         <br/>
                         <div id="plexpy-newsletters-table">
-                            <div class='text-muted'><i class="fa fa-refresh fa-spin"></i> Loading newsletter agents...</div>
+                            <div class='text-muted'><i class="fa fa-refresh fa-spin"></i> 正在加载通讯代理...</div>
                             <br>
                         </div>
 
@@ -1314,10 +1314,10 @@
                     <div role="tabpanel" class="tab-pane" id="tabs-3rd_party_apis">
 
                         <div class="padded-header">
-                            <h3>Image Hosting</h3>
+                            <h3>图片托管</h3>
                         </div>
 
-                        <p class="help-block">Image hosting is used to provide posters and artwork for some notification agents and newsletters.</p>
+                        <p class="help-block">图像托管用于为某些通知代理和新闻简报提供海报和艺术作品。</p>
 
                         <div class="form-group">
                             <label for="notify_upload_posters">Image Host</label>
@@ -1325,26 +1325,26 @@
                                 <div class="col-md-6">
                                     <div class="${'input-group' if config['notify_upload_posters'] in (1, 3) else ''}">
                                         <select class="form-control" id="notify_upload_posters" name="notify_upload_posters">
-                                            <option value="0" ${'selected' if config['notify_upload_posters'] == 0 else ''}>Disabled</option>
+                                            <option value="0" ${'selected' if config['notify_upload_posters'] == 0 else ''}>禁用</option>
                                             <option value="1" ${'selected' if config['notify_upload_posters'] == 1 else ''}>Imgur</option>
                                             <option value="3" ${'selected' if config['notify_upload_posters'] == 3 else ''}>Cloudinary</option>
-                                            <option value="2" ${'selected' if config['notify_upload_posters'] == 2 else ''}>Self-hosted on public domain</option>
+                                            <option value="2" ${'selected' if config['notify_upload_posters'] == 2 else ''}>自托管在公共域名上</option>
                                         </select>
                                         % if config['notify_upload_posters'] in (1, 3):
                                         <span class="input-group-btn" id="delete_all_uploads_container">
-                                            <button class="btn btn-form" type="button" id="delete_all_uploads">Delete All Uploads</button>
+                                            <button class="btn btn-form" type="button" id="delete_all_uploads">删除所有上传内容</button>
                                         </span>
                                         % endif
                                     </div>
                                 </div>
                             </div>
-                            <p class="help-block">Select where to host Plex images for notifications and newsletters.</p>
+                            <p class="help-block">选择在哪里托管Plex图像以用于通知和新闻简报。</p>
                         </div>
                         <div id="imgur_upload_options" style="overflow: hidden; display: ${'none' if config['notify_upload_posters'] != 1 else 'block'}">
                             <div class="form-group">
                                 <p class="help-block">
-                                    Please see the <a href="${anon_url('https://github.com/%s/%s/wiki/3rd-Party-APIs-Guide' % (plexpy.CONFIG.GIT_USER, plexpy.CONFIG.GIT_REPO))}" target="_blank" rel="noreferrer">3rd Party APIs Guide</a> for instructions on setting up Imgur.<br>
-                                    Warning: Imgur uploads are rate-limited and newsletters may exceed the limit. Please use Cloudinary for newsletters instead.
+                                    请参考<a href="${anon_url('https://github.com/%s/%s/wiki/3rd-Party-APIs-Guide' % (plexpy.CONFIG.GIT_USER, plexpy.CONFIG.GIT_REPO))}" target="_blank" rel="noreferrer">第三方API指南</a>以获取有关设置Imgur的说明。<br>
+                                    警告：Imgur上传受到速率限制，可能超过限制。请改用Cloudinary来发送新闻简报。
                                 </p>
                             </div>
                             <div class="form-group">
@@ -1359,19 +1359,19 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="help-block">Enter your Imgur API Client ID.</p>
+                                <p class="help-block">请输入你的Imgur API Client ID。</p>
                             </div>
                         </div>
                         <div id="self_host_image_options" style="overflow: hidden; display: ${'none' if config['notify_upload_posters'] != 2 else 'block'}">
                             <div class="form-group">
-                                <p class="help-block" id="self_host_image_message">Note: The <span class="inline-pre">${http_root}image</span> endpoint on your domain must be publicly accessible from the internet.</p>
-                                <p class="help-block settings-warning base-url-warning">Warning: Public Tautulli domain not set under <a data-tab-destination="web_interface" data-target="http_base_url">Web Interface</a>.</p>
+                                <p class="help-block" id="self_host_image_message">注意：你的域名上的<span class="inline-pre">${http_root}image</span>端点必须对外公开访问。</p>
+                                <p class="help-block settings-warning base-url-warning">警告：未在<a data-tab-destination="web_interface" data-target="http_base_url">Web界面</a>下设置公共Tautulli域名。</p>
                             </div>
                         </div>
                         <div id="cloudinary_upload_options" style="overflow: hidden; display: ${'none' if config['notify_upload_posters'] != 3 else 'block'}">
                             <div class="form-group">
                                 <p class="help-block">
-                                    Please see the <a href="${anon_url('https://github.com/%s/%s/wiki/3rd-Party-APIs-Guide' % (plexpy.CONFIG.GIT_USER, plexpy.CONFIG.GIT_REPO))}" target="_blank" rel="noreferrer">3rd Party APIs Guide</a> for instructions on setting up Cloudinary.
+                                    请参考<a href="${anon_url('https://github.com/%s/%s/wiki/3rd-Party-APIs-Guide' % (plexpy.CONFIG.GIT_USER, plexpy.CONFIG.GIT_REPO))}" target="_blank" rel="noreferrer">第三方API指南</a>，了解如何设置Cloudinary。
                                 </p>
                             </div>
                             <div class="form-group">
@@ -1387,7 +1387,7 @@
                                     </div>
                                 </div>
                                 <p class="help-block">
-                                    Enter your Cloudinary Cloud Name.
+                                    请输入您的 Cloudinary 云名称。
                                 </p>
                             </div>
                             <div class="form-group">
@@ -1403,7 +1403,7 @@
                                     </div>
                                 </div>
                                 <p class="help-block">
-                                    Enter your Cloudinary API Key.
+                                    请输入您的 Cloudinary API 密钥。
                                 </p>
                             </div>
                             <div class="form-group">
@@ -1419,38 +1419,38 @@
                                     </div>
                                 </div>
                                 <p class="help-block">
-                                    Enter your Cloudinary API Secret.
+                                    请输入您的 Cloudinary API Secret。
                                 </p>
                             </div>
                         </div>
 
                         <div class="padded-header">
-                            <h3>Metadata Lookups</h3>
+                            <h3>元数据查找</h3>
                         </div>
 
-                        <p class="help-block">Metadata lookups are used to provide additional links for notifications when available.</p>
+                        <p class="help-block">当可用时，元数据查找用于提供通知的附加链接。</p>
 
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="themoviedb_lookup" id="themoviedb_lookup" value="1" ${config['themoviedb_lookup']}> Lookup TheMovieDB Links
+                                <input type="checkbox" name="themoviedb_lookup" id="themoviedb_lookup" value="1" ${config['themoviedb_lookup']}> 查找 TheMovieDB 链接
                             </label>
-                            <p class="help-block">Enable to lookup links to TheMovieDB (and IMDb if needed) for movies and TV shows when available.</p>
+                            <p class="help-block">当可用时，启用对电影和电视节目的TheMovieDB（如有需要，还可以是IMDb）链接的查找。</p>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="tvmaze_lookup" id="tvmaze_lookup" value="1" ${config['tvmaze_lookup']}> Lookup TVmaze Links
+                                <input type="checkbox" name="tvmaze_lookup" id="tvmaze_lookup" value="1" ${config['tvmaze_lookup']}> 查找 TVmaze 链接
                             </label>
-                            <p class="help-block">Enable to lookup links to TVmaze (and IMDb if needed) for TV shows when available.</p>
+                            <p class="help-block">当可用时，启用对电视节目的TVmaze链接（如果需要，还可以包括IMDb链接）。</p>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="musicbrainz_lookup" id="musicbrainz_lookup" value="1" ${config['musicbrainz_lookup']}> Lookup MusicBrainz Links
+                                <input type="checkbox" name="musicbrainz_lookup" id="musicbrainz_lookup" value="1" ${config['musicbrainz_lookup']}> 查找 MusicBrainz 链接
                             </label>
-                            <p class="help-block">Enable to lookup links to MusicBrainz for music when available.</p>
+                            <p class="help-block">当音乐可用时，启用对MusicBrainz的链接查找功能。</p>
                         </div>
                         <div class="form-group">
-                            <label for="delete_lookup_info">Delete Lookup Info</label>
-                            <p class="help-block">Delete all cached metadata lookup info in Tautulli.</p>
+                            <label for="delete_lookup_info">删除查找信息</label>
+                            <p class="help-block">删除Tautulli中的所有缓存的元数据查找信息。</p>
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="btn-group">
@@ -1976,12 +1976,12 @@ Rating: {rating}/10   --> Rating: /10
                     </div>
                     <div style="padding-bottom: 10px;">
                         <p class="help-block">
-                            Note: <span class="inline-pre">notify_text_eval = 1</span> must be manually enabled in the configuration file to enable expressions.
-                            Enabling this setting could pose a security risk. Enable at your own risk. It is recommended to leave this feature disabled if it is not being used.
+                            注意：<span class="inline-pre">notify_text_eval=1</span> 必须在配置文件中手动启用以启用表达式。
+                            启用此设置可能会带来安全风险。请自行承担风险。如果不使用此功能，建议将其禁用。
                         </p>
                         <p class="help-block">
-                            Notification parameters can be wrapped with backticks <span class="inline-pre">`expr`</span> to be evaluated as Python expressions.
-                            Only the following functions are supported in expressions:
+                            通知参数可以用反引号<span class="inline-pre">`expr`</span>包裹起来，以便作为Python表达式进行评估。
+                            只有以下函数在表达式中受支持：
                         </p>
                         <ul class="help-block">
                             <li><span class="inline-pre">bool(x)</span></li>
@@ -1992,17 +1992,17 @@ Rating: {rating}/10   --> Rating: /10
                             <li><span class="inline-pre">round(n[, ndigits])</span></li>
                             <li><span class="inline-pre">str(x)</span></li>
                         </ul>
-                        <p><strong style="color: #fff;">Example:</strong></p>
+                        <p><strong style="color: #fff;">示例：</strong></p>
                         <pre>{`float(rating) * 10`>%}                           --> 89%
 {`"%d hr %d min" % divmod(int(duration), 60)`}     --> 1 hr 50 min
 {`round(float(stream_bandwidth) / 1000, 1)`> Mbps} --> 6.9 Mbps</pre>
                     </div>
                     <div>
-                        <h4>Combined</h4>
+                        <h4>组合</h4>
                     </div>
                     <div>
                         <p class="help-block">
-                            If combining multiple notification text modifiers, the order of the modifiers must be:
+                            如果组合多个通知文本修饰符，则修饰符的顺序必须为：
                         </p>
                         <ol class="help-block">
                             <li>Prefix</li>
@@ -2013,7 +2013,7 @@ Rating: {rating}/10   --> Rating: /10
                             <li>Suffix</li>
                         </ol>
                         <p><strong style="color: #fff;">Example:</strong></p>
-                        <pre>{Starring &lt;actors!c:[0]&gt; as the main character.} --> Starring Arnold Schwarzenegger as the main character.</pre>
+                        <pre>{Starring &lt;actors!c:[0]&gt; as the main character.} --> 主演阿诺德·施瓦辛格饰演主角。</pre>
                     </div>
                 </div>
             </div>
@@ -2031,12 +2031,12 @@ Rating: {rating}/10   --> Rating: /10
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     <i class="fa fa-remove"></i>
                 </button>
-                <h4 class="modal-title">Newsletter Parameters</h4>
+                <h4 class="modal-title">通讯参数</h4>
             </div>
             <div class="modal-body">
                 <div>
                     <p class="help-block">
-                        If the value for a selected parameter is unavailable, it will display as blank.
+                        如果所选参数的值不可用，它将显示为空白。
                     </p>
                     % for category in common.NEWSLETTER_PARAMETERS:
                     <table class="notification-params">
@@ -2076,7 +2076,7 @@ Rating: {rating}/10   --> Rating: /10
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-remove"></i></button>
-                <h4 class="modal-title">Changelog</h4>
+                <h4 class="modal-title">更新日志</h4>
             </div>
             <div class="modal-body">
             </div>
@@ -2091,15 +2091,15 @@ Rating: {rating}/10   --> Rating: /10
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-remove"></i></button>
-                <h4 class="modal-title">Restart</h4>
+                <h4 class="modal-title">重新启动</h4>
             </div>
             <div class="modal-body">
                 <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
-                    You have changed settings that require Tautulli to restart.<br />Click the restart button below to restart now.
+                    您已更改了需要重新启动Tautulli的设置。<br />点击下面的重新启动按钮立即重新启动。
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="modal_link_restart" class="btn btn-bright"><i class="fa fa-refresh"></i> Restart</button>
+                <button id="modal_link_restart" class="btn btn-bright"><i class="fa fa-refresh"></i> 重新启动</button>
             </div>
         </div>
     </div>
@@ -2109,32 +2109,32 @@ Rating: {rating}/10   --> Rating: /10
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-remove"></i></button>
-                <h4 class="modal-title">Register Tautulli Remote App</h4>
+                <h4 class="modal-title">注册 Tautulli 远程应用程序</h4>
             </div>
             <div class="modal-body">
-                <label>Instructions</label>
+                <label>指示</label>
                 <p class="help-block">
-                    Scan the QR code below with the Tautulli Remote app to automatically register it with the server (make sure the Tautulli Address below is correct)
-                    or manually enter the connection info and device token into the app settings. This window will automatically close once device registration is successful.
+                    使用Tautulli Remote应用程序扫描下方的二维码，自动将其与服务器注册（请确保下方的Tautulli地址正确），
+                    或手动在应用程序设置中输入连接信息和设备令牌。设备注册成功后，此窗口将自动关闭。
                 </p>
                 <p class="help-block">
-                    Note: OneSignal.com must not be blocked (e.g. in Pi-hole) for device registration.
+                    注意：设备注册时，不得阻止OneSignal.com（例如在Pi-hole中）。
                 </p>
-                <label>QR Code</label>
+                <label>二维码</label>
                 <div id="api_qr_code"></div>
-                <label>Tautulli Address</label>
+                <label>Tautulli 地址</label>
                 <input type="text" class="form-control" id="api_qr_address">
                 <p class="help-block" id="api_qr_localhost" style="display: none;">
-                    Note: <span class="inline-pre">127.0.0.1</span> and <span class="inline-pre">localhost</span> will not work.
-                    Please enter an internal or external IP address, or hostname or domain instead.
+                    注意：<span class="inline-pre">127.0.0.1</span> 和 <span class="inline-pre">localhost</span> 无法使用。
+                    请提供一个内部或外部IP地址，或者主机名或域名。
                 </p>
                 <p class="help-block" id="api_qr_private" style="display: none;">
-                    Note: This is a private IP address. Tautulli will not be reachable outside of your home network.
-                    Access Tautulli via an external address or manually enter the address above to generate the QR code for remote access.
+                    注意：这是一个私有IP地址。Tautulli在你的家庭网络之外是无法访问的。
+                    要访问Tautulli，请使用外部地址或手动输入上面的地址以生成远程访问的QR码。
                 </p>
                 <p class="help-block" id="api_qr_https" style="display: none;">
-                    Note: This URL is not secure. Requests between the app and the server will not be encrypted.
-                    Enable HTTPS to connect the app securely.
+                    注意：此URL不安全。应用程序与服务器之间的请求将不会被加密。
+                    请启用HTTPS以安全地连接应用程序。
                 </p>
                 <label>Device Token</label>
                 <input type="text" class="form-control" id="api_qr_token" readonly>
@@ -2151,7 +2151,7 @@ Rating: {rating}/10   --> Rating: /10
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-remove"></i></button>
-                <h4 class="modal-title">File Browser</h4>
+                <h4 class="modal-title">文件浏览器</h4>
             </div>
             <div class="modal-body">
                 <div class="row">

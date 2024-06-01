@@ -13,14 +13,10 @@
 #  You should have received a copy of the GNU General Public License
 #  along with Tautulli.  If not, see <http://www.gnu.org/licenses/>.
 
-from __future__ import unicode_literals
-from future.builtins import range
-from future.builtins import str
-
 import ctypes
 import datetime
 import os
-import future.moves.queue as queue
+import queue
 import sqlite3
 import sys
 import subprocess
@@ -39,52 +35,27 @@ from apscheduler.triggers.interval import IntervalTrigger
 from ga4mp import GtagMP
 import pytz
 
-PYTHON2 = sys.version_info[0] == 2
-
-if PYTHON2:
-    import activity_handler
-    import activity_pinger
-    import common
-    import database
-    import datafactory
-    import exporter
-    import helpers
-    import libraries
-    import logger
-    import mobile_app
-    import newsletters
-    import newsletter_handler
-    import notification_handler
-    import notifiers
-    import plex
-    import plextv
-    import users
-    import versioncheck
-    import web_socket
-    import webstart
-    import config
-else:
-    from plexpy import activity_handler
-    from plexpy import activity_pinger
-    from plexpy import common
-    from plexpy import database
-    from plexpy import datafactory
-    from plexpy import exporter
-    from plexpy import helpers
-    from plexpy import libraries
-    from plexpy import logger
-    from plexpy import mobile_app
-    from plexpy import newsletters
-    from plexpy import newsletter_handler
-    from plexpy import notification_handler
-    from plexpy import notifiers
-    from plexpy import plex
-    from plexpy import plextv
-    from plexpy import users
-    from plexpy import versioncheck
-    from plexpy import web_socket
-    from plexpy import webstart
-    from plexpy import config
+from plexpy import activity_handler
+from plexpy import activity_pinger
+from plexpy import common
+from plexpy import database
+from plexpy import datafactory
+from plexpy import exporter
+from plexpy import helpers
+from plexpy import libraries
+from plexpy import logger
+from plexpy import mobile_app
+from plexpy import newsletters
+from plexpy import newsletter_handler
+from plexpy import notification_handler
+from plexpy import notifiers
+from plexpy import plex
+from plexpy import plextv
+from plexpy import users
+from plexpy import versioncheck
+from plexpy import web_socket
+from plexpy import webstart
+from plexpy import config
 
 
 PROG_DIR = None
@@ -214,11 +185,10 @@ def initialize(config_file):
         logger.initLogger(console=not QUIET, log_dir=CONFIG.LOG_DIR if log_writable else None,
                           verbose=VERBOSE)
 
-        if not PYTHON2:
-            os.environ['PLEXAPI_CONFIG_PATH'] = os.path.join(DATA_DIR, 'plexapi.config.ini')
-            os.environ['PLEXAPI_LOG_PATH'] = os.path.join(CONFIG.LOG_DIR, 'plexapi.log')
-            os.environ['PLEXAPI_LOG_LEVEL'] = 'DEBUG'
-            plex.initialize_plexapi()
+        os.environ['PLEXAPI_CONFIG_PATH'] = os.path.join(DATA_DIR, 'plexapi.config.ini')
+        os.environ['PLEXAPI_LOG_PATH'] = os.path.join(CONFIG.LOG_DIR, 'plexapi.log')
+        os.environ['PLEXAPI_LOG_LEVEL'] = 'DEBUG'
+        plex.initialize_plexapi()
 
         if DOCKER:
             build = '[Docker] '
@@ -660,7 +630,8 @@ def dbcheck():
         "transcode_hw_decoding INTEGER, transcode_hw_encoding INTEGER, "
         "optimized_version INTEGER, optimized_version_profile TEXT, optimized_version_title TEXT, "
         "synced_version INTEGER, synced_version_profile TEXT, "
-        "live INTEGER, live_uuid TEXT, channel_call_sign TEXT, channel_identifier TEXT, channel_thumb TEXT, "
+        "live INTEGER, live_uuid TEXT, "
+        "channel_call_sign TEXT, channel_id TEXT, channel_identifier TEXT, channel_title TEXT, channel_thumb TEXT, channel_vcn TEXT, "
         "secure INTEGER, relayed INTEGER, "
         "buffer_count INTEGER DEFAULT 0, buffer_last_triggered INTEGER, last_paused INTEGER, watched INTEGER DEFAULT 0, "
         "intro INTEGER DEFAULT 0, credits INTEGER DEFAULT 0, commercial INTEGER DEFAULT 0, marker INTEGER DEFAULT 0, "
@@ -721,7 +692,8 @@ def dbcheck():
         "art TEXT, media_type TEXT, year INTEGER, originally_available_at TEXT, added_at INTEGER, updated_at INTEGER, "
         "last_viewed_at INTEGER, content_rating TEXT, summary TEXT, tagline TEXT, rating TEXT, "
         "duration INTEGER DEFAULT 0, guid TEXT, directors TEXT, writers TEXT, actors TEXT, genres TEXT, studio TEXT, "
-        "labels TEXT, live INTEGER DEFAULT 0, channel_call_sign TEXT, channel_identifier TEXT, channel_thumb TEXT, "
+        "labels TEXT, live INTEGER DEFAULT 0, "
+        "channel_call_sign TEXT, channel_id TEXT, channel_identifier TEXT, channel_title TEXT, channel_thumb TEXT, channel_vcn TEXT, "
         "marker_credits_first INTEGER DEFAULT NULL, marker_credits_final INTEGER DEFAULT NULL)"
     )
 
@@ -1443,6 +1415,21 @@ def dbcheck():
             "ALTER TABLE sessions ADD COLUMN marker INTEGER DEFAULT 0"
         )
 
+    # Upgrade sessions table from earlier versions
+    try:
+        c_db.execute("SELECT channel_id FROM sessions")
+    except sqlite3.OperationalError:
+        logger.debug("Altering database. Updating database table sessions.")
+        c_db.execute(
+            "ALTER TABLE sessions ADD COLUMN channel_id TEXT"
+        )
+        c_db.execute(
+            "ALTER TABLE sessions ADD COLUMN channel_title TEXT"
+        )
+        c_db.execute(
+            "ALTER TABLE sessions ADD COLUMN channel_vcn TEXT"
+        )
+
     # Upgrade session_history table from earlier versions
     try:
         c_db.execute("SELECT reference_id FROM session_history")
@@ -1581,6 +1568,21 @@ def dbcheck():
         )
         c_db.execute(
             "ALTER TABLE session_history_metadata ADD COLUMN marker_credits_final INTEGER DEFAULT NULL"
+        )
+
+    # Upgrade session_history_metadata table from earlier versions
+    try:
+        c_db.execute("SELECT channel_id FROM session_history_metadata")
+    except sqlite3.OperationalError:
+        logger.debug("Altering database. Updating database table session_history_metadata.")
+        c_db.execute(
+            "ALTER TABLE session_history_metadata ADD COLUMN channel_id TEXT"
+        )
+        c_db.execute(
+            "ALTER TABLE session_history_metadata ADD COLUMN channel_title TEXT"
+        )
+        c_db.execute(
+            "ALTER TABLE session_history_metadata ADD COLUMN channel_vcn TEXT"
         )
 
     # Upgrade session_history_media_info table from earlier versions

@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="referrer" content="no-referrer">
     <link href="${http_root}css/bootstrap3/bootstrap.min.css" rel="stylesheet">
     <link href="${http_root}css/pnotify.custom.min.css" rel="stylesheet" />
     <link href="${http_root}css/selectize.bootstrap3.css" rel="stylesheet" />
@@ -48,7 +49,7 @@
     % if plexpy.CONFIG.CHECK_GITHUB and plexpy.UPDATE_AVAILABLE is not False:
     <div id="updatebar" style="display: none;">
         % if plexpy.UPDATE_AVAILABLE is None:
-        您正在运行一个未知版本的 Tautulli 。<br />
+        You are running an unknown version of Tautulli.<br />
         % elif plexpy.UPDATE_AVAILABLE == 'release':
         Tautulli 的最新版本 <a href="${anon_url('https://github.com/%s/%s/releases/tag/%s' % (plexpy.CONFIG.GIT_USER, plexpy.CONFIG.GIT_REPO, plexpy.LATEST_RELEASE))}" target="_blank" rel="noreferrer">
         (${plexpy.LATEST_RELEASE})</a> 已经发布！<br />
@@ -121,12 +122,7 @@
                     % if title == "Graphs":
                     <li class="active"><a href="graphs">图表</a></li>
                     % else:
-                    <li><a href="graphs">图表</a></li>
-                    % endif
-                    % if title == "Synced Items":
-                    <li class="active"><a href="sync">同步项目</a></li>
-                    % else:
-                    <li><a href="sync">同步项目</a></li>
+                    <li><a href="graphs">Graphs</a></li>
                     % endif
                     % if title == "Settings":
                     <li class="dropdown active">

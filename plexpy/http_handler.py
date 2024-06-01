@@ -15,24 +15,16 @@
 #  You should have received a copy of the GNU General Public License
 #  along with PlexPy.  If not, see <http://www.gnu.org/licenses/>.
 
-from __future__ import unicode_literals
-from future.builtins import object
-from future.builtins import str
-
 from multiprocessing.dummy import Pool as ThreadPool
-from future.moves.urllib.parse import urljoin
+from urllib.parse import urljoin
 
 import certifi
 import requests
 import urllib3
 
 import plexpy
-if plexpy.PYTHON2:
-    import helpers
-    import logger
-else:
-    from plexpy import helpers
-    from plexpy import logger
+from plexpy import helpers
+from plexpy import logger
 
 
 class HTTPHandler(object):
@@ -82,6 +74,7 @@ class HTTPHandler(object):
         self.return_response = False
         self.return_type = False
         self.callback = None
+        self.raise_errors = True
         self.request_kwargs = {}
 
     def make_request(self,
@@ -95,6 +88,7 @@ class HTTPHandler(object):
                      no_token=False,
                      timeout=None,
                      callback=None,
+                     raise_errors=True,
                      **request_kwargs):
         """
         Handle the HTTP requests.
@@ -109,6 +103,7 @@ class HTTPHandler(object):
         self.return_response = return_response
         self.return_type = return_type
         self.callback = callback
+        self.raise_errors = raise_errors
         self.timeout = timeout or self.timeout
         self.request_kwargs = request_kwargs
 
@@ -166,7 +161,8 @@ class HTTPHandler(object):
         try:
             r = self._session.request(self.request_type, url, headers=self.headers, data=self.data,
                                       timeout=self.timeout, verify=self.ssl_verify, **self.request_kwargs)
-            r.raise_for_status()
+            if self.raise_errors:
+                r.raise_for_status()
         except requests.exceptions.Timeout as e:
             err = True
             if not self._silent:

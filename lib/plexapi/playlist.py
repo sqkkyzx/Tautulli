@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import re
+from itertools import groupby
 from pathlib import Path
 from urllib.parse import quote_plus, unquote
 
@@ -7,7 +8,7 @@ from plexapi import media, utils
 from plexapi.base import Playable, PlexPartialObject
 from plexapi.exceptions import BadRequest, NotFound, Unsupported
 from plexapi.library import LibrarySection, MusicSection
-from plexapi.mixins import SmartFilterMixin, ArtMixin, PosterMixin
+from plexapi.mixins import SmartFilterMixin, ArtMixin, PosterMixin, PlaylistEditMixins
 from plexapi.utils import deprecated
 
 
@@ -15,7 +16,8 @@ from plexapi.utils import deprecated
 class Playlist(
     PlexPartialObject, Playable,
     SmartFilterMixin,
-    ArtMixin, PosterMixin
+    ArtMixin, PosterMixin,
+    PlaylistEditMixins
 ):
     """ Represents a single Playlist.
 
@@ -42,6 +44,7 @@ class Playlist(
             smart (bool): True if the playlist is a smart playlist.
             summary (str): Summary of the playlist.
             title (str): Name of the playlist.
+            titleSort (str): Title to use when sorting (defaults to title).
             type (str): 'playlist'
             updatedAt (datetime): Datetime the playlist was updated.
     """
@@ -71,6 +74,7 @@ class Playlist(
         self.smart = utils.cast(bool, data.attrib.get('smart'))
         self.summary = data.attrib.get('summary')
         self.title = data.attrib.get('title')
+        self.titleSort = data.attrib.get('titleSort', self.title)
         self.type = data.attrib.get('type')
         self.updatedAt = utils.toDatetime(data.attrib.get('updatedAt'))
         self._items = None  # cache for self.items
@@ -209,22 +213,26 @@ class Playlist(
         if items and not isinstance(items, (list, tuple)):
             items = [items]
 
-        ratingKeys = []
-        for item in items:
-            if item.listType != self.playlistType:  # pragma: no cover
-                raise BadRequest(f'Can not mix media types when building a playlist: '
-                                 f'{self.playlistType} and {item.listType}')
-            ratingKeys.append(str(item.ratingKey))
+        # Group items by server to maintain order when adding items from multiple servers
+        for server, _items in groupby(items, key=lambda item: item._server):
 
-        ratingKeys = ','.join(ratingKeys)
-        uri = f'{self._server._uriRoot()}/library/metadata/{ratingKeys}'
+            ratingKeys = []
+            for item in _items:
+                if item.listType != self.playlistType:  # pragma: no cover
+                    raise BadRequest(f'Can not mix media types when building a playlist: '
+                                     f'{self.playlistType} and {item.listType}')
+                ratingKeys.append(str(item.ratingKey))
 
-        args = {'uri': uri}
-        key = f"{self.key}/items{utils.joinArgs(args)}"
-        self._server.query(key, method=self._server._session.put)
+            ratingKeys = ','.join(ratingKeys)
+            uri = f'{server._uriRoot()}/library/metadata/{ratingKeys}'
+
+            args = {'uri': uri}
+            key = f"{self.key}/items{utils.joinArgs(args)}"
+            self._server.query(key, method=self._server._session.put)
+
         return self
 
-    @deprecated('use "removeItems" instead', stacklevel=3)
+    @deprecated('use "removeItems" instead')
     def removeItem(self, item):
         self.removeItems(item)
 
@@ -308,10 +316,15 @@ class Playlist(
 
     def _edit(self, **kwargs):
         """ Actually edit the playlist. """
+        if isinstance(self._edits, dict):
+            self._edits.update(kwargs)
+            return self
+
         key = f'{self.key}{utils.joinArgs(kwargs)}'
         self._server.query(key, method=self._server._session.put)
         return self
 
+    @deprecated('use "editTitle" and "editSummary" instead')
     def edit(self, title=None, summary=None):
         """ Edit the playlist.
 
@@ -384,7 +397,7 @@ class Playlist(
         key = f"/playlists/upload{utils.joinArgs(args)}"
         server.query(key, method=server._session.post)
         try:
-            return server.playlists(sectionId=section.key, guid__endswith=m3ufilepath)[0].edit(title=title).reload()
+            return server.playlists(sectionId=section.key, guid__endswith=m3ufilepath)[0].editTitle(title).reload()
         except IndexError:
             raise BadRequest('Failed to create playlist from m3u file.') from None
 
@@ -426,6 +439,8 @@ class Playlist(
         if m3ufilepath:
             return cls._createFromM3U(server, title, section, m3ufilepath)
         elif smart:
+            if items:
+                raise BadRequest('Cannot create a smart playlist with items.')
             return cls._createSmart(server, title, section, limit, libtype, sort, filters, **kwargs)
         else:
             return cls._create(server, title, items)

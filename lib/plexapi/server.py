@@ -355,8 +355,7 @@ class PlexServer(PlexObject):
             key = f'/services/browse/{base64path}'
         else:
             key = '/services/browse'
-        if includeFiles:
-            key += '?includeFiles=1'
+        key += f'?includeFiles={int(includeFiles)}'  # starting with PMS v1.32.7.7621 this must set explicitly
         return self.fetchItems(key)
 
     def walk(self, path=None):
@@ -747,7 +746,7 @@ class PlexServer(PlexObject):
         """ Returns list of all :class:`~plexapi.media.TranscodeJob` objects running or paused on server. """
         return self.fetchItems('/status/sessions/background')
 
-    def query(self, key, method=None, headers=None, timeout=None, **kwargs):
+    def query(self, key, method=None, headers=None, params=None, timeout=None, **kwargs):
         """ Main method used to handle HTTPS requests to the Plex server. This method helps
             by encoding the response to utf-8 and parsing the returned XML into and
             ElementTree object. Returns None if no data exists in the response.
@@ -757,7 +756,7 @@ class PlexServer(PlexObject):
         timeout = timeout or self._timeout
         log.debug('%s %s', method.__name__.upper(), url)
         headers = self._headers(**headers or {})
-        response = method(url, headers=headers, timeout=timeout, **kwargs)
+        response = method(url, headers=headers, params=params, timeout=timeout, **kwargs)
         if response.status_code not in (200, 201, 204):
             codename = codes.get(response.status_code)[0]
             errtext = response.text.replace('\n', ' ')

@@ -212,28 +212,6 @@
         </div>
     </div>
 </div>
-<% from plexpy.helpers import anon_url %>
-<div id="python2-modal" class="modal fade wide" tabindex="-1" role="dialog" aria-labelledby="python2-modal">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-remove"></i></button>
-                <h4 class="modal-title">无法更新</h4>
-            </div>
-            <div class="modal-body" style="text-align: center;">
-                <p>Tautulli 仍在使用 Python 2 运行，无法更新到 v2.6.3 之后的版本。</p>
-                <p>需要使用 Python 3 才能继续接收更新。</p>
-                <p>
-                    <strong>请前往 <a href="${anon_url('https://github.com/Tautulli/Tautulli/wiki/Upgrading-to-Python-3-%28Tautulli-v2.5%29')}" target="_blank" rel="noreferrer">wiki</a>
-                    查看有关如何升级到Python 3的说明.</strong>
-                </p>
-            </div>
-            <div class="modal-footer">
-                <input type="button" class="btn btn-bright" data-dismiss="modal" value="Close">
-            </div>
-        </div>
-    </div>
-</div>
 % endif
 
 <div class="modal fade" id="ip-info-modal" tabindex="-1" role="dialog" aria-labelledby="ip-info-modal">
@@ -1065,18 +1043,6 @@
             });
         }
     });
-</script>
-% endif
-% if _session['user_group'] == 'admin':
-<script>
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    if (urlParams.get('update') === 'python2') {
-        $("#python2-modal").modal({
-                backdrop: 'static',
-                keyboard: false
-        });
-    }
 </script>
 % endif
 </%def>

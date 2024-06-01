@@ -15,12 +15,6 @@
 #  You should have received a copy of the GNU General Public License
 #  along with Tautulli.  If not, see <http://www.gnu.org/licenses/>.
 
-from __future__ import division
-from __future__ import unicode_literals
-
-from future.builtins import zip
-from future.builtins import str
-
 import arrow
 import base64
 import cloudinary
@@ -50,21 +44,15 @@ import string
 import sys
 import time
 import unicodedata
-from future.moves.urllib.parse import urlencode
+from urllib.parse import urlencode
 from xml.dom import minidom
 import xmltodict
 
 import plexpy
-if plexpy.PYTHON2:
-    import common
-    import logger
-    import request
-    from api2 import API2
-else:
-    from plexpy import common
-    from plexpy import logger
-    from plexpy import request
-    from plexpy.api2 import API2
+from plexpy import common
+from plexpy import logger
+from plexpy import request
+from plexpy.api2 import API2
 
 
 def addtoapi(*dargs, **dkwargs):
@@ -238,10 +226,18 @@ def now(sep=False):
     return timestamp_to_YMDHMS(timestamp(), sep=sep)
 
 
-def timestamp_to_YMDHMS(ts, sep=False):
+def YMD_to_timestamp(ymd):
+    return datetime.strptime(ymd, "%Y-%m-%d").timestamp()
+
+
+def timestamp_to_YMDHMS(ts, sep=False, ymd=False):
     dt = timestamp_to_datetime(ts)
     if sep:
+        if ymd:
+            return dt.strftime("%Y-%m-%d")
         return dt.strftime("%Y-%m-%d %H:%M:%S")
+    if ymd:
+        return dt.strftime("%Y%m%d")
     return dt.strftime("%Y%m%d%H%M%S")
 
 
@@ -337,7 +333,7 @@ def bytes_to_mb(bytes):
 
 
 def mb_to_bytes(mb_str):
-    result = re.search('^(\d+(?:\.\d+)?)\s?(?:mb)?', mb_str, flags=re.I)
+    result = re.search(r'^(\d+(?:\.\d+)?)\s?(?:mb)?', mb_str, flags=re.I)
     if result:
         return int(float(result.group(1)) * 1048576)
 
@@ -387,9 +383,9 @@ def replace_all(text, dic, normalize=False):
 
 def replace_illegal_chars(string, type="file"):
     if type == "file":
-        string = re.sub('[\?"*:|<>/]', '_', string)
+        string = re.sub(r'[\?"*:|<>/]', '_', string)
     if type == "folder":
-        string = re.sub('[:\?<>"|]', '_', string)
+        string = re.sub(r'[:\?<>"|]', '_', string)
 
     return string
 
@@ -397,14 +393,14 @@ def replace_illegal_chars(string, type="file"):
 def cleanName(string):
 
     pass1 = latinToAscii(string).lower()
-    out_string = re.sub('[\.\-\/\!\@\#\$\%\^\&\*\(\)\+\-\"\'\,\;\:\[\]\{\}\<\>\=\_]', '', pass1).encode('utf-8')
+    out_string = re.sub(r'[\.\-\/\!\@\#\$\%\^\&\*\(\)\+\-\"\'\,\;\:\[\]\{\}\<\>\=\_]', '', pass1).encode('utf-8')
 
     return out_string
 
 
 def cleanTitle(title):
 
-    title = re.sub('[\.\-\/\_]', ' ', title).lower()
+    title = re.sub(r'[\.\-\/\_]', ' ', title).lower()
 
     # Strip out extra whitespace
     title = ' '.join(title.split())
@@ -776,36 +772,9 @@ def whois_lookup(ip_address):
     return whois_info
 
 
-# Taken from SickRage
 def anon_url(*url):
-    """
-    Return a URL string consisting of the Anonymous redirect URL and an arbitrary number of values appended.
-    """
-    if plexpy.CONFIG.ANON_REDIRECT_DYNAMIC:
-        cache_time = timestamp()
-        cache_filepath = os.path.join(plexpy.CONFIG.CACHE_DIR, 'anonymizer.json')
-        try:
-            with open(cache_filepath, 'r', encoding='utf-8') as cache_file:
-                cache_data = json.load(cache_file)
-                if cache_time - cache_data['_cache_time'] < 86400:  # 24 hours
-                    anon_redirect = cache_data['anon_redirect']
-                else:
-                    raise
-        except:
-            try:
-                anon_redirect = request.request_content('https://tautulli.com/anonymizer.txt').decode('utf-8')
-                cache_data = {
-                    'anon_redirect': anon_redirect,
-                    '_cache_time': cache_time
-                }
-                with open(cache_filepath, 'w', encoding='utf-8') as cache_file:
-                    json.dump(cache_data, cache_file)
-            except:
-                anon_redirect = plexpy.CONFIG.ANON_REDIRECT
-    else:
-        anon_redirect = plexpy.CONFIG.ANON_REDIRECT
-
-    return '' if None in url else '%s%s' % (anon_redirect, ''.join(str(s) for s in url))
+    # Removed anonymous redirect and just return the URL
+    return '' if None in url else ''.join(str(s) for s in url)
 
 
 def get_img_service(include_self=False):
@@ -889,17 +858,11 @@ def upload_to_cloudinary(img_data, img_title='', rating_key='', fallback=''):
         api_secret=plexpy.CONFIG.CLOUDINARY_API_SECRET
     )
 
-    # Cloudinary library has very poor support for non-ASCII characters on Python 2
-    if plexpy.PYTHON2:
-        _img_title = latinToAscii(img_title, replace=True)
-    else:
-        _img_title = img_title
-
     try:
         response = upload((img_title, img_data),
                           public_id='{}_{}'.format(fallback, rating_key),
                           tags=['tautulli', fallback, str(rating_key)],
-                          context={'title': _img_title, 'rating_key': str(rating_key), 'fallback': fallback})
+                          context={'title': img_title, 'rating_key': str(rating_key), 'fallback': fallback})
         logger.debug("Tautulli Helpers :: Image '{}' ({}) uploaded to Cloudinary.".format(img_title, fallback))
         img_url = response.get('url', '')
     except Exception as e:
@@ -921,7 +884,12 @@ def delete_from_cloudinary(rating_key=None, delete_all=False):
     )
 
     if delete_all:
-        delete_resources_by_tag('tautulli')
+        partial = True
+        next_cursor = ''
+        while partial is True:
+            r = delete_resources_by_tag('tautulli', next_cursor=next_cursor)
+            partial = r.get('partial', False)
+            next_cursor = r.get('next_cursor', '')
         logger.debug("Tautulli Helpers :: Deleted all images from Cloudinary.")
     elif rating_key:
         delete_resources_by_tag(str(rating_key))
@@ -1280,11 +1248,7 @@ def split_args(args=None):
     if isinstance(args, list):
         return args
     elif isinstance(args, str):
-        if plexpy.PYTHON2:
-            args = args.encode('utf-8')
         args = shlex.split(args)
-        if plexpy.PYTHON2:
-            args = [a.decode('utf-8') for a in args]
         return args
     return []
 

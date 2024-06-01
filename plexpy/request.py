@@ -15,23 +15,16 @@
 #  You should have received a copy of the GNU General Public License
 #  along with Tautulli.  If not, see <http://www.gnu.org/licenses/>.
 
-from __future__ import unicode_literals
-from future.builtins import str
-
-from bs4 import BeautifulSoup
+import collections
 from xml.dom import minidom
 
-import collections
+from bs4 import BeautifulSoup
 import requests
 from requests.packages import urllib3
 
 import plexpy
-if plexpy.PYTHON2:
-    import lock
-    import logger
-else:
-    from plexpy import lock
-    from plexpy import logger
+from plexpy import lock
+from plexpy import logger
 
 
 # Dictionary with last request times, for rate limiting.
@@ -315,7 +308,10 @@ def server_message(response, return_msg=False):
         message = response.content.strip()
 
     if message:
-        message = str(message, 'utf-8', 'replace')
+        try:
+            message = message.decode('utf-8', errors='replace')
+        except (UnicodeDecodeError, AttributeError):
+            pass
 
         # Truncate message if it is too long.
         if len(message) > 150:

@@ -15,23 +15,18 @@
 #  You should have received a copy of the GNU General Public License
 #  along with Tautulli.  If not, see <http://www.gnu.org/licenses/>.
 
-from __future__ import unicode_literals
-from future.builtins import next
-from future.builtins import object
-from future.builtins import str
-from backports import csv
-
-from io import open, BytesIO
 import base64
+import csv
+from io import open, BytesIO
 import json
-import ssl as _ssl
 import linecache
 import os
 import shutil
+import ssl as _ssl
 import sys
 import threading
 import zipfile
-from future.moves.urllib.parse import urlencode
+from urllib.parse import urlencode
 
 import cherrypy
 from cherrypy.lib.static import serve_file, serve_fileobj, serve_download
@@ -49,76 +44,40 @@ if sys.version_info >= (3, 6):
     import secrets
 
 import plexpy
-if plexpy.PYTHON2:
-    import activity_pinger
-    import activity_processor
-    import common
-    import config
-    import database
-    import datafactory
-    import exporter
-    import graphs
-    import helpers
-    import http_handler
-    import libraries
-    import log_reader
-    import logger
-    import newsletter_handler
-    import newsletters
-    import mobile_app
-    import notification_handler
-    import notifiers
-    import plextv
-    import plexivity_import
-    import plexwatch_import
-    import pmsconnect
-    import users
-    import versioncheck
-    import web_socket
-    import webstart
-    from api2 import API2
-    from helpers import checked, addtoapi, get_ip, create_https_certificates, build_datatables_json, sanitize_out
-    from session import get_session_info, get_session_user_id, allow_session_user, allow_session_library
-    from webauth import AuthController, requireAuth, member_of, check_auth, get_jwt_token
-    if common.PLATFORM == 'Windows':
-        import windows
-    elif common.PLATFORM == 'Darwin':
-        import macos
-else:
-    from plexpy import activity_pinger
-    from plexpy import activity_processor
-    from plexpy import common
-    from plexpy import config
-    from plexpy import database
-    from plexpy import datafactory
-    from plexpy import exporter
-    from plexpy import graphs
-    from plexpy import helpers
-    from plexpy import http_handler
-    from plexpy import libraries
-    from plexpy import log_reader
-    from plexpy import logger
-    from plexpy import newsletter_handler
-    from plexpy import newsletters
-    from plexpy import mobile_app
-    from plexpy import notification_handler
-    from plexpy import notifiers
-    from plexpy import plextv
-    from plexpy import plexivity_import
-    from plexpy import plexwatch_import
-    from plexpy import pmsconnect
-    from plexpy import users
-    from plexpy import versioncheck
-    from plexpy import web_socket
-    from plexpy import webstart
-    from plexpy.api2 import API2
-    from plexpy.helpers import checked, addtoapi, get_ip, create_https_certificates, build_datatables_json, sanitize_out
-    from plexpy.session import get_session_info, get_session_user_id, allow_session_user, allow_session_library
-    from plexpy.webauth import AuthController, requireAuth, member_of, check_auth, get_jwt_token
-    if common.PLATFORM == 'Windows':
-        from plexpy import windows
-    elif common.PLATFORM == 'Darwin':
-        from plexpy import macos
+from plexpy import activity_pinger
+from plexpy import activity_processor
+from plexpy import common
+from plexpy import config
+from plexpy import database
+from plexpy import datafactory
+from plexpy import exporter
+from plexpy import graphs
+from plexpy import helpers
+from plexpy import http_handler
+from plexpy import libraries
+from plexpy import log_reader
+from plexpy import logger
+from plexpy import newsletter_handler
+from plexpy import newsletters
+from plexpy import mobile_app
+from plexpy import notification_handler
+from plexpy import notifiers
+from plexpy import plextv
+from plexpy import plexivity_import
+from plexpy import plexwatch_import
+from plexpy import pmsconnect
+from plexpy import users
+from plexpy import versioncheck
+from plexpy import web_socket
+from plexpy import webstart
+from plexpy.api2 import API2
+from plexpy.helpers import checked, addtoapi, get_ip, create_https_certificates, build_datatables_json, sanitize_out
+from plexpy.session import get_session_info, get_session_user_id, allow_session_user, allow_session_library
+from plexpy.webauth import AuthController, requireAuth, member_of, check_auth, get_jwt_token
+if common.PLATFORM == 'Windows':
+    from plexpy import windows
+elif common.PLATFORM == 'Darwin':
+    from plexpy import macos
 
 
 TEMPLATE_LOOKUP = None
@@ -4367,8 +4326,6 @@ class WebInterface(object):
     @cherrypy.expose
     @requireAuth(member_of("admin"))
     def update(self, **kwargs):
-        if plexpy.PYTHON2:
-            raise cherrypy.HTTPRedirect(plexpy.HTTP_ROOT + "home?update=python2")
         if plexpy.DOCKER or plexpy.SNAP:
             raise cherrypy.HTTPRedirect(plexpy.HTTP_ROOT + "home")
 
@@ -4497,10 +4454,10 @@ class WebInterface(object):
 
     @cherrypy.expose
     @requireAuth()
-    def item_watch_time_stats(self, rating_key=None, media_type=None, **kwargs):
-        if rating_key:
+    def item_watch_time_stats(self, rating_key=None, guid=None, media_type=None, **kwargs):
+        if rating_key or guid:
             item_data = datafactory.DataFactory()
-            result = item_data.get_watch_time_stats(rating_key=rating_key, media_type=media_type)
+            result = item_data.get_watch_time_stats(rating_key=rating_key, guid=guid, media_type=media_type)
         else:
             result = None
 
@@ -4512,10 +4469,10 @@ class WebInterface(object):
 
     @cherrypy.expose
     @requireAuth()
-    def item_user_stats(self, rating_key=None, media_type=None, **kwargs):
-        if rating_key:
+    def item_user_stats(self, rating_key=None, guid=None, media_type=None, **kwargs):
+        if rating_key or guid:
             item_data = datafactory.DataFactory()
-            result = item_data.get_user_stats(rating_key=rating_key, media_type=media_type)
+            result = item_data.get_user_stats(rating_key=rating_key, guid=guid, media_type=media_type)
         else:
             result = None
 
@@ -5439,8 +5396,11 @@ class WebInterface(object):
                              "audio_profile": "",
                              "bitrate": "10617",
                              "channel_call_sign": "",
+                             "channel_id": "",
                              "channel_identifier": "",
+                             "channel_title": "",
                              "channel_thumb": "",
+                             "channel_vcn": "",
                              "container": "mkv",
                              "height": "1078",
                              "id": "257925",
@@ -5464,6 +5424,13 @@ class WebInterface(object):
                                              "video_color_space": "bt709",
                                              "video_color_trc": "",
                                              "video_dynamic_range": "SDR",
+                                             "video_dovi_bl_present": 0,
+                                             "video_dovi_el_present": 0,
+                                             "video_dovi_level": 0,
+                                             "video_dovi_present": 0,
+                                             "video_dovi_profile": 0,
+                                             "video_dovi_rpu_present": 0,
+                                             "video_dovi_version": 0,
                                              "video_frame_rate": "23.976",
                                              "video_height": "1078",
                                              "video_language": "",
@@ -5853,9 +5820,12 @@ class WebInterface(object):
                              "bif_thumb": "/library/parts/274169/indexes/sd/1000",
                              "bitrate": "10617",
                              "channel_call_sign": "",
+                             "channel_id": "",
                              "channel_identifier": "",
                              "channel_stream": 0,
+                             "channel_title": "",
                              "channel_thumb": "",
+                             "channel_vcn": "",
                              "children_count": "",
                              "collections": [],
                              "container": "mkv",
@@ -6276,7 +6246,7 @@ class WebInterface(object):
     @addtoapi()
     def get_home_stats(self, grouping=None, time_range=30, stats_type='plays',
                        stats_start=0, stats_count=10, stat_id='',
-                       section_id=None, user_id=None, **kwargs):
+                       section_id=None, user_id=None, before=None, after=None, **kwargs):
         """ Get the homepage watch statistics.
 
             ```
@@ -6294,6 +6264,8 @@ class WebInterface(object):
                                         'top_users', 'top_platforms', 'last_watched', 'most_concurrent'
                 section_id (int):       The id of the Plex library section
                 user_id (int):          The id of the Plex user
+                before (str):           Stats before and including the date, "YYYY-MM-DD"
+                after (str):            Stats after and including the date, "YYYY-MM-DD"
 
             Returns:
                 json:
@@ -6377,7 +6349,9 @@ class WebInterface(object):
                                              stats_count=stats_count,
                                              stat_id=stat_id,
                                              section_id=section_id,
-                                             user_id=user_id)
+                                             user_id=user_id,
+                                             before=before,
+                                             after=after)
 
         if result:
             return result

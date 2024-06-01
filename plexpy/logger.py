@@ -15,9 +15,6 @@
 #  You should have received a copy of the GNU General Public License
 #  along with Tautulli.  If not, see <http://www.gnu.org/licenses/>.
 
-from __future__ import unicode_literals
-from future.builtins import str
-
 from logging import handlers
 
 import cherrypy
@@ -29,13 +26,8 @@ import threading
 import traceback
 
 import plexpy
-if plexpy.PYTHON2:
-    import helpers
-    import users
-    from config import _BLACKLIST_KEYS, _WHITELIST_KEYS
-else:
-    from plexpy import helpers, users
-    from plexpy.config import _BLACKLIST_KEYS, _WHITELIST_KEYS
+from plexpy import helpers, users
+from plexpy.config import _BLACKLIST_KEYS, _WHITELIST_KEYS
 
 
 # These settings are for file logging only
@@ -76,7 +68,7 @@ def filter_usernames(new_users=None):
     global _FILTER_USERNAMES
 
     if new_users is None:
-        new_users = [user['username'] for user in users.Users().get_users()]
+        new_users = [user['username'] for user in users.Users().get_users(include_deleted=True)]
 
     for username in new_users:
         if username.lower() not in ('local', 'guest') and len(username) > 3 and username not in _FILTER_USERNAMES:

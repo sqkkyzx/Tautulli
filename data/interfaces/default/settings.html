@@ -676,27 +676,6 @@
                             </div>
                         </div>
 
-                        <div class="checkbox advanced-setting">
-                            <label>
-                                <input type="checkbox" name="anon_redirect_dynamic" id="anon_redirect_dynamic" value="1" ${config['anon_redirect_dynamic']} /> 使用动态匿名重定向服务
-                            </label>
-                            <p class="help-block">
-                                允许Tautulli使用动态匿名重定向服务，该服务在<a href="${anon_url('https://tautulli.com/anonymizer.txt')}" target="_blank" rel="noreferrer">这里</a>列出。.
-                                禁用指定自己的服务。
-                            </p>
-                        </div>
-                        <div id="anon_redirect_options">
-                            <div class="form-group advanced-setting">
-                                <label for="anon_redirect">匿名重定向服务</label>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control" id="anon_redirect" name="anon_redirect" value="${config['anon_redirect']}" size="30">
-                                    </div>
-                                </div>
-                                <p class="help-block">通过匿名化服务进行反向链接保护，必须以"?"结尾。留空以禁用。</p>
-                            </div>
-                        </div>
-
                         <div class="padded-header">
                             <h3>认证</h3>
                         </div>
@@ -2416,7 +2395,6 @@ $(document).ready(function() {
 
     initConfigCheckbox('#api_enabled');
     initConfigCheckbox('#enable_https');
-    initConfigCheckbox('#anon_redirect_dynamic', null, true);
     initConfigCheckbox('#https_create_cert');
     initConfigCheckbox('#check_github');
     initConfigCheckbox('#monitor_pms_updates');

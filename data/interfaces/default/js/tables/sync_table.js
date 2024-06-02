@@ -29,7 +29,7 @@ sync_table_options = {
             "data": null,
             "createdCell": function (td, cellData, rowData, row, col) {
                 $(td).html('<div class="edit-sync-toggles">' +
-                    '<button class="btn btn-xs btn-warning delete-sync" data-id="' + rowData['sync_id'] + '" data-toggle="button"><i class="fa fa-trash-o fa-fw"></i> Delete</button>&nbsp' +
+                    '<button class="btn btn-xs btn-warning delete-sync" data-id="' + rowData['sync_id'] + '" data-toggle="button"><i class="fa fa-trash-o fa-fw"></i> 删除</button>&nbsp' +
                     '</div>');
             },
             "width": "7%",

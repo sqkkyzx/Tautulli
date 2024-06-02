@@ -81,11 +81,11 @@ history_table_modal_options = {
                 if (cellData !== '') {
                     var transcode_dec = '';
                     if (rowData['transcode_decision'] === 'transcode') {
-                        transcode_dec = '<span class="transcode-tooltip" data-toggle="tooltip" title="Transcode"><i class="fa fa-server fa-fw"></i></span>';
+                        transcode_dec = '<span class="transcode-tooltip" data-toggle="tooltip" title="转码"><i class="fa fa-server fa-fw"></i></span>';
                     } else if (rowData['transcode_decision'] === 'copy') {
-                        transcode_dec = '<span class="transcode-tooltip" data-toggle="tooltip" title="Direct Stream"><i class="fa fa-stream fa-fw"></i></span>';
+                        transcode_dec = '<span class="transcode-tooltip" data-toggle="tooltip" title="直接串流"><i class="fa fa-stream fa-fw"></i></span>';
                     } else if (rowData['transcode_decision'] === 'direct play') {
-                        transcode_dec = '<span class="transcode-tooltip" data-toggle="tooltip" title="Direct Play"><i class="fa fa-play-circle fa-fw"></i></span>';
+                        transcode_dec = '<span class="transcode-tooltip" data-toggle="tooltip" title="直接播放"><i class="fa fa-play-circle fa-fw"></i></span>';
                     }
                     $(td).html('<div><a href="#" data-target="#info-modal" data-toggle="modal"><div style="float: left;">' + transcode_dec + '&nbsp' + cellData + '</div></a></div>');
                 }

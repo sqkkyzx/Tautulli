@@ -47,22 +47,22 @@ DOCUMENTATION :: END
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="info-modal-title">
                 % if data['media_type'] == 'episode':
-                Stream Info: <strong>${data['grandparent_title']} - ${data['title']} (${user})</strong>
+                流信息: <strong>${data['grandparent_title']} - ${data['title']} (${user})</strong>
                 % elif data['media_type'] == 'track':
-                Stream Info: <strong>${data['original_title'] or data['grandparent_title']} - ${data['title']} (${user})</strong>
+                流信息: <strong>${data['original_title'] or data['grandparent_title']} - ${data['title']} (${user})</strong>
                 % else:
-                Stream Info: <strong>${data['title']} (${user})</strong>
+                流信息: <strong>${data['title']} (${user})</strong>
                 % endif
             </h4>
         </div>
         <div class="modal-body">
             % if data['current_session']:
             <div class="col-sm-12 text-muted stream-info-current">
-                <i class="fa fa-exclamation-circle"></i> Current session. Updated stream details below may be delayed.
+                <i class="fa fa-exclamation-circle"></i> 当前会话。以下更新的流详情可能会有延迟。
             </div>
             % elif data['pre_tautulli']:
             <div class="col-sm-12 text-muted stream-info-current">
-                <i class="fa fa-exclamation-circle"></i> Pre-Tautulli history. Stream details below may be incorrect.
+                <i class="fa fa-exclamation-circle"></i> Pre-Tautulli 历史。以下的流媒体详情可能不正确。
             </div>
             % endif
             <table class="stream-info" style="margin-top: 0;">
@@ -71,10 +71,10 @@ DOCUMENTATION :: END
                         <th>
                         </th>
                         <th class="heading">
-                            Stream Details
+                            流媒体详情
                         </th>
                         <th class="heading">
-                            Source Details
+                            源详情
                         </th>
                     </tr>
                 </thead>
@@ -83,38 +83,38 @@ DOCUMENTATION :: END
                 <thead>
                     <tr>
                         <th>
-                            Media
+                            媒体
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Bitrate</td>
+                        <td>比特率</td>
                         <td>${data['stream_bitrate']} ${'kbps' if data['stream_bitrate'] else ''}</td>
                         <td>${data['bitrate']} ${'kbps' if data['bitrate'] else ''}</td>
                     </tr>
                     % if data['media_type'] != 'track':
                     <tr>
-                        <td>Resolution</td>
+                        <td>分辨率</td>
                         <td>${data['stream_video_full_resolution']}</td>
                         <td>${data['video_full_resolution']}</td>
                     </tr>
                     % endif
                     <tr>
-                        <td>Quality</td>
+                        <td>质量</td>
                         <td>${data['quality_profile']}</td>
                         <td>-</td>
                     </tr>
                     % if data['optimized_version'] == 1:
                     <tr>
-                        <td>Optimized Version</td>
+                        <td>优化版本</td>
                         <td>-</td>
                         <td>${data['optimized_version_profile']}<br>(${data['optimized_version_title']})</td>
                     </tr>
                     % endif
                     % if data['synced_version'] == 1:
                     <tr>
-                        <td>Synced Version</td>
+                        <td>同步版本</td>
                         <td>-</td>
                         <td>${data['synced_version_profile']}</td>
                     </tr>
@@ -125,7 +125,7 @@ DOCUMENTATION :: END
                 <thead>
                     <tr>
                         <th>
-                            Container
+                            容器
                         </th>
                         <th>
                             ${data['stream_container_decision']}
@@ -134,7 +134,7 @@ DOCUMENTATION :: END
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Container</td>
+                        <td>容器</td>
                         <td>${data['stream_container'].upper()}</td>
                         <td>${data['container'].upper()}</td>
                     </tr>
@@ -145,7 +145,7 @@ DOCUMENTATION :: END
                 <thead>
                     <tr>
                         <th>
-                            Video
+                            视频
                         </th>
                         <th>
                             ${data['stream_video_decision']}
@@ -154,37 +154,37 @@ DOCUMENTATION :: END
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Codec</td>
+                        <td>编码</td>
                         <td>${data['stream_video_codec'].upper()} ${'(HW)' if data['transcode_hw_encoding'] else ''}</td>
                         <td>${data['video_codec'].upper()} ${'(HW)' if data['transcode_hw_decoding'] else ''}</td>
                     </tr>
                     <tr>
-                        <td>Bitrate</td>
+                        <td>比特率</td>
                         <td>${data['stream_video_bitrate']} ${'kbps' if data['stream_video_bitrate'] else ''}</td>
                         <td>${data['video_bitrate']} ${'kbps' if data['video_bitrate'] else ''}</td>
                     </tr>
                     <tr>
-                        <td>Width</td>
+                        <td>宽度</td>
                         <td>${data['stream_video_width']}</td>
                         <td>${data['video_width']}</td>
                     </tr>
                     <tr>
-                        <td>Height</td>
+                        <td>高度</td>
                         <td>${data['stream_video_height']}</td>
                         <td>${data['video_height']}</td>
                     </tr>
                     <tr>
-                        <td>Framerate</td>
+                        <td>帧率</td>
                         <td>${data['stream_video_framerate']}</td>
                         <td>${data['video_framerate']}</td>
                     </tr>
                     <tr>
-                        <td>Dynamic Range</td>
+                        <td>动态范围</td>
                         <td>${data['stream_video_dynamic_range']}</td>
                         <td>${data['video_dynamic_range']}</td>
                     </tr>
                     <tr>
-                        <td>Aspect Ratio</td>
+                        <td>纵横比</td>
                         <td>-</td>
                         <td>${data['aspect_ratio']}</td>
                     </tr>
@@ -195,7 +195,7 @@ DOCUMENTATION :: END
                 <thead>
                     <tr>
                         <th>
-                            Audio
+                            音频
                         </th>
                         <th>
                             ${data['stream_audio_decision']}
@@ -204,22 +204,22 @@ DOCUMENTATION :: END
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Codec</td>
+                        <td>编码</td>
                         <td>${AUDIO_CODEC_OVERRIDES.get(data['stream_audio_codec'], data['stream_audio_codec'].upper())}</td>
                         <td>${AUDIO_CODEC_OVERRIDES.get(data['audio_codec'], data['audio_codec'].upper())}</td>
                     </tr>
                     <tr>
-                        <td>Bitrate</td>
+                        <td>比特率</td>
                         <td>${data['stream_audio_bitrate']} ${'kbps' if data['stream_audio_bitrate'] else ''}</td>
                         <td>${data['audio_bitrate']} ${'kbps' if data['audio_bitrate'] else ''}</td>
                     </tr>
                     <tr>
-                        <td>Channels</td>
+                        <td>声道</td>
                         <td>${data['stream_audio_channels']}</td>
                         <td>${data['audio_channels']}</td>
                     </tr>
                     <tr>
-                        <td>Language</td>
+                        <td>语言</td>
                         <td>-</td>
                         <td>${data['audio_language'] or 'Unknown'}</td>
                     </tr>
@@ -231,7 +231,7 @@ DOCUMENTATION :: END
                 <thead>
                     <tr>
                         <th>
-                            Subtitles
+                            字幕
                         </th>
                         <th>
                             ${'direct play' if data['stream_subtitle_decision'] not in ('transcode', 'copy', 'burn') else data['stream_subtitle_decision']}
@@ -240,18 +240,18 @@ DOCUMENTATION :: END
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Codec</td>
+                        <td>编码</td>
                         <td>${data['stream_subtitle_codec'].upper() or '-'}</td>
                         <td>${data['subtitle_codec'].upper()}</td>
                     </tr>
                     <tr>
-                        <td>Language</td>
+                        <td>语言</td>
                         <td>-</td>
                         <td>${data['subtitle_language'] or 'Unknown'}</td>
                     </tr>
                     % if data['subtitle_forced']:
                     <tr>
-                        <td>Forced</td>
+                        <td>强制</td>
                         <td>-</td>
                         <td>${bool(data['subtitle_forced'])}</td>
                     </tr>

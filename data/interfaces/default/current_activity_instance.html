@@ -151,7 +151,7 @@ DOCUMENTATION :: END
                     <div class="dashboard-activity-info scoller-content">
                         <ul class="list-unstyled dashboard-activity-info-list">
                             <li class="dashboard-activity-info-item">
-                                <div class="sub-heading">产品</div>
+                                <div class="sub-heading">软件</div>
                                 <div class="sub-value platform-right">${data['product']}</div>
                             </li>
                             <li class="dashboard-activity-info-item">
@@ -212,7 +212,7 @@ DOCUMENTATION :: END
                                         (速度: ${data['transcode_speed']})
                                         % endif
                                     % elif data['transcode_decision'] == 'copy':
-                                    直接流
+                                    直接串流
                                     % else:
                                     直接播放
                                     % endif
@@ -250,7 +250,7 @@ DOCUMENTATION :: END
                                         %>
                                         转码 (${data['video_codec'].upper()}${hw_d} ${data['video_full_resolution']}${video_dynamic_range} <i class="fa fa-long-arrow-right"></i> ${data['stream_video_codec'].upper()}${hw_e} ${data['stream_video_full_resolution']}${stream_video_dynamic_range})
                                         % elif data['stream_video_decision'] == 'copy':
-                                        直接流 (${data['stream_video_codec'].upper()} ${data['stream_video_full_resolution']}${stream_video_dynamic_range})
+                                        直接串流 (${data['stream_video_codec'].upper()} ${data['stream_video_full_resolution']}${stream_video_dynamic_range})
                                         % else:
                                         直接播放 (${data['stream_video_codec'].upper()} ${data['stream_video_full_resolution']}${stream_video_dynamic_range})
                                         % endif
@@ -271,7 +271,7 @@ DOCUMENTATION :: END
                                         % if data['stream_audio_decision'] == 'transcode':
                                         转码 (${audio_language}${AUDIO_CODEC_OVERRIDES.get(data['audio_codec'], data['audio_codec'].upper())} ${data['audio_channel_layout'].split('(')[0].capitalize()} <i class="fa fa-long-arrow-right"></i> ${AUDIO_CODEC_OVERRIDES.get(data['stream_audio_codec'], data['stream_audio_codec'].upper())} ${data['stream_audio_channel_layout'].split('(')[0].capitalize()})
                                         % elif data['stream_audio_decision'] == 'copy':
-                                        直接流 (${audio_language}${AUDIO_CODEC_OVERRIDES.get(data['stream_audio_codec'], data['stream_audio_codec'].upper())} ${data['stream_audio_channel_layout'].split('(')[0].capitalize()})
+                                        直接串流 (${audio_language}${AUDIO_CODEC_OVERRIDES.get(data['stream_audio_codec'], data['stream_audio_codec'].upper())} ${data['stream_audio_channel_layout'].split('(')[0].capitalize()})
                                         % else:
                                         直接播放 (${audio_language}${AUDIO_CODEC_OVERRIDES.get(data['stream_audio_codec'], data['stream_audio_codec'].upper())} ${data['stream_audio_channel_layout'].split('(')[0].capitalize()})
                                         % endif
@@ -290,7 +290,7 @@ DOCUMENTATION :: END
                                         % if data['stream_subtitle_decision'] == 'transcode':
                                         转码 (${data['subtitle_language'] or 'Unknown'} - ${subtitle_codec} <i class="fa fa-long-arrow-right"></i> ${data['stream_subtitle_codec'].upper()})
                                         % elif data['stream_subtitle_decision'] == 'copy':
-                                        直接流 (${data['subtitle_language'] or 'Unknown'} - ${subtitle_codec})
+                                        直接串流 (${data['subtitle_language'] or 'Unknown'} - ${subtitle_codec})
                                         % elif data['stream_subtitle_decision'] == 'burn':
                                         烧录 (${data['subtitle_language'] or 'Unknown'} - ${subtitle_codec})
                                         % else:

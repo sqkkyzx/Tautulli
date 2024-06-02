@@ -46,18 +46,18 @@
         <table class="display sync_table" id="sync_table" width="100%">
             <thead>
             <tr>
-                <th align="left" id="delete_row">Delete</th>
-                <th align="left" id="state">State</th>
-                <th align="left" id="user">User</th>
-                <th align="left" id="sync_title">Title</th>
-                <th align="left" id="type">Type</th>
-                <th align="left" id="platform">Platform</th>
-                <th align="left" id="device">Device</th>
-                <th align="left" id="size">Total Size</th>
-                <th align="left" id="items">Total Items</th>
-                <th align="left" id="converted">Converted</th>
-                <th align="left" id="downloaded">Downloaded</th>
-                <th align="left" id="percent_complete">Complete</th>
+                <th align="left" id="delete_row">删除</th>
+                <th align="left" id="state">状态</th>
+                <th align="left" id="user">用户</th>
+                <th align="left" id="sync_title">标题</th>
+                <th align="left" id="type">类型</th>
+                <th align="left" id="platform">平台</th>
+                <th align="left" id="device">设备</th>
+                <th align="left" id="size">总大小</th>
+                <th align="left" id="items">总项目数</th>
+                <th align="left" id="converted">已转换</th>
+                <th align="left" id="downloaded">已下载</th>
+                <th align="left" id="percent_complete">完成</th>
             </tr>
             </thead>
             <tbody>
@@ -73,15 +73,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-remove"></i></button>
-                <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                <h4 class="modal-title" id="myModalLabel">确认删除</h4>
             </div>
             <div class="modal-body" style="text-align: center;">
-                <p>Are you REALLY sure you want to delete <strong><span id="deleteCount"></span></strong> sync item(s)?</p>
-                <p>This is permanent and cannot be undone!</p>
+                <p>你真的确定要删除 <strong><span id="deleteCount"></span></strong> 个同步项目吗？</p>
+                <p>这是永久性的，无法撤销！</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-dark" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-danger btn-ok" data-dismiss="modal" id="confirm-delete">Delete</button>
+                <button type="button" class="btn btn-dark" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-danger btn-ok" data-dismiss="modal" id="confirm-delete">删除</button>
             </div>
         </div>
     </div>
@@ -174,7 +174,7 @@
                 $(this).tooltip({
                     container: '.body-container',
                     placement: 'bottom',
-                    title: 'Select syncs to delete. Data is deleted upon exiting delete mode.',
+                    title: '选择要删除的同步。数据将在退出删除模式时被删除。',
                     trigger: 'manual'
                 }).tooltip('show');
 

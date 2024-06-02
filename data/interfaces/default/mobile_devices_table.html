@@ -14,7 +14,7 @@ DOCUMENTATION :: END
     <li class="mobile-device pointer" data-id="${device['id']}" data-name="${device['device_name']}">
         <span>
             % if device['official'] == -1:
-                <span class="toggle-left official-tooltip" data-toggle="tooltip" data-placement="top" title="OneSignal Validation Failed"><i class="fa fa-lg fa-fw fa-exclamation-triangle"></i></span>
+                <span class="toggle-left official-tooltip" data-toggle="tooltip" data-placement="top" title="OneSignal 验证失败"><i class="fa fa-lg fa-fw fa-exclamation-triangle"></i></span>
             % elif device['official'] > 0:
                 <%
                     icon = 'mobile'
@@ -25,7 +25,7 @@ DOCUMENTATION :: END
                 %>
                 <span class="toggle-left"><i class="fa fa-lg fa-fw fa-${icon}"></i></span>
             % else:
-                <span class="toggle-left official-tooltip" data-toggle="tooltip" data-placement="top" title="Unofficial or Unknown App"><i class="fa fa-lg fa-fw fa-exclamation-triangle"></i></span>
+                <span class="toggle-left official-tooltip" data-toggle="tooltip" data-placement="top" title="非官方或未知应用程序"><i class="fa fa-lg fa-fw fa-exclamation-triangle"></i></span>
             % endif
             ${device['friendly_name'] or device['device_name']} &nbsp;<span class="friendly_name">(${device['id']})</span>
             <span class="toggle-right friendly_name">

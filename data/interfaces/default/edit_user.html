@@ -35,50 +35,50 @@ DOCUMENTATION :: END
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-remove"></i></button>
-            <h4 class="modal-title">Edit user <strong>${data['username']}</strong></h4>
+            <h4 class="modal-title">编辑用户 <strong>${data['username']}</strong></h4>
         </div>
         <div class="modal-body" id="modal-text">
             <fieldset>
                 <div class="form-group">
-                    <label for="friendly_name">Friendly Name</label>
+                    <label for="friendly_name">友好名称</label>
                     <div class="row">
                         <div class="col-md-6">
                             <input type="text" class="form-control" id="friendly_name" name="friendly_name" value="${data['friendly_name']}" size="30">
                         </div>
                     </div>
-                    <p class="help-block">Replace all occurrences of the username with this name.</p>
+                    <p class="help-block">将所有出现的用户名替换为这个名字。</p>
                 </div>
                 <div class="form-group">
-                    <label for="profile_url">Profile Picture URL</label>
+                    <label for="profile_url">个人资料图片 URL</label>
                     <div class="row">
                         <div class="col-md-8">
                             <input type="text" class="form-control" id="custom_avatar_url" name="custom_avatar_url" value="${data['user_thumb']}">
                         </div>
                     </div>
-                    <p class="help-block">Change the users profile picture in Tautulli. To reset to default, leave this field empty and save.</p>
+                    <p class="help-block">在 Tautulli 中更改用户的个人资料图片。要重置为默认图片，请将此字段留空并保存。</p>
                 </div>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" id="keep_history" name="keep_history" value="1" ${helpers.checked(data['keep_history'])}> Keep history
+                        <input type="checkbox" id="keep_history" name="keep_history" value="1" ${helpers.checked(data['keep_history'])}> 保留历史记录
                     </label>
-                    <p class="help-block">Uncheck this if you do not want to keep any history on this user's activity.</p>
+                    <p class="help-block">取消选中此项，如果你不希望保留此用户活动的任何历史记录。</p>
                 </div>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" id="allow_guest" name="allow_guest" value="1" ${helpers.checked(data['allow_guest'])}> Allow Guest Access
+                        <input type="checkbox" id="allow_guest" name="allow_guest" value="1" ${helpers.checked(data['allow_guest'])}> 允许访客访问
                     </label>
-                    <p class="help-block">Uncheck this if you do not want to allow this user to login to Tautulli.</p>
+                    <p class="help-block">如果你不希望允许此用户登录 Tautulli，请取消选中此项。</p>
                 </div>
                 % if data['user_id']:
                 <div class="form-group">
-                    <button class="btn btn-danger" id="delete-all-history">Purge</button>
-                    <p class="help-block">DANGER ZONE! Click the purge button to remove all history logged for this user. This is permanent!</p>
+                    <button class="btn btn-danger" id="delete-all-history">清除</button>
+                    <p class="help-block">危险区域！点击清除按钮以删除为该用户记录的所有历史。这是永久性的！</p>
                 </div>
                 % endif
                 % if data['deleted_user']:
                 <div class="form-group">
-                    <button class="btn btn-bright" id="undelete-user">Undelete</button>
-                    <p class="help-block">Click to re-add the user to the Tautulli users list.</p>
+                    <button class="btn btn-bright" id="undelete-user">恢复删除</button>
+                    <p class="help-block">点击重新将用户添加到 Tautulli 用户列表。</p>
                 </div>
                 % endif
             </fieldset>
@@ -123,14 +123,13 @@ DOCUMENTATION :: END
     });
 
     $('#delete-all-history').click(function () {
-        var msg = 'Are you REALLY sure you want to purge all history for the <strong>${data["username"]}</strong> user?<br>' +
-            'This is permanent and cannot be undone!';
+        var msg = '你是否真的确定要清除 <strong>${data["username"]}</strong> 用户的所有历史记录？<br>这是永久性的，无法撤销！';
         var url = 'delete_all_user_history';
         confirmAjaxCall(url, msg, { user_id: '${data["user_id"]}' }, null, function () { location.reload(); });
     });
 
     $('#undelete-user').click(function () {
-        var msg = 'Are you sure you want to undelete this user?';
+        var msg = '你确定要恢复此用户吗？';
         var url = 'undelete_user';
         confirmAjaxCall(url, msg, { user_id: '${data["user_id"]}' }, null, function () { location.reload(); });
     });

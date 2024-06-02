@@ -117,7 +117,7 @@ def main():
     try:
         plexpy.SYS_TIMEZONE = tzlocal.get_localzone()
     except (pytz.UnknownTimeZoneError, LookupError, ValueError) as e:
-        logger.error("Could not determine system timezone: %s" % e)
+        logger.error("无法确定系统时区：%s" % e)
         plexpy.SYS_TIMEZONE = pytz.UTC
 
     plexpy.SYS_UTC_OFFSET = datetime.datetime.now(plexpy.SYS_TIMEZONE).strftime('%z')
@@ -130,18 +130,18 @@ def main():
 
     if args.dev:
         plexpy.DEV = True
-        logger.debug("Tautulli is running in the dev environment.")
+        logger.debug("Tautulli 正在开发环境中运行。")
 
     if args.daemon:
         if sys.platform == 'win32':
-            logger.warn("Daemonizing not supported under Windows, starting normally")
+            logger.warn("在 Windows 下不支持 Daemonizing，正常启动")
         else:
             plexpy.DAEMON = True
             plexpy.QUIET = True
 
     if args.nofork:
         plexpy.NOFORK = True
-        logger.info("Tautulli is running as a service, it will not fork when restarted.")
+        logger.info("Tautulli 正在作为服务运行，它在重启时不会派生进程。")
 
     if args.pidfile:
         plexpy.PIDFILE = str(args.pidfile)
@@ -153,18 +153,17 @@ def main():
                 with open(plexpy.PIDFILE, 'r') as fp:
                     pid = int(fp.read())
             except IOError as e:
-                raise SystemExit("Unable to read PID file: %s", e)
+                raise SystemExit("无法读取 PID 文件：%s", e)
 
             try:
                 os.kill(pid, 0)
             except OSError:
-                logger.warn("PID file '%s' already exists, but PID %d is "
-                            "not running. Ignoring PID file." %
+                logger.warn("PID 文件 '%s' 已经存在，但是 PID %d 没有运行。忽略 PID 文件。" %
                             (plexpy.PIDFILE, pid))
             else:
                 # The pidfile exists and points to a live PID. plexpy may
                 # still be running, so exit.
-                raise SystemExit("PID file '%s' already exists. Exiting." %
+                raise SystemExit("PID 文件 '%s' 已经存在。正在退出。" %
                                  plexpy.PIDFILE)
 
         # The pidfile is only useful in daemon mode, make sure we can write the

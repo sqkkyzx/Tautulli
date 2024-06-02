@@ -5,7 +5,7 @@ collections_table_options = {
         "lengthMenu": "每页显示 _MENU_ 条",
         "info": "显示第 _START_ 到第 _END_ 项，共 _TOTAL_ 项收藏",
         "infoEmpty": "显示第 0 条到第 0 条，共 0 条记录",
-        "infoFiltered": "<span class='hidden-md hidden-sm hidden-xs'>（从 _MAX_ 条目中过滤）</span>",
+        "infoFiltered": "<span class='hidden-md hidden-sm hidden-xs'>（从 _MAX_ 条中过滤）</span>",
         "emptyTable": "表中无数据",
         "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> 加载项目中...</div>'
     },

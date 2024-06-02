@@ -18,7 +18,7 @@ history_table_options = {
         "lengthMenu": "每页显示 _MENU_ 条",
         "info": "显示第 _START_ 条到第 _END_ 条，共 _TOTAL_ 条历史记录",
         "infoEmpty": "显示第 0 条到第 0 条，共 0 条记录",
-        "infoFiltered": "<span class='hidden-md hidden-sm hidden-xs'>（从 _MAX_ 条目中过滤）</span>",
+        "infoFiltered": "<span class='hidden-md hidden-sm hidden-xs'>（从 _MAX_ 条中过滤）</span>",
         "emptyTable": "表中无数据",
         "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> 加载项目中...</div>'
     },
@@ -43,7 +43,7 @@ history_table_options = {
                 if (rowData['row_id'] === null) {
                     $(td).html('');
                 } else {
-                    $(td).html('<button class="btn btn-xs btn-warning" data-id="' + rowData['row_id'] + '"><i class="fa fa-trash-o fa-fw"></i> Delete</button>');
+                    $(td).html('<button class="btn btn-xs btn-warning" data-id="' + rowData['row_id'] + '"><i class="fa fa-trash-o fa-fw"></i> 删除</button>');
                 }
             },
             "width": "5%",
@@ -73,7 +73,7 @@ history_table_options = {
                     }
                     $(td).html('<div><div style="float: left;">' + state + '&nbsp;' + date + '</div></div>');
                 } else if (rowData['group_count'] > 1) {
-                    expand_history = '<span class="expand-history-tooltip" data-toggle="tooltip" title="Show Detailed History"><i class="fa fa-plus-circle fa-fw"></i></span>';
+                    expand_history = '<span class="expand-history-tooltip" data-toggle="tooltip" title="显示详细历史记录"><i class="fa fa-plus-circle fa-fw"></i></span>';
                     $(td).html('<div><a href="#"><div style="float: left;">' + expand_history + '&nbsp;' + date + '</div></a></div>');
                 } else {
                     $(td).html('<div style="float: left;"><i class="fa fa-plus-circle fa-fw fa-blank">&nbsp;</i>&nbsp;' + date + '</div>');
@@ -320,8 +320,8 @@ history_table_options = {
             }
         });
 
-        $("#history_table_info").append('<span class="hidden-md hidden-sm hidden-xs"> with a duration of ' + settings.json.filter_duration +
-            ' (filtered from ' + settings.json.total_duration + ' total)</span>');
+        $("#history_table_info").append('<span class="hidden-md hidden-sm hidden-xs"> 持续时间为 ' + settings.json.filter_duration +
+            ' (筛选自 ' + settings.json.total_duration + ' total)</span>');
     },
     "preDrawCallback": function(settings) {
         var msg = "<i class='fa fa-refresh fa-spin'></i>&nbsp; 正在获取行...";
@@ -522,18 +522,18 @@ function childTableFormat(rowData) {
             '<table id="history_child-' + rowData['reference_id'] + '" width="100%">' +
             '<thead>' +
             '<tr>' +
-                '<th align="left" id="delete_row">Delete</th>' +
-                '<th align="left" id="date">Date</th>' +
-                '<th align="left" id="friendly_name">User</th>' +
-                '<th align="left" id="ip_address">IP Address</th>' +
-                '<th align="left" id="platform">Platform</th>' +
-                '<th align="left" id="product">Product</th>' +
-                '<th align="left" id="player">Player</th>' +
-                '<th align="left" id="title">Title</th>' +
-                '<th align="left" id="started">Started</th>' +
-                '<th align="left" id="paused_counter">Paused</th>' +
-                '<th align="left" id="stopped">Stopped</th>' +
-                '<th align="left" id="play_duration">Duration</th>' +
+                '<th align="left" id="delete_row">删除</th>' +
+                '<th align="left" id="date">日期</th>' +
+                '<th align="left" id="friendly_name">用户</th>' +
+                '<th align="left" id="ip_address">IP地址</th>' +
+                '<th align="left" id="platform">平台</th>' +
+                '<th align="left" id="product">软件</th>' +
+                '<th align="left" id="player">播放器</th>' +
+                '<th align="left" id="title">标题</th>' +
+                '<th align="left" id="started">开始</th>' +
+                '<th align="left" id="paused_counter">暂停</th>' +
+                '<th align="left" id="stopped">停止</th>' +
+                '<th align="left" id="play_duration">时长</th>' +
                 '<th align="left" id="percent_complete"></th>' +
             '</tr>' +
             '</thead>' +

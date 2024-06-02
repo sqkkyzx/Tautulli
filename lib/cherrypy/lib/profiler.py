@@ -132,8 +132,8 @@ class Profiler(object):
 
     @cherrypy.expose
     def menu(self):
-        yield '<h2>Profiling runs</h2>'
-        yield '<p>Click on one of the runs below to see profiling data.</p>'
+        yield '<h2>分析运行</h2>'
+        yield '<p>点击下面的某个运行以查看分析数据。</p>'
         runs = self.statfiles()
         runs.sort()
         for i in runs:

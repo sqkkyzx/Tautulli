@@ -5,7 +5,7 @@ login_log_table_options = {
         "lengthMenu": "每页显示 _MENU_ 条",
         "info": "显示第 _START_ 条到第 _END_ 条结果，共 _TOTAL_ 条结果",
         "infoEmpty": "显示第 0 条到第 0 条，共 0 条记录",
-        "infoFiltered": "（从 _MAX_ 条目中过滤）",
+        "infoFiltered": "（从 _MAX_ 条中过滤）",
         "emptyTable": "表中无数据",
         "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> 加载项目中...</div>'
     },

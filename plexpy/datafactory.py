@@ -438,7 +438,7 @@ class DataFactory(object):
 
                 home_stats.append({'stat_id': stat,
                                    'stat_type': sort_type,
-                                   'stat_title': 'Most Watched Movies',
+                                   'stat_title': '最多观看的电影',
                                    'rows': session.mask_session_info(top_movies)})
 
             elif stat == 'popular_movies':
@@ -488,7 +488,7 @@ class DataFactory(object):
                     popular_movies.append(row)
 
                 home_stats.append({'stat_id': stat,
-                                   'stat_title': 'Most Popular Movies',
+                                   'stat_title': '最受欢迎的电影',
                                    'rows': session.mask_session_info(popular_movies)})
 
             elif stat == 'top_tv':
@@ -541,7 +541,7 @@ class DataFactory(object):
 
                 home_stats.append({'stat_id': stat,
                                    'stat_type': sort_type,
-                                   'stat_title': 'Most Watched TV Shows',
+                                   'stat_title': '最多观看的电视剧',
                                    'rows': session.mask_session_info(top_tv)})
 
             elif stat == 'popular_tv':
@@ -593,7 +593,7 @@ class DataFactory(object):
                     popular_tv.append(row)
 
                 home_stats.append({'stat_id': stat,
-                                   'stat_title': 'Most Popular TV Shows',
+                                   'stat_title': '最受欢迎的电视剧',
                                    'rows': session.mask_session_info(popular_tv)})
 
             elif stat == 'top_music':
@@ -645,7 +645,7 @@ class DataFactory(object):
 
                 home_stats.append({'stat_id': stat,
                                    'stat_type': sort_type,
-                                   'stat_title': 'Most Played Artists',
+                                   'stat_title': '最多播放的艺术家',
                                    'rows': session.mask_session_info(top_music)})
 
             elif stat == 'popular_music':
@@ -696,7 +696,7 @@ class DataFactory(object):
                     popular_music.append(row)
 
                 home_stats.append({'stat_id': stat,
-                                   'stat_title': 'Most Popular Artists',
+                                   'stat_title': '最受欢迎的艺术家',
                                    'rows': session.mask_session_info(popular_music)})
 
             elif stat == 'top_libraries':
@@ -784,7 +784,7 @@ class DataFactory(object):
 
                 home_stats.append({'stat_id': stat,
                                    'stat_type': sort_type,
-                                   'stat_title': 'Most Active Libraries',
+                                   'stat_title': '最多活动的媒体库',
                                    'rows': session.mask_session_info(top_libraries)})
 
             elif stat == 'top_users':
@@ -861,7 +861,7 @@ class DataFactory(object):
 
                 home_stats.append({'stat_id': stat,
                                    'stat_type': sort_type,
-                                   'stat_title': 'Most Active Users',
+                                   'stat_title': '最多活动的用户',
                                    'rows': session.mask_session_info(top_users)})
 
             elif stat == 'top_platforms':
@@ -909,7 +909,7 @@ class DataFactory(object):
 
                 home_stats.append({'stat_id': stat,
                                    'stat_type': sort_type,
-                                   'stat_title': 'Most Active Platforms',
+                                   'stat_title': '最多活动的平台',
                                    'rows': session.mask_session_info(top_platform, mask_metadata=False)})
 
             elif stat == 'last_watched':
@@ -1018,7 +1018,7 @@ class DataFactory(object):
                     last_watched.append(row)
 
                 home_stats.append({'stat_id': stat,
-                                   'stat_title': 'Recently Watched',
+                                   'stat_title': '最近观看',
                                    'rows': session.mask_session_info(last_watched)})
 
             elif stat == 'most_concurrent':
@@ -1098,7 +1098,7 @@ class DataFactory(object):
                     return None
 
                 home_stats.append({'stat_id': stat,
-                                   'stat_title': 'Most Concurrent Streams',
+                                   'stat_title': '最多并发流',
                                    'rows': most_concurrent})
 
         if stat_id and home_stats:

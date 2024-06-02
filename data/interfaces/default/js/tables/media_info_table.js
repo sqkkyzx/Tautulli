@@ -48,19 +48,19 @@ media_info_table_options = {
                         date = moment(cellData, "X").format(date_format);
                     }
                     if (rowData['media_type'] === 'show') {
-                        expand_details = '<span class="expand-media-info-tooltip" data-toggle="tooltip" title="Show Seasons"><i class="fa fa-plus-circle fa-fw"></i></span>';
+                        expand_details = '<span class="expand-media-info-tooltip" data-toggle="tooltip" title="显示季数"><i class="fa fa-plus-circle fa-fw"></i></span>';
                         $(td).html('<div><a href="#"><div style="float: left;">' + expand_details + '&nbsp;' + date + '</div></a></div>');
                     } else if (rowData['media_type'] === 'season') {
-                        expand_details = '<span class="expand-media-info-tooltip" data-toggle="tooltip" title="Show Episodes"><i class="fa fa-plus-circle fa-fw"></i></span>';
+                        expand_details = '<span class="expand-media-info-tooltip" data-toggle="tooltip" title="显示剧集"><i class="fa fa-plus-circle fa-fw"></i></span>';
                         $(td).html('<div><a href="#"><div style="float: left;">' + expand_details + '&nbsp;' + date + '</div></a></div>');
                     } else if (rowData['media_type'] === 'artist') {
-                        expand_details = '<span class="expand-media-info-tooltip" data-toggle="tooltip" title="Show Albums"><i class="fa fa-plus-circle fa-fw"></i></span>';
+                        expand_details = '<span class="expand-media-info-tooltip" data-toggle="tooltip" title="显示专辑"><i class="fa fa-plus-circle fa-fw"></i></span>';
                         $(td).html('<div><a href="#"><div style="float: left;">' + expand_details + '&nbsp;' + date + '</div></a></div>');
                     } else if (rowData['media_type'] === 'album') {
-                        expand_details = '<span class="expand-media-info-tooltip" data-toggle="tooltip" title="Show Tracks"><i class="fa fa-plus-circle fa-fw"></i></span>';
+                        expand_details = '<span class="expand-media-info-tooltip" data-toggle="tooltip" title="显示曲目"><i class="fa fa-plus-circle fa-fw"></i></span>';
                         $(td).html('<div><a href="#"><div style="float: left;">' + expand_details + '&nbsp;' + date + '</div></a></div>');
                     } else if (rowData['media_type'] === 'photo_album') {
-                        expand_details = '<span class="expand-media-info-tooltip" data-toggle="tooltip" title="Show Photos"><i class="fa fa-plus-circle fa-fw"></i></span>';
+                        expand_details = '<span class="expand-media-info-tooltip" data-toggle="tooltip" title="显示照片"><i class="fa fa-plus-circle fa-fw"></i></span>';
                         $(td).html('<div><a href="#"><div style="float: left;">' + expand_details + '&nbsp;' + date + '</div></a></div>');
                     } else {
                         $(td).html('<div style="float: left;"><i class="fa fa-plus-circle fa-fw fa-blank"></i>&nbsp;' + date + '</div>');
@@ -81,43 +81,43 @@ media_info_table_options = {
                     var thumb_popover = '';
                     if (rowData['media_type'] === 'movie') {
                         if (rowData['year']) { parent_info = ' (' + rowData['year'] + ')'; }
-                        media_type = '<span class="media-type-tooltip" data-toggle="tooltip" title="Movie"><i class="fa fa-film fa-fw"></i></span>';
+                        media_type = '<span class="media-type-tooltip" data-toggle="tooltip" title="电影"><i class="fa fa-film fa-fw"></i></span>';
                         thumb_popover = '<span class="thumb-tooltip" data-toggle="popover" data-img="' + page('pms_image_proxy', rowData['thumb'], rowData['rating_key'], 300, 450, null, null, null, 'poster') + '" data-height="120" data-width="80">' + rowData['title'] + parent_info + '</span>';
                         $(td).html('<div class="history-title"><a href="' + page('info', rowData['rating_key']) + '"><div style="float: left;">' + media_type + '&nbsp;' + thumb_popover + '</div></a></div>');
                     } else if (rowData['media_type'] === 'show') {
-                        media_type = '<span class="media-type-tooltip" data-toggle="tooltip" title="TV Show"><i class="fa fa-television fa-fw"></i></span>';
+                        media_type = '<span class="media-type-tooltip" data-toggle="tooltip" title="电视剧"><i class="fa fa-television fa-fw"></i></span>';
                         thumb_popover = '<span class="thumb-tooltip" data-toggle="popover" data-img="' + page('pms_image_proxy', rowData['thumb'], rowData['rating_key'], 300, 450, null, null, null, 'poster') + '" data-height="120" data-width="80">' + rowData['title'] + '</span>';
                         $(td).html('<div class="history-title"><a href="' + page('info', rowData['rating_key']) + '"><div style="float: left;">' + media_type + '&nbsp;' + thumb_popover + '</div></a></div>');
                     } else if (rowData['media_type'] === 'season') {
-                        media_type = '<span class="media-type-tooltip" data-toggle="tooltip" title="Season"><i class="fa fa-television fa-fw"></i></span>';
+                        media_type = '<span class="media-type-tooltip" data-toggle="tooltip" title="季"><i class="fa fa-television fa-fw"></i></span>';
                         thumb_popover = '<span class="thumb-tooltip" data-toggle="popover" data-img="' + page('pms_image_proxy', rowData['thumb'], rowData['rating_key'], 300, 450, null, null, null, 'poster') + '" data-height="120" data-width="80">' + rowData['title'] + '</span>';
                         $(td).html('<div class="history-title"><a href="' + page('info', rowData['rating_key']) + '"><div style="float: left; padding-left: 15px;">' + media_type + '&nbsp;' + thumb_popover + '</div></a></div>');
                     } else if (rowData['media_type'] === 'episode') {
-                        media_type = '<span class="media-type-tooltip" data-toggle="tooltip" title="Episode"><i class="fa fa-television fa-fw"></i></span>';
+                        media_type = '<span class="media-type-tooltip" data-toggle="tooltip" title="剧集"><i class="fa fa-television fa-fw"></i></span>';
                         thumb_popover = '<span class="thumb-tooltip" data-toggle="popover" data-img="' + page('pms_image_proxy', rowData['thumb'], rowData['rating_key'], 500, 280, null, null, null, 'art') + '" data-height="80" data-width="140">E' + rowData['media_index'] + ' - ' + rowData['title'] + '</span>';
                         $(td).html('<div class="history-title"><a href="' + page('info', rowData['rating_key']) + '"><div style="float: left; padding-left: 30px;">' + media_type + '&nbsp;' + thumb_popover + '</div></a></div>');
                     } else if (rowData['media_type'] === 'artist') {
-                        media_type = '<span class="media-type-tooltip" data-toggle="tooltip" title="Artist"><i class="fa fa-music fa-fw"></i></span>';
+                        media_type = '<span class="media-type-tooltip" data-toggle="tooltip" title="艺术家"><i class="fa fa-music fa-fw"></i></span>';
                         thumb_popover = '<span class="thumb-tooltip" data-toggle="popover" data-img="' + page('pms_image_proxy', rowData['thumb'], rowData['rating_key'], 300, 300, null, null, null, 'cover') + '" data-height="80" data-width="80">' + rowData['title'] + '</span>';
                         $(td).html('<div class="history-title"><a href="' + page('info', rowData['rating_key']) + '"><div style="float: left;">' + media_type + '&nbsp;' + thumb_popover + '</div></a></div>');
                     } else if (rowData['media_type'] === 'album') {
-                        media_type = '<span class="media-type-tooltip" data-toggle="tooltip" title="Album"><i class="fa fa-music fa-fw"></i></span>';
+                        media_type = '<span class="media-type-tooltip" data-toggle="tooltip" title="专辑"><i class="fa fa-music fa-fw"></i></span>';
                         thumb_popover = '<span class="thumb-tooltip" data-toggle="popover" data-img="' + page('pms_image_proxy', rowData['thumb'], rowData['rating_key'], 300, 300, null, null, null, 'cover') + '" data-height="80" data-width="80">' + rowData['title'] + '</span>';
                         $(td).html('<div class="history-title"><a href="' + page('info', rowData['rating_key']) + '"><div style="float: left; padding-left: 15px;">' + media_type + '&nbsp;' + thumb_popover + '</div></a></div>');
                     } else if (rowData['media_type'] === 'track') {
-                        media_type = '<span class="media-type-tooltip" data-toggle="tooltip" title="Track"><i class="fa fa-music fa-fw"></i></span>';
+                        media_type = '<span class="media-type-tooltip" data-toggle="tooltip" title="曲目"><i class="fa fa-music fa-fw"></i></span>';
                         thumb_popover = '<span class="thumb-tooltip" data-toggle="popover" data-img="' + page('pms_image_proxy', rowData['thumb'], rowData['rating_key'], 300, 300, null, null, null, 'cover') + '" data-height="80" data-width="80">T' + rowData['media_index'] + ' - ' + rowData['title'] + '</span>';
                         $(td).html('<div class="history-title"><a href="' + page('info', rowData['rating_key']) + '"><div style="float: left; padding-left: 30px;">' + media_type + '&nbsp;' + thumb_popover + '</div></a></div>');
                     } else if (rowData['media_type'] === 'photo_album') {
-                        media_type = '<span class="media-type-tooltip" data-toggle="tooltip" title="Photo Album"><i class="fa fa-camera fa-fw"></i></span>';
+                        media_type = '<span class="media-type-tooltip" data-toggle="tooltip" title="相册"><i class="fa fa-camera fa-fw"></i></span>';
                         thumb_popover = '<span class="thumb-tooltip" data-toggle="popover" data-img="' + page('pms_image_proxy', rowData['thumb'], rowData['rating_key'], 300, 450, null, null, null, 'poster') + '" data-height="120" data-width="80">' + rowData['title'] + '</span>';
                         $(td).html('<div class="history-title"><a href="' + page('info', rowData['rating_key']) + '"><div style="float: left;">' + media_type + '&nbsp;' + thumb_popover + '</div></a></div>');
                     } else if (rowData['media_type'] === 'photo') {
-                        media_type = '<span class="media-type-tooltip" data-toggle="tooltip" title="Photo"><i class="fa fa-picture-o fa-fw"></i></span>';
+                        media_type = '<span class="media-type-tooltip" data-toggle="tooltip" title="照片"><i class="fa fa-picture-o fa-fw"></i></span>';
                         thumb_popover = '<span class="thumb-tooltip" data-toggle="popover" data-img="' + page('pms_image_proxy', rowData['thumb'], rowData['rating_key'], 300, 450, null, null, null, 'poster') + '" data-height="120" data-width="80">' + rowData['title'] + '</span>';
                         $(td).html('<div class="history-title"><a href="' + page('info', rowData['rating_key']) + '"><div style="float: left; padding-left: 15px;">' + media_type + '&nbsp;' + thumb_popover + '</div></a></div>');
                     } else if (rowData['media_type'] === 'clip') {
-                        media_type = '<span class="media-type-tooltip" data-toggle="tooltip" title="Video"><i class="fa fa-video-camera fa-fw"></i></span>';
+                        media_type = '<span class="media-type-tooltip" data-toggle="tooltip" title="视频"><i class="fa fa-video-camera fa-fw"></i></span>';
                         thumb_popover = '<span class="thumb-tooltip" data-toggle="popover" data-img="' + page('pms_image_proxy', rowData['thumb'], rowData['rating_key'], 500, 280, null, null, null, 'art') + '" data-height="80" data-width="140">' + rowData['title'] + '</span>';
                         $(td).html('<div class="history-title"><a href="' + page('info', rowData['rating_key']) + '"><div style="float: left; padding-left: 15px;">' + media_type + '&nbsp;' + thumb_popover + '</div></a></div>');
                     } else {
@@ -302,7 +302,7 @@ media_info_table_options = {
 
         $("#media_info_table-SID-" + section_id + "_info").append('<span class="hidden-md hidden-sm hidden-xs"> 文件总大小为 ' +
             humanFileSize(settings.json.filtered_file_size) +
-            ' (filtered from ' + humanFileSize(settings.json.total_file_size) + ')</span>');
+            ' (筛选自 ' + humanFileSize(settings.json.total_file_size) + ')</span>');
     },
     "preDrawCallback": function (settings) {
         var msg = "<i class='fa fa-refresh fa-spin'></i>&nbsp; 正在获取行...";
@@ -447,18 +447,18 @@ function childTableFormatMedia(rowData) {
             '<table id="media_info_child-' + rowData['rating_key'] + '" data-id="' + rowData['rating_key'] + '" width="100%">' +
             '<thead>' +
             '<tr>' +
-                '<th align="left" id="added_at">Added At</th>' +
-                '<th align="left" id="title">Title</th>' +
-                '<th align="left" id="container">Container</th>' +
-                '<th align="left" id="bitrate">Bitrate</th>' +
-                '<th align="left" id="video_codec">Video Codec</th>' +
-                '<th align="left" id="video_resolution">Video Resolution</th>' +
-                '<th align="left" id="video_resolution">Video Framerate</th>' +
-                '<th align="left" id="audio_codec">Audio Codec</th>' +
-                '<th align="left" id="audio_channels">Audio Channels</th>' +
-                '<th align="left" id="file_size">File Size</th>' +
-                '<th align="left" id="last_played">Last Played</th>' +
-                '<th align="left" id="total_plays">Total Plays</th>' +
+                '<th align="left" id="added_at">添加于</th>' +
+                '<th align="left" id="title">标题</th>' +
+                '<th align="left" id="container">容器</th>' +
+                '<th align="left" id="bitrate">比特率</th>' +
+                '<th align="left" id="video_codec">视频编码</th>' +
+                '<th align="left" id="video_resolution">分辨率</th>' +
+                '<th align="left" id="video_resolution">帧率</th>' +
+                '<th align="left" id="audio_codec">音频编码</th>' +
+                '<th align="left" id="audio_channels">声道</th>' +
+                '<th align="left" id="file_size">文件大小</th>' +
+                '<th align="left" id="last_played">最近播放</th>' +
+                '<th align="left" id="total_plays">总计播放</th>' +
             '</tr>' +
             '</thead>' +
             '<tbody>' +

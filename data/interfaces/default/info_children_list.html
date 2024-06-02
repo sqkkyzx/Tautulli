@@ -47,7 +47,7 @@ DOCUMENTATION :: END
                     <span class="item-children-list-item-index">${loop.index + 1}</span>
                     <span class="item-children-list-item-title">
                         % if child['media_type'] == 'movie':
-                        <span class="media-type-tooltip" data-toggle="tooltip" title="Movie"><i class="fa fa-film fa-fw"></i></span>
+                        <span class="media-type-tooltip" data-toggle="tooltip" title="电影"><i class="fa fa-film fa-fw"></i></span>
                         <a href="${page('info', child['rating_key'])}" title="${child['title']}">
                             <span class="thumb-tooltip" data-toggle="popover" data-img="${page('pms_image_proxy', child['thumb'], child['rating_key'], 300, 450, fallback='poster')}" data-height="120" data-width="80">
                                 ${child['title']}

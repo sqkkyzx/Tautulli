@@ -17,7 +17,7 @@ export_table_options = {
         "lengthMenu": "每页显示 _MENU_ 条",
         "info": "显示第 _START_ 项到第 _END_ 项，共 _TOTAL_ 项导出内容",
         "infoEmpty": "显示第 0 条到第 0 条，共 0 条记录",
-        "infoFiltered": "<span class='hidden-md hidden-sm hidden-xs'>（从 _MAX_ 条目中过滤）</span>",
+        "infoFiltered": "<span class='hidden-md hidden-sm hidden-xs'>（从 _MAX_ 条中过滤）</span>",
         "emptyTable": "表中无数据",
         "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> 加载项目中...</div>'
     },
@@ -169,14 +169,14 @@ export_table_options = {
                         icon = 'fa-file-download';
                     }
                     var icon = (rowData['thumb_level'] || rowData['art_level'] || rowData['individual_files']) ? 'fa-file-archive' : 'fa-file-download';
-                    $(td).html('<button class="btn btn-xs btn-success pull-left" data-id="' + rowData['export_id'] + '"><span data-toggle="tooltip" data-placement="left"  title="' + tooltip_title + '"><i class="fa ' + icon + ' fa-fw"></i> Download</span></button>');
+                    $(td).html('<button class="btn btn-xs btn-success pull-left" data-id="' + rowData['export_id'] + '"><span data-toggle="tooltip" data-placement="left"  title="' + tooltip_title + '"><i class="fa ' + icon + ' fa-fw"></i> 下载</span></button>');
                 } else if (cellData === 0) {
                     var percent = Math.min(getPercent(rowData['exported_items'], rowData['total_items']), 99)
                     $(td).html('<span class="btn btn-xs btn-dark pull-left export-processing" data-id="' + rowData['export_id'] + '" disabled><i class="fa fa-spinner fa-spin fa-fw"></i> ' + percent + '%</span>');
                 } else if (cellData === -1) {
-                    $(td).html('<span class="btn btn-xs btn-dark pull-left" data-id="' + rowData['export_id'] + '" disabled><i class="fa fa-exclamation-circle fa-fw"></i> Failed</span>');
+                    $(td).html('<span class="btn btn-xs btn-dark pull-left" data-id="' + rowData['export_id'] + '" disabled><i class="fa fa-exclamation-circle fa-fw"></i> 失败</span>');
                 } else {
-                    $(td).html('<span class="btn btn-xs btn-dark pull-left" data-id="' + rowData['export_id'] + '" disabled><i class="fa fa-question-circle fa-fw"></i> Not Found</span>');
+                    $(td).html('<span class="btn btn-xs btn-dark pull-left" data-id="' + rowData['export_id'] + '" disabled><i class="fa fa-question-circle fa-fw"></i> 未找到</span>');
                 }
             },
             "width": "7%",
@@ -188,9 +188,9 @@ export_table_options = {
             "data": null,
             "createdCell": function (td, cellData, rowData, row, col) {
                 if (rowData['complete'] !== 0) {
-                    $(td).html('<button class="btn btn-xs btn-danger pull-left" data-id="' + rowData['export_id'] + '"><i class="fa fa-trash-o fa-fw"></i> Delete</button>');
+                    $(td).html('<button class="btn btn-xs btn-danger pull-left" data-id="' + rowData['export_id'] + '"><i class="fa fa-trash-o fa-fw"></i> 删除</button>');
                 } else {
-                    $(td).html('<span class="btn btn-xs btn-danger pull-left" data-id="' + rowData['export_id'] + '" disabled><i class="fa fa-trash-o fa-fw"></i> Delete</span>');
+                    $(td).html('<span class="btn btn-xs btn-danger pull-left" data-id="' + rowData['export_id'] + '" disabled><i class="fa fa-trash-o fa-fw"></i> 删除</span>');
                 }
             },
             "width": "7%",

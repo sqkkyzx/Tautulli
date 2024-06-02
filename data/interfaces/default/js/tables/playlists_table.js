@@ -5,7 +5,7 @@ playlists_table_options = {
         "lengthMenu": "每页显示 _MENU_ 条",
         "info": "显示 _START_ 到 _END_ 的 _TOTAL_ 个播放列表",
         "infoEmpty": "显示第 0 条到第 0 条，共 0 条记录",
-        "infoFiltered": "<span class='hidden-md hidden-sm hidden-xs'>（从 _MAX_ 条目中过滤）</span>",
+        "infoFiltered": "<span class='hidden-md hidden-sm hidden-xs'>（从 _MAX_ 条中过滤）</span>",
         "emptyTable": "表中无数据",
         "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> 加载项目中...</div>'
     },
@@ -30,7 +30,7 @@ playlists_table_options = {
                 if (cellData !== '') {
                     var smart = '<i class="fa fa-blank fa-fw"></i>';
                     if (rowData['smart']) {
-                        smart = '<span class="media-type-tooltip" data-toggle="tooltip" title="Smart Playlist"><i class="fa fa-cog fa-fw"></i></span>&nbsp;'
+                        smart = '<span class="media-type-tooltip" data-toggle="tooltip" title="智能播放列表"><i class="fa fa-cog fa-fw"></i></span>&nbsp;'
                     }
                     var breadcrumb = '';
                     if (rowData['userID']) {

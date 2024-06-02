@@ -80,7 +80,7 @@ function init() {
 
 <body onload='init()'>
 <h2>Session Demo</h2>
-<p>Reload this page. The session ID should not change from one reload to the next</p>
+<p>重新加载此页面。会话 ID 不应在每次重新加载时发生变化。</p>
 <p><a href='../'>Index</a> | <a href='expire'>Expire</a> | <a href='regen'>Regenerate</a></p>
 <table>
     <tr><th>Session ID:</th><td>%(sessionid)s<p class='warn'>%(changemsg)s</p></td></tr>

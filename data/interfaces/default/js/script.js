@@ -13,8 +13,8 @@ if (['IE', 'Microsoft Edge', 'IE Mobile'].indexOf(p.name) > -1) {
     if (!getCookie('browserDismiss')) {
         var $browser_warning = $('<div id="browser-warning">' +
             '<i class="fa fa-exclamation-circle"></i>&nbsp;' +
-            'Tautulli does not support Internet Explorer or Microsoft Edge! ' +
-            'Please use a different browser such as Chrome or Firefox.' +
+            'Tautulli 不支持 Internet Explorer 或 Microsoft Edge！' +
+            '请使用不同的浏览器，例如 Chrome 或 Firefox。' +
             '<button type="button" class="close"><i class="fa fa-remove"></i></button>' +
             '</div>');
         $('body').prepend($browser_warning);

@@ -7,7 +7,7 @@
         <div class="modal-body" id="modal-text">
             <form id="import_config_form" enctype="multipart/form-data" method="post" name="import_config_form">
                 <div class="form-group">
-                    <label for="import_config_file">Option 1: Upload a Configuration File</label>
+                    <label for="import_config_file">Option 1: 上传配置文件</label>
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="input-group">
@@ -19,31 +19,31 @@
                             </div>
                         </div>
                     </div>
-                    <p class="help-block">Upload the Tautulli configuration file you wish to import.</p>
+                    <p class="help-block">上传你希望导入的 Tautulli 配置文件。</p>
                 </div>
                 <div class="form-group">
-                    <label for="import_config_path">Option 2: Browse for a Configuration File</label>
+                    <label for="import_config_path">Option 2: 浏览配置文件</label>
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="input-group">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-form" type="button" id="import_config_path_browse" data-toggle="browse" data-description="Configuration File" data-filter=".ini" data-target="#import_config_path">Browse</button>
+                                    <button class="btn btn-form" type="button" id="import_config_path_browse" data-toggle="browse" data-description="Configuration File" data-filter=".ini" data-target="#import_config_path">浏览</button>
                                 </span>
                                 <input type="text" class="form-control" id="import_config_path" name="import_config_path" value="" placeholder="config.ini" required disabled>
                             </div>
                         </div>
                     </div>
-                    <p class="help-block">Browse for the Tautulli configuration file you wish to import.</p>
+                    <p class="help-block">浏览你希望导入的 Tautulli 配置文件。</p>
                 </div>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="import_backup_config" id="import_backup_config" value="1" checked> Backup Current Configuration
+                        <input type="checkbox" name="import_backup_config" id="import_backup_config" value="1" checked> 备份当前配置
                     </label>
-                    <p class="help-block">Automatically create a backup of the current configuration before importing.</p>
+                    <p class="help-block">在导入之前自动创建当前配置的备份。</p>
                 </div>
                 <div class="form-group">
-                    <label>Import Notes</label>
-                    <p class="help-block">The following settings will <em>not</em> be imported:</p>
+                    <label>导入笔记</label>
+                    <p class="help-block">以下设置将<em>不会</em>被导入：</p>
                     <ul class="help-block" style="padding-inline-start: 15px;">
                         <li>Git Path, Log / Backup / Cache Directory, Plex Logs Folder</li>
                         <li>Custom Newsletter Templates Folder, Newsletter Output Directory</li>
@@ -95,7 +95,7 @@
         }
 
         if (config_file) {
-            $("#status-message").html('<i class="fa fa-fw fa-spin fa-refresh"></i>&nbsp; Uploading config file...');
+            $("#status-message").html('<i class="fa fa-fw fa-spin fa-refresh"></i>&nbsp; 上传配置文件中...');
         } else {
             $("#status-message").html('<i class="fa fa-fw fa-spin fa-refresh"></i>');
         }

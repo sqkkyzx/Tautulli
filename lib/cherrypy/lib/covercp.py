@@ -120,7 +120,7 @@ TEMPLATE_MENU = """<html>
     </style>
 </head>
 <body>
-<h2>CherryPy Coverage</h2>"""
+<h2>CherryPy 覆盖率</h2>"""
 
 TEMPLATE_FORM = """
 <div id="options">

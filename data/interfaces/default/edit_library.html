@@ -35,44 +35,44 @@ DOCUMENTATION :: END
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-remove"></i></button>
-            <h4 class="modal-title">Edit library <strong>${data['section_name']}</strong></h4>
+            <h4 class="modal-title">编辑库 <strong>${data['section_name']}</strong></h4>
         </div>
         <div class="modal-body" id="modal-text">
             <fieldset>
                 <div class="form-group">
-                    <label for="profile_url">Library Thumbnail URL</label>
+                    <label for="profile_url">库缩略图 URL</label>
                     <div class="row">
                         <div class="col-md-8">
                             <input type="text" class="form-control" id="custom_thumb_url" name="custom_thumb_url" value="${data['library_thumb']}">
                         </div>
                     </div>
-                    <p class="help-block">Change the library's thumbnail in Tautulli. To reset to default, leave this field empty and save.</p>
+                    <p class="help-block">在 Tautulli 中更改库的缩略图。要重置为默认值，请将此字段留空并保存。</p>
                 </div>
                 <div class="form-group">
-                    <label for="profile_url">Library Background Art URL</label>
+                    <label for="profile_url">库背景艺术 URL</label>
                     <div class="row">
                         <div class="col-md-8">
                             <input type="text" class="form-control" id="custom_art_url" name="custom_art_url" value="${data['library_art']}">
                         </div>
                     </div>
-                    <p class="help-block">Change the library's background art in Tautulli. To reset to default, leave this field empty and save.</p>
+                    <p class="help-block">在 Tautulli 中更改库的背景艺术。要重置为默认值，请将此字段留空并保存。</p>
                 </div>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" id="keep_history" name="keep_history" value="1" ${helpers.checked(data['keep_history'])}> Keep history
+                        <input type="checkbox" id="keep_history" name="keep_history" value="1" ${helpers.checked(data['keep_history'])}> 保留历史记录
                     </label>
-                    <p class="help-block">Uncheck this if you do not want to keep any history on this library's activity.</p>
+                    <p class="help-block">如果你不想保留此库的任何活动历史，请取消选中此选项。</p>
                 </div>
                 % if data['section_id']:
                 <div class="form-group">
-                    <button class="btn btn-danger" id="delete-all-history">Purge</button>
-                    <p class="help-block">DANGER ZONE! Click the purge button to remove all history logged for this library. This is permanent!</p>
+                    <button class="btn btn-danger" id="delete-all-history">清除</button>
+                    <p class="help-block">危险区域！点击清除按钮以删除此库记录的所有历史。这是永久性的！</p>
                 </div>
                 % endif
                 % if data['deleted_section']:
                 <div class="form-group">
-                    <button class="btn btn-bright" id="undelete-library">Undelete</button>
-                    <p class="help-block">Click to re-add the library to the Tautulli libraries list.</p>
+                    <button class="btn btn-bright" id="undelete-library">撤销删除</button>
+                    <p class="help-block">点击以重新将该库添加到 Tautulli 库列表中。</p>
                 </div>
                 % endif
             </fieldset>
@@ -112,14 +112,13 @@ DOCUMENTATION :: END
     });
 
     $('#delete-all-history').click(function () {
-        var msg = 'Are you REALLY sure you want to purge all history for the <strong>${data["section_name"]}</strong> library?<br>' + 
-            'This is permanent and cannot be undone!';
+        var msg = '你真的确定要清除 <strong>${data["section_name"]}</strong> 库的所有历史记录吗？<br> 这是永久性的，无法撤销！';
         var url = 'delete_all_library_history';
         confirmAjaxCall(url, msg, { server_id: '${server_id}', section_id: '${data["section_id"]}' }, null, function () { location.reload(); });
     });
 
     $('#undelete-library').click(function () {
-        var msg = 'Are you sure you want to undelete this library?';
+        var msg = '你确定要恢复删除这个库吗？';
         var url = 'undelete_library';
         confirmAjaxCall(url, msg, { section_id: '${data["section_id"]}' }, null, function () { location.reload(); });
     });

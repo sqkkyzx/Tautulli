@@ -38,13 +38,13 @@ DOCUMENTATION :: END
                 <input type="hidden" id="export_sub_media_type" name="export_sub_media_type" value="${sub_media_type or ''}" />
                 <input type="hidden" id="export_export_type" name="export_export_type" value="${export_type or ''}" />
                 <div class="form-group">
-                    <label>Instructions</label>
+                    <label>说明</label>
                     <p class="help-block">
-                        Please see the <a href="${anon_url('https://github.com/%s/%s/wiki/Exporter-Guide' % (plexpy.CONFIG.GIT_USER, plexpy.CONFIG.GIT_REPO))}" target="_blank" rel="noreferrer">Exporter Guide</a> for more details about each option.
+                        请参阅 <a href="${anon_url('https://github.com/%s/%s/wiki/Exporter-Guide' % (plexpy.CONFIG.GIT_USER, plexpy.CONFIG.GIT_REPO))}" target="_blank" rel="noreferrer">导出指南</a> 以获取有关每个选项的更多详细信息。
                     </p>
                 </div>
                 <div class="form-group">
-                    <label for="export_file_format">Data File Format</label>
+                    <label for="export_file_format">数据文件格式</label>
                     <div class="row">
                         <div class="col-md-12">
                             <select class="form-control" id="export_file_format" name="export_file_format">
@@ -54,18 +54,18 @@ DOCUMENTATION :: END
                             </select>
                         </div>
                     </div>
-                    <p class="help-block">Select the export data file format.</p>
+                    <p class="help-block">选择导出数据文件格式。</p>
                 </div>
                 % if not rating_key:
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" id="export_individual_files" name="export_individual_files" value="1"> Export Individual Files
+                        <input type="checkbox" id="export_individual_files" name="export_individual_files" value="1"> 导出单个文件
                     </label>
-                    <p class="help-block">Enable to export one file for each ${media_type} instead of a single file containing all ${media_type}s.</p>
+                    <p class="help-block">启用后，每个 ${media_type} 可以导出一个文件，而不是将所有 ${media_type} 导出到一个文件中。</p>
                 </div>
                 % endif
                 <div class="form-group">
-                    <label for="export_metadata_level">Metadata Export Level</label>
+                    <label for="export_metadata_level">元数据导出级别</label>
                     <div class="row">
                         <div class="col-md-12">
                             <select class="form-control" id="export_metadata_level" name="export_metadata_level">
@@ -93,11 +93,11 @@ DOCUMENTATION :: END
                     <div class="row">
                         <div class="col-md-12">
                             <select class="form-control" id="export_media_info_level" name="export_media_info_level">
-                                <option value="0">Level 0 - None / Custom</option>
-                                <option value="1" selected>Level 1 - Basic Media Info</option>
-                                <option value="2">Level 2 - Extended Media Info</option>
-                                <option value="3">Level 3 - Advanced Media Info</option>
-                                <option value="9">Level 9 - All Media Info</option>
+                                <option value="0">Level 0 - 无 / 自定义</option>
+                                <option value="1" selected>Level 1 - 基础媒体信息</option>
+                                <option value="2">Level 2 - 扩展媒体信息</option>
+                                <option value="3">Level 3 - 高级媒体信息</option>
+                                <option value="9">Level 9 - 所有媒体信息</option>
                             </select>
                         </div>
                     </div>
@@ -117,35 +117,35 @@ DOCUMENTATION :: END
                     <div class="row">
                         <div class="col-md-12">
                             <select class="form-control" id="export_thumb_level" name="export_thumb_level">
-                                <option value="0" selected>Level 0 - None / Custom</option>
-                                <option value="1">Level 1 - Uploaded and Selected Posters and Covers Only</option>
-                                <option value="2">Level 2 - Selected and Locked Posters and Covers Only</option>
-                                <option value="9">Level 9 - All Selected Posters and Covers</option>
+                                <option value="0" selected>Level 0 - 无 / 自定义</option>
+                                <option value="1">Level 1 - 上传和选择的海报和封面仅限</option>
+                                <option value="2">Level 2 - 已选择并锁定的海报和封面</option>
+                                <option value="9">Level 9 - 所有已选海报和封面</option>
                             </select>
                         </div>
                     </div>
                     <p class="help-block">
-                        Select the level to export poster and cover image files.<br>Note: Only applies to ${thumb_media_types}.
+                        选择导出海报和封面图像文件的级别。<br>注意：仅适用于 ${thumb_media_types}。
                     </p>
                 </div>
                 <div class="form-group">
-                    <label for="export_art_level">Background Artwork Image Export Level</label>
+                    <label for="export_art_level">背景艺术作品图像导出级别</label>
                     <div class="row">
                         <div class="col-md-12">
                             <select class="form-control" id="export_art_level" name="export_art_level">
-                                <option value="0" selected>Level 0 - None / Custom</option>
-                                <option value="1">Level 1 - Uploaded and Selected Artwork Only</option>
-                                <option value="2">Level 2 - Selected and Locked Artwork Only</option>
-                                <option value="9">Level 9 - All Selected Artwork</option>
+                                <option value="0" selected>Level 0 - 无 / 自定义</option>
+                                <option value="1">Level 1 - 上传和选择的艺术作品</option>
+                                <option value="2">Level 2 - 已选择并锁定的艺术作品</option>
+                                <option value="9">Level 9 - 所有已选择的艺术作品</option>
                             </select>
                         </div>
                     </div>
                     <p class="help-block">
-                        Select the level to export background artwork image files.<br>Note: Only applies to ${art_media_types}.
+                        选择导出背景艺术图像文件的级别。<br>注意：仅适用于 ${art_media_types}。
                     </p>
                 </div>
                 <p class="help-block">
-                    Warning: Exporting images may take a long time! Images will be saved to a folder alongside the data file.
+                    警告：导出图像可能需要很长时间！图像将被保存到与数据文件相同的文件夹中。
                 </p>
             </form>
         </div>

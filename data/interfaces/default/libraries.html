@@ -115,14 +115,14 @@
                     });
 
                     if (libraries_to_delete.length > 0) {
-                        $('#libraries-to-delete').prepend('<p>Are you REALLY sure you want to delete the following libraries:</p>');
+                        $('#libraries-to-delete').prepend('<p>你真的确定要删除以下库吗：</p>');
                         for (var i = 0; i < libraries_to_delete.length; i++) {
                             $('#libraries-to-delete').append('<li>' + $('div[data-id=' + libraries_to_delete[i] + ']').text() + '</li>');
                         }
                     }
 
                     if (libraries_to_purge.length > 0) {
-                        $('#libraries-to-purge').prepend('<p>Are you REALLY sure you want to purge all history for the following libraries:</p>');
+                        $('#libraries-to-purge').prepend('<p>你是否真的确定要清除以下库的所有历史记录：</p>');
                         for (var i = 0; i < libraries_to_purge.length; i++) {
                             $('#libraries-to-purge').append('<li>' + $('div[data-id=' + libraries_to_purge[i] + ']').text() + '</li>');
                         }
@@ -166,7 +166,7 @@
                 $(this).tooltip({
                     container: '.body-container',
                     placement: 'bottom',
-                    title: 'Select libraries to delete/purge. Data is deleted/purged upon exiting edit mode.',
+                    title: '选择要删除/清除的库。数据将在退出编辑模式时被删除/清除。',
                     trigger: 'manual'
                 }).tooltip('show');
 

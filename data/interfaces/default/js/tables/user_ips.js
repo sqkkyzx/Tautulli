@@ -27,7 +27,7 @@ user_ip_table_options = {
         "lengthMenu": "每页显示 _MENU_ 条",
         "info": "显示第 _START_ 到第 _END_ 条结果，共 _TOTAL_ 条结果",
         "infoEmpty": "显示第 0 条到第 0 条，共 0 条记录",
-        "infoFiltered": "（从 _MAX_ 条目中过滤）",
+        "infoFiltered": "（从 _MAX_ 条中过滤）",
         "emptyTable": "表中无数据",
         "loadingRecords": '<i class="fa fa-refresh fa-spin"></i> 加载项目中...</div>'
     },
@@ -71,7 +71,7 @@ user_ip_table_options = {
                     isPrivateIP(cellData).then(function () {
                         $(td).html(cellData || 'n/a');
                     }, function () {
-                        external_ip = '<span class="external-ip-tooltip" data-toggle="tooltip" title="External IP"><i class="fa fa-map-marker fa-fw"></i></span>';
+                        external_ip = '<span class="external-ip-tooltip" data-toggle="tooltip" title="外部 IP"><i class="fa fa-map-marker fa-fw"></i></span>';
                         $(td).html('<a href="javascript:void(0)" data-toggle="modal" data-target="#ip-info-modal">' + external_ip + cellData + '</a>');
                     });
                 } else {
